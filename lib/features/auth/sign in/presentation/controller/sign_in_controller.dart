@@ -11,6 +11,8 @@ class SignInController extends GetxController {
   /// Sign in Button Loading variable
   bool isLoading = false;
 
+  bool isRemember=false;
+
   /// Sign in form key , help for Validation
   final formKey = GlobalKey<FormState>();
 
@@ -21,6 +23,15 @@ class SignInController extends GetxController {
   TextEditingController passwordController = TextEditingController(
     text: kDebugMode ? 'hello123' : "",
   );
+
+  //================isRemember Toggle============
+
+
+
+  isRememberToggle(){
+    isRemember=!isRemember;
+    update();
+  }
 
   /// Sign in Api call here
 

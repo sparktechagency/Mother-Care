@@ -35,7 +35,9 @@ class AppString {
   static const String minute = "minute";
   static const String verify = "Verify";
   static const String logIntoYourAccount = "Login to Your Account";
-  static const String forgotThePassword = "Forgot the password";
+  static const String forgotThePassword = "Forgot Password ?";
+  static const String rememberMe = "Remember me";
+  static const String orLoginWith = "Or login with";
   static const String signIn = "Sign in";
   static const String doNotHaveAccount = "Don’t have an account";
   static const String signUp = "Sign up";
@@ -66,6 +68,8 @@ class AppString {
   static const String requestTimeOut = "Request Time Out";
   static const String thisFieldIsRequired = "This field is required";
   static const String enterValidEmail = "Enter valid email";
+  static const String enterYourEmail = "Enter your email";
+  static const String enterYourPassword = "Enter your password";
   static const String passwordMustBeeEightCharacters =
       "Password must be 8 characters & contain both alphabets and numerics";
   static const String thePasswordDoesNotMatch = "The password does not match";
@@ -77,7 +81,9 @@ class AppString {
   static const String joinMamaCareFamily = "Join MamaCare Family";
   static const String welcomeToMamaCare = "Welcome to MamaCare";
   static const String findTrustedNannies = "Find Trusted Nannies";
+  static const String signUpWithGoogle = "Sign up with Google";
   static const String bookAndPayWithEase = "Book and Pay with Ease";
+  static const String signInDes = "Sign in to continue finding trusted caregivers for your little ones.";
   static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
   static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
 

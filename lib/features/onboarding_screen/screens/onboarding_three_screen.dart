@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/features/onboarding_screen/widgets/dot_indecator.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
@@ -65,6 +67,9 @@ class OnboardingScreenThree extends StatelessWidget {
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 27.w),
                 child: CommonButton(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.signIn);
+                  },
 
                     titleText: AppString.getStarted),
               ),

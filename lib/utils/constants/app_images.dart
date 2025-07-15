@@ -9,5 +9,6 @@ class AppImages {
   static const String onboardingThree = "$baseurl/onboarding_three_bg.png";
   static const String onboardingTwo = "$baseurl/onboarding_two_bg.png";
   static const String splashBg= "$baseurl/splash_bg.png";
+  static const String google= "$baseurl/google.png";
 
 }

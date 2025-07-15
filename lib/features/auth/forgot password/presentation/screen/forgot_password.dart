@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../../utils/extensions/extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -21,11 +22,11 @@ class ForgotPasswordScreen extends StatelessWidget {
           (controller) => Scaffold(
             /// App Bar Section
             appBar: AppBar(
-              title: const CommonText(
-                text: AppString.forgotPassword,
-                fontWeight: FontWeight.w700,
-                fontSize: 24,
-              ),
+              leading: InkWell(
+                  onTap: (){
+                    Get.back();
+                  },
+                  child: Icon(Icons.arrow_back_ios, color: AppColors.textFiledColor,)),
             ),
 
             /// body section
