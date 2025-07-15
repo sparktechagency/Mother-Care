@@ -1,16 +1,18 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/features/onboarding_screen/widgets/dot_indecator.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
-import '../../utils/constants/app_images.dart';
+import '../../../utils/constants/app_images.dart';
 
 
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+class OnboardingScreenThree extends StatelessWidget {
+  const OnboardingScreenThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.black,
             image: DecorationImage(
-              image: AssetImage(AppImages.onboardingOne),
+              image: AssetImage(AppImages.onboardingThree),
               fit: BoxFit.cover,
             ),
           ),
@@ -41,11 +43,11 @@ class OnboardingScreen extends StatelessWidget {
                   right: 50,
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
-                  text: AppString.welcomeToMamaCare),
+                  text: AppString.bookAndPayWithEase),
 
 
               CommonText(
-                top: 16,
+                  top: 16,
 
                   left: 31,
                   color: AppColors.white,
@@ -53,7 +55,10 @@ class OnboardingScreen extends StatelessWidget {
                   right: 31,
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  text: AppString.onboardingOneDes),
+                  text: AppString.onboardingOneThreeDes),
+              16.height,
+
+              DotIndicator(selectIndex: 2),
               24.height,
 
 

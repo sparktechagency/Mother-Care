@@ -76,5 +76,9 @@ class AppString {
   static const String newHere = "New here?";
   static const String joinMamaCareFamily = "Join MamaCare Family";
   static const String welcomeToMamaCare = "Welcome to MamaCare";
+  static const String findTrustedNannies = "Find Trusted Nannies";
+  static const String bookAndPayWithEase = "Book and Pay with Ease";
+  static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
+  static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
 
 }
