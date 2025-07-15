@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mother_care/features/auth/sign%20up/presentation/screen/join_mamaCare_screen.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_screen_two.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_three_screen.dart';
 import '../../features/auth/change_password/presentation/screen/change_password_screen.dart';
@@ -40,6 +41,7 @@ class AppRoutes {
   static const String setting = "/setting_screen.dart";
   static const String onboardingTwoScreen = "/onboardingTwoScreen.dart";
   static const String onboardingThreeScreen = "/onboardingThreeScreen.dart";
+  static const String mamaCareScreen = "/mamaCareScreen.dart";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -61,5 +63,6 @@ class AppRoutes {
     GetPage(name: setting, page: () => const SettingScreen()),
     GetPage(name: onboardingTwoScreen, page: () => const OnboardingScreenTwo()),
     GetPage(name: onboardingThreeScreen, page: () => const OnboardingScreenThree()),
+    GetPage(name: mamaCareScreen, page: () => JoinMamacareScreen()),
   ];
 }

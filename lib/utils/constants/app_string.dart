@@ -27,6 +27,7 @@ class AppString {
   static const String forgotPassword = "Forgot Password";
   static const String forgotPasswordDes = "To reset your password, you need your email or mobile number that can be authenticated";
   static const String confirm = "Confirm";
+  static const String mamaCareDes = "Join a Homegrown Network of Care, Made for African Families";
   static const String createNewPassword = "Create New Password";
   static const String createYourNewPassword = "Create Your New Password";
   static const String password = "Password";
@@ -96,6 +97,10 @@ class AppString {
   static const String findTrustedNannies = "Find Trusted Nannies";
   static const String signUpWithGoogle = "Sign up with Google";
   static const String bookAndPayWithEase = "Book and Pay with Ease";
+  static const String signUpNanny = "Sign up Nanny";
+  static const String signUpNannyDes = "I am a Nanny offering trusted care.";
+  static const String signUpAsParent = "Sign up as Parent";
+  static const String signUpAsParentDes = "I am Parent/ Guardian seeking care";
   static const String signInDes = "Sign in to continue finding trusted caregivers for your little ones.";
   static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
   static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";

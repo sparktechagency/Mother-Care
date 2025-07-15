@@ -11,5 +11,7 @@ class AppImages {
   static const String splashBg= "$baseurl/splash_bg.png";
   static const String google= "$baseurl/google.png";
   static const String passwordChangeLogo= "$baseurl/password_change_logo.png";
+  static const String signUpNunny= "$baseurl/sign_up_nunny.png";
+  static const String signUpParent= "$baseurl/sign_up_parent.png";
 
 }
