@@ -18,40 +18,52 @@ class SignUpAllField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// User Name here
-        const CommonText(text: AppString.fullName, bottom: 8, top: 12),
+        const CommonText(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            text: AppString.fullName, bottom: 8, top: 12),
         CommonTextField(
-          prefixIcon: const Icon(Icons.person),
-          hintText: AppString.fullName,
+
+          hintText: AppString.enterYourFullName,
           controller: controller.nameController,
           validator: OtherHelper.validator,
         ),
 
         /// User Email here
-        const CommonText(text: AppString.email, bottom: 8, top: 12),
+        const CommonText(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            text: AppString.email, bottom: 8, top: 12),
         CommonTextField(
           controller: controller.emailController,
-          prefixIcon: const Icon(Icons.mail, color: AppColors.black),
-          hintText: AppString.email,
+
+          hintText: AppString.enterValidEmail,
           validator: OtherHelper.emailValidator,
         ),
 
         /// User Password here
-        const CommonText(text: AppString.password, bottom: 8, top: 12),
+        const CommonText(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            text: AppString.password, bottom: 8, top: 12),
         CommonTextField(
           controller: controller.passwordController,
-          prefixIcon: const Icon(Icons.lock, color: AppColors.black),
+
           isPassword: true,
-          hintText: AppString.password,
+          hintText: AppString.enterYouPassword,
           validator: OtherHelper.passwordValidator,
         ),
 
         /// User Confirm Password here
-        const CommonText(text: AppString.confirmPassword, bottom: 8, top: 12),
+         CommonText(
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            text: AppString.confirmPassword, bottom: 8, top: 12),
         CommonTextField(
           controller: controller.confirmPasswordController,
-          prefixIcon: const Icon(Icons.lock, color: AppColors.black),
+
           isPassword: true,
-          hintText: AppString.confirmPassword,
+          hintText: AppString.confirmYourPassword,
           validator:
               (value) => OtherHelper.confirmPasswordValidator(
                 value,

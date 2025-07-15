@@ -124,7 +124,9 @@ class JoinMamacareScreen extends StatelessWidget {
                       CommonButton(
 
                           onTap: (){
-                            Get.toNamed(AppRoutes.signUp);
+                            Get.toNamed(AppRoutes.signUp, arguments: {
+                              "type":controller.selectedSignUpButtonIndex==0?"parent":"nunny"
+                            });
                           },
                           titleText: AppString.continues)
                     ],

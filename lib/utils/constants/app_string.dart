@@ -8,6 +8,7 @@ class AppString {
   static const String yes = "Yes";
   static const String areYouSure = "Are you sure";
   static const String enterYouPassword = "Enter you password";
+  static const String enterYourFullName = "Enter your full name";
   static const String cancel = "Cancel";
   static const String done = "Done";
   static const String deleteDetails =
@@ -24,6 +25,7 @@ class AppString {
   static const String currentPassword = "Current Password";
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm Password";
+  static const String confirmYourPassword = "Confirm your password";
   static const String forgotPassword = "Forgot Password";
   static const String forgotPasswordDes = "To reset your password, you need your email or mobile number that can be authenticated";
   static const String confirm = "Confirm";
@@ -41,16 +43,18 @@ class AppString {
   static const String resendCodeIn = "Resend code in";
   static const String minute = "minute";
   static const String verify = "Verify";
+  static const String skip = "Skip";
   static const String otpSent = "A code has been sent to your email";
 
   static const String logIntoYourAccount = "Login to Your Account";
   static const String forgotThePassword = "Forgot Password ?";
   static const String rememberMe = "Remember me";
   static const String orLoginWith = "Or login with";
+  static const String orSignUpWith = "Or sign up with";
   static const String signIn = "Sign in";
   static const String doNotHaveAccount = "Don’t have an account";
   static const String signUp = "Sign up";
-  static const String alreadyHaveAccount = "Already have an account";
+  static const String alreadyHaveAccount = "Already have an account? ";
   static const String fullName = "Full Name";
   static const String createYourAccount = "Create Your Account";
   static const String otpVerify = "OTP Verify";
@@ -98,11 +102,18 @@ class AppString {
   static const String signUpWithGoogle = "Sign up with Google";
   static const String bookAndPayWithEase = "Book and Pay with Ease";
   static const String signUpNanny = "Sign up Nanny";
+  static const String parentInformation = "Parent Information";
+  static const String nannyInformation = "Nanny Information";
+  static const String nannyInformationDes = "Let’s get you set up so you can easily find trusted nannies for your little ones.";
+  static const String parentInformationDes = "Let’s get you set up so you can start providing care and connecting with families in need of your services.";
   static const String signUpNannyDes = "I am a Nanny offering trusted care.";
   static const String signUpAsParent = "Sign up as Parent";
+  static const String accountVerified = "Account Verified!";
+  static const String accountVerifiedDes = "Your MamaCare account is now verified. Connect with trusted African caregivers near you.";
   static const String signUpAsParentDes = "I am Parent/ Guardian seeking care";
   static const String signInDes = "Sign in to continue finding trusted caregivers for your little ones.";
   static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
   static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
+  static const String addPhoto = "Add Photo";
 
 }

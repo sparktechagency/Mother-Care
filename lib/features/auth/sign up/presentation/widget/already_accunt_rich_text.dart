@@ -20,7 +20,7 @@ class AlreadyAccountRichText extends StatelessWidget {
           TextSpan(
             text: AppString.alreadyHaveAccount,
             style: GoogleFonts.plusJakartaSans(
-              color: AppColors.black,
+              color: AppColors.bodyClr,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
