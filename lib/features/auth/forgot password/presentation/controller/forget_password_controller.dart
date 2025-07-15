@@ -7,6 +7,7 @@ import '../../../../../config/route/app_routes.dart';
 import '../../../../../services/api/api_service.dart';
 import '../../../../../config/api/api_end_point.dart';
 import '../../../../../utils/app_utils.dart';
+import '../widget/reset_pass_success_popup.dart';
 
 class ForgetPasswordController extends GetxController {
   /// Loading for forget password
@@ -127,7 +128,7 @@ class ForgetPasswordController extends GetxController {
   /// Create New Password Api Call
 
   Future<void> resetPasswordRepo() async {
-    Get.offAllNamed(AppRoutes.signIn);
+    ResetPassSuccessPopUp.successPopUp();
     return;
     isLoadingReset = true;
     update();

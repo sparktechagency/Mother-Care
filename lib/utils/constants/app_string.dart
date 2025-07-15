@@ -18,10 +18,14 @@ class AppString {
   static const String phoneNumber = "Phone Number";
   static const String test = "Test";
   static const String changePassword = "Change Password";
+  static const String backToLogin = "Back to Login";
+  static const String changedPassword = "Password Changed!";
+  static const String changedPasswordDes = "Your can now use your new password to login to your account.";
   static const String currentPassword = "Current Password";
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm Password";
   static const String forgotPassword = "Forgot Password";
+  static const String forgotPasswordDes = "To reset your password, you need your email or mobile number that can be authenticated";
   static const String confirm = "Confirm";
   static const String createNewPassword = "Create New Password";
   static const String createYourNewPassword = "Create Your New Password";
@@ -31,9 +35,13 @@ class AppString {
   static const String codeHasBeenSendTo = "Code has been send to";
   static const String otpIsInValid = "Otp is inValid";
   static const String resendCode = "Resend Code";
+  static const String resetPass = "Reset Password";
+  static const String resetPassDes = "Create a new password to securely access your MamaCare account ";
   static const String resendCodeIn = "Resend code in";
   static const String minute = "minute";
   static const String verify = "Verify";
+  static const String otpSent = "A code has been sent to your email";
+
   static const String logIntoYourAccount = "Login to Your Account";
   static const String forgotThePassword = "Forgot Password ?";
   static const String rememberMe = "Remember me";
@@ -45,6 +53,7 @@ class AppString {
   static const String fullName = "Full Name";
   static const String createYourAccount = "Create Your Account";
   static const String otpVerify = "OTP Verify";
+  static const String otpVerifyDes = "Enter your OTP which has been sent to your email and completely verify your account.";
   static const String inbox = "Inbox";
   static const String searchDoctor = "search a doctor";
   static const String activeNow = "Active Now";
@@ -55,6 +64,10 @@ class AppString {
   static const String age = "Age";
   static const String aboutMe = "About Me";
   static const String gender = "Gender";
+  static const String updatePassword = "Update Password";
+
+
+
   static const String profile = "Profile";
   static const String saveAndChanges = "Save and Changes";
   static const String editProfile = "Edit Profile";

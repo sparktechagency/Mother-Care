@@ -15,5 +15,6 @@ class AppColors {
   static const blueLight = Color(0xffe8e8f5);
   static const titleColor = Color(0xff333333);
   static const titleColorSecondary = Color(0xff666666);
+  static const bodyClr = Color(0xff757575);
 
 }
