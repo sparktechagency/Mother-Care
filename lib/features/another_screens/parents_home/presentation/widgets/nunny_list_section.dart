@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
@@ -27,18 +29,23 @@ class NunnyListSection extends StatelessWidget {
                   text: AppString.findNannyNearYou),
               Spacer(),
 
-              Row(
-                children: [
-                  CommonText(
-                      fontSize: 12,
-                      right: 5,
-                      fontWeight: FontWeight.w400,
-                      text: AppString.seeAll),
+              InkWell(
+                onTap: (){
+                  Get.toNamed(AppRoutes.nunnySeeAllScreen);
+                },
+                child: Row(
+                  children: [
+                    CommonText(
+                        fontSize: 12,
+                        right: 5,
+                        fontWeight: FontWeight.w400,
+                        text: AppString.seeAll),
 
-                  Icon(
-                      size: 10.sp,
-                      Icons.arrow_forward_ios_rounded)
-                ],
+                    Icon(
+                        size: 10.sp,
+                        Icons.arrow_forward_ios_rounded)
+                  ],
+                ),
               )
             ],
           ),

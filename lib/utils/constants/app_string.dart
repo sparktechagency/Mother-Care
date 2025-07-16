@@ -118,5 +118,8 @@ class AppString {
   static const String addPhoto = "Add Photo";
   static const String seeAll = "See all";
   static const String findNannyNearYou = "Find a Nanny Near You";
+  static const String nannyNearYou = "Nanny Near You";
+  static const String sort = "Sort";
+  static const String filter = "Filter";
 
 }

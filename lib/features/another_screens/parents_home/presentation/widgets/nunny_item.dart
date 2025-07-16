@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
@@ -15,6 +16,7 @@ class NunnyItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 6),
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.r),
 
         color: AppColors.white
       ),
