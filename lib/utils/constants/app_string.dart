@@ -74,6 +74,7 @@ class AppString {
 
 
   static const String profile = "Profile";
+  static const String searchForNanniesNearYou = "Search for nannies near you";
   static const String saveAndChanges = "Save and Changes";
   static const String editProfile = "Edit Profile";
   static const String settings = "Settings";
@@ -115,5 +116,7 @@ class AppString {
   static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
   static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
   static const String addPhoto = "Add Photo";
+  static const String seeAll = "See all";
+  static const String findNannyNearYou = "Find a Nanny Near You";
 
 }

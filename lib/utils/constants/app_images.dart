@@ -26,5 +26,17 @@ class AppImages {
   static const String savedActive= "$baseurl/saved_active.png";
   static const String settingsActive= "$baseurl/settings_active.png";
   static const String settingsInactive= "$baseurl/settings_inactive.png";
+  static const String homeBg= "$baseurl/home_bg.png";
+  static const String profileBg= "$baseurl/profile_bg.png";
+  static const String slider= "$baseurl/slider.png";
+  static const String homeBgs= "$baseurl/homeBg.png";
+  static const String homeBgImage= "$baseurl/home_bgs.png";
+  static const String bgHome= "$baseurl/bg_home.png";
+  static const String female= "$baseurl/female.png";
+  static const String notificationIcon= "$baseurl/notification_icon.png";
+  static const String sliderOne= "$baseurl/slider_one.jpg";
+  static const String sliderThree= "$baseurl/slider_three.jpg";
+  static const String sliderTwo= "$baseurl/slider_two.jpg";
+  static const String verifiedBatch= "$baseurl/verified_batch.png";
 
 }

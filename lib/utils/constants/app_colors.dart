@@ -16,5 +16,6 @@ class AppColors {
   static const titleColor = Color(0xff333333);
   static const titleColorSecondary = Color(0xff666666);
   static const bodyClr = Color(0xff757575);
+  static const title2 = Color(0xff4A2C10);
 
 }
