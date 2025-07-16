@@ -4,6 +4,9 @@ import 'package:mother_care/features/auth/sign%20up/presentation/screen/add_phot
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/join_mamaCare_screen.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_screen_two.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_three_screen.dart';
+import '../../features/another_screens/parent_booking/presentation/screens/parent_booking_screen.dart';
+import '../../features/another_screens/parents_home/presentation/screens/parents_home_screen.dart';
+import '../../features/another_screens/saved/presentation/screens/saved_screens.dart';
 import '../../features/auth/change_password/presentation/screen/change_password_screen.dart';
 import '../../features/auth/forgot password/presentation/screen/create_password.dart';
 import '../../features/auth/forgot password/presentation/screen/forgot_password.dart';
@@ -46,6 +49,9 @@ class AppRoutes {
   static const String mamaCareScreen = "/mamaCareScreen.dart";
   static const String accountVerifiedScreen = "/account_verified_screen.dart";
   static const String addPhotoScreen = "/add_photo_screen.dart";
+  static const String parentHomeScreen = "/parent_home.dart";
+  static const String parentBookingScreen = "/parentBookingScreen.dart";
+  static const String savedScreen = "/savedScreen.dart";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -70,5 +76,8 @@ class AppRoutes {
     GetPage(name: mamaCareScreen, page: () => JoinMamacareScreen()),
     GetPage(name: accountVerifiedScreen, page: () => AccountVerifiedScreen()),
     GetPage(name: addPhotoScreen, page: () => AddPhotoScreen()),
+    GetPage(name: parentHomeScreen, page: () => ParentsHomeScreen()),
+    GetPage(name: parentBookingScreen, page: () => ParentBookingScreen()),
+    GetPage(name: savedScreen, page: () => SavedScreens()),
   ];
 }

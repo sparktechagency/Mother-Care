@@ -89,12 +89,17 @@ class OnboardingScreenTwo extends StatelessWidget {
 
                   5.width,
 
-                  CommonText(
+                  InkWell(
+                    onTap: (){
+                      Get.toNamed(AppRoutes.mamaCareScreen);
+                    },
+                    child: CommonText(
 
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.primaryColor,
-                      text: AppString.joinMamaCareFamily),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.primaryColor,
+                        text: AppString.joinMamaCareFamily),
+                  ),
                 ],
               ),
 

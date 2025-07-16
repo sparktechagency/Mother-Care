@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/component/image/common_image.dart';
+import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/utils/constants/app_images.dart';
 import '../../config/route/app_routes.dart';
 import '../../utils/constants/app_colors.dart';
 import '../../utils/log/app_log.dart';
@@ -18,17 +21,50 @@ class CommonBottomNavBar extends StatefulWidget {
 class _CommonBottomNavBarState extends State<CommonBottomNavBar> {
   var bottomNavIndex = 0;
   List<Widget> unselectedIcons = [
-    const Icon(Icons.settings_outlined, color: AppColors.black),
-    const Icon(Icons.notifications_outlined, color: AppColors.black),
-    const Icon(Icons.chat, color: AppColors.black),
-    const Icon(Icons.person_2_outlined, color: AppColors.black),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.homeInactive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.bookingInactive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.messageInactive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.saveInactive),
+    CommonImage(
+
+        size: 24,
+        imageSrc: AppImages.settingsInactive),
+
   ];
 
   List<Widget> selectedIcons = [
-    const Icon(Icons.settings_outlined, color: AppColors.primaryColor),
-    const Icon(Icons.notifications, color: AppColors.primaryColor),
-    const Icon(Icons.chat, color: AppColors.primaryColor),
-    const Icon(Icons.person, color: AppColors.primaryColor),
+    CommonImage(
+        size: 25,
+        imageSrc: AppImages.homeActive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.bookingActive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.messageActive),
+    CommonImage(
+
+        size: 24,
+        imageSrc: AppImages.savedActive),
+    CommonImage(
+        size: 24,
+        imageSrc: AppImages.settingsActive),
+  ];
+
+  List<String>titleList=[
+    "Home",
+    "Bookings",
+    "Messages",
+    "Saved",
+    "Settings",
   ];
 
   @override
@@ -46,7 +82,7 @@ class _CommonBottomNavBarState extends State<CommonBottomNavBar> {
         alignment: Alignment.center,
         padding: EdgeInsets.all(12.sp),
         decoration: BoxDecoration(
-            color: AppColors.blueLight,
+            color: AppColors.white,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r))),
@@ -56,12 +92,29 @@ class _CommonBottomNavBarState extends State<CommonBottomNavBar> {
             return GestureDetector(
               onTap: () => onTap(index),
               child: Container(
-                margin: EdgeInsetsDirectional.all(12.sp),
+                margin: EdgeInsetsDirectional.symmetric(vertical: 12.w),
                 child: Column(
                   children: [
-                    index == bottomNavIndex
-                        ? selectedIcons[index]
-                        : unselectedIcons[index],
+
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 16.w),
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40.r),
+                        color: index==bottomNavIndex?AppColors.primaryColor:AppColors.transparent
+                      ),
+                      child:  index == bottomNavIndex
+                ? selectedIcons[index]
+                  : unselectedIcons[index],
+                    ),
+                    
+                    CommonText(
+                      fontSize: 12,
+                        color:  index==bottomNavIndex?AppColors.primaryColor:AppColors.titleColor,
+                        fontWeight: index==bottomNavIndex?FontWeight.w700:FontWeight.w400,
+                        top: 8,
+                        text: titleList[index])
+
                   ],
                 ),
               ),
@@ -77,11 +130,11 @@ class _CommonBottomNavBarState extends State<CommonBottomNavBar> {
 
     if (index == 0) {
       if (!(widget.currentIndex == 0)) {
-        Get.toNamed(AppRoutes.setting);
+        Get.toNamed(AppRoutes.parentHomeScreen);
       }
     } else if (index == 1) {
       if (!(widget.currentIndex == 1)) {
-        Get.toNamed(AppRoutes.notifications);
+        Get.toNamed(AppRoutes.parentBookingScreen);
       }
     } else if (index == 2) {
       if (!(widget.currentIndex == 2)) {
@@ -89,6 +142,10 @@ class _CommonBottomNavBarState extends State<CommonBottomNavBar> {
       }
     } else if (index == 3) {
       if (!(widget.currentIndex == 3)) {
+        Get.toNamed(AppRoutes.savedScreen);
+      }
+    }else if(index==4){
+      if(!(widget.currentIndex==4)){
         Get.toNamed(AppRoutes.profile);
       }
     }

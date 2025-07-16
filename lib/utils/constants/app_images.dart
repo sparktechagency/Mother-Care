@@ -15,5 +15,16 @@ class AppImages {
   static const String signUpParent= "$baseurl/sign_up_parent.png";
   static const String verified= "$baseurl/verified.png";
   static const String addPhoto= "$baseurl/add_photo.png";
+  static const String bookingActive= "$baseurl/booking_active.png";
+  static const String bookingInactive= "$baseurl/booking_inactive.png";
+  static const String homeActive= "$baseurl/home_active.png";
+  static const String homeInactive= "$baseurl/home_inactive.png";
+  static const String messageActive= "$baseurl/message_active.png";
+  static const String messageInactive= "$baseurl/message_inactive.png";
+  static const String profileActive= "$baseurl/profile_active.png";
+  static const String saveInactive= "$baseurl/save_inactive.png";
+  static const String savedActive= "$baseurl/saved_active.png";
+  static const String settingsActive= "$baseurl/settings_active.png";
+  static const String settingsInactive= "$baseurl/settings_inactive.png";
 
 }
