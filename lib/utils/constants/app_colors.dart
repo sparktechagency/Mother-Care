@@ -19,6 +19,7 @@ class AppColors {
   static const title2 = Color(0xff4A2C10);
   static const normalGray = Color(0xffEFEFF4);
   static const normalGray2 = Color(0xffd4d4dc);
+  static const gridClr = Color(0xffFFEDD5);
 
 
 

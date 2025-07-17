@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mother_care/features/another_screens/nunny_dettails/presentation/screens/nunny_dettails_screen.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/screens/nunny_see_all_screen.dart';
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/account_verified_screen.dart';
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/add_photo_screen.dart';
@@ -54,6 +55,7 @@ class AppRoutes {
   static const String parentBookingScreen = "/parentBookingScreen.dart";
   static const String savedScreen = "/savedScreen.dart";
   static const String nunnySeeAllScreen = "/nunnySeeAllScreen.dart";
+  static const String nunnyDetailsScreen = "/nunnyDetailsScreen.dart";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -82,5 +84,6 @@ class AppRoutes {
     GetPage(name: parentBookingScreen, page: () => ParentBookingScreen()),
     GetPage(name: savedScreen, page: () => SavedScreens()),
     GetPage(name: nunnySeeAllScreen, page: () => NunnySeeAllScreen()),
+    GetPage(name: nunnyDetailsScreen, page: () => NunnyDetailsScreen()),
   ];
 }

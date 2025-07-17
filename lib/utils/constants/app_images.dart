@@ -38,5 +38,6 @@ class AppImages {
   static const String sliderThree= "$baseurl/slider_three.jpg";
   static const String sliderTwo= "$baseurl/slider_two.jpg";
   static const String verifiedBatch= "$baseurl/verified_batch.png";
+  static const String gender= "$baseurl/gender.png";
 
 }

@@ -21,15 +21,18 @@ class AppString {
   static const String changePassword = "Change Password";
   static const String backToLogin = "Back to Login";
   static const String changedPassword = "Password Changed!";
-  static const String changedPasswordDes = "Your can now use your new password to login to your account.";
+  static const String changedPasswordDes =
+      "Your can now use your new password to login to your account.";
   static const String currentPassword = "Current Password";
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm Password";
   static const String confirmYourPassword = "Confirm your password";
   static const String forgotPassword = "Forgot Password";
-  static const String forgotPasswordDes = "To reset your password, you need your email or mobile number that can be authenticated";
+  static const String forgotPasswordDes =
+      "To reset your password, you need your email or mobile number that can be authenticated";
   static const String confirm = "Confirm";
-  static const String mamaCareDes = "Join a Homegrown Network of Care, Made for African Families";
+  static const String mamaCareDes =
+      "Join a Homegrown Network of Care, Made for African Families";
   static const String createNewPassword = "Create New Password";
   static const String createYourNewPassword = "Create Your New Password";
   static const String password = "Password";
@@ -39,7 +42,8 @@ class AppString {
   static const String otpIsInValid = "Otp is inValid";
   static const String resendCode = "Resend Code";
   static const String resetPass = "Reset Password";
-  static const String resetPassDes = "Create a new password to securely access your MamaCare account ";
+  static const String resetPassDes =
+      "Create a new password to securely access your MamaCare account ";
   static const String resendCodeIn = "Resend code in";
   static const String minute = "minute";
   static const String verify = "Verify";
@@ -58,7 +62,8 @@ class AppString {
   static const String fullName = "Full Name";
   static const String createYourAccount = "Create Your Account";
   static const String otpVerify = "OTP Verify";
-  static const String otpVerifyDes = "Enter your OTP which has been sent to your email and completely verify your account.";
+  static const String otpVerifyDes =
+      "Enter your OTP which has been sent to your email and completely verify your account.";
   static const String inbox = "Inbox";
   static const String searchDoctor = "search a doctor";
   static const String activeNow = "Active Now";
@@ -70,8 +75,7 @@ class AppString {
   static const String aboutMe = "About Me";
   static const String gender = "Gender";
   static const String updatePassword = "Update Password";
-
-
+  static const String message = "Message";
 
   static const String profile = "Profile";
   static const String searchForNanniesNearYou = "Search for nannies near you";
@@ -95,7 +99,8 @@ class AppString {
   static const String startServer = "Please, start the Server";
   static const String unknownError = "Unknown Error";
   static const String getStarted = "Get Started";
-  static const String onboardingOneDes = "Your trusted childcare solution! Discover reliable nannies within your community to care for your little ones while you’re busy.";
+  static const String onboardingOneDes =
+      "Your trusted childcare solution! Discover reliable nannies within your community to care for your little ones while you’re busy.";
   static const String newHere = "New here?";
   static const String joinMamaCareFamily = "Join MamaCare Family";
   static const String welcomeToMamaCare = "Welcome to MamaCare";
@@ -105,21 +110,36 @@ class AppString {
   static const String signUpNanny = "Sign up Nanny";
   static const String parentInformation = "Parent Information";
   static const String nannyInformation = "Nanny Information";
-  static const String nannyInformationDes = "Let’s get you set up so you can easily find trusted nannies for your little ones.";
-  static const String parentInformationDes = "Let’s get you set up so you can start providing care and connecting with families in need of your services.";
+  static const String nannyInformationDes =
+      "Let’s get you set up so you can easily find trusted nannies for your little ones.";
+  static const String parentInformationDes =
+      "Let’s get you set up so you can start providing care and connecting with families in need of your services.";
   static const String signUpNannyDes = "I am a Nanny offering trusted care.";
   static const String signUpAsParent = "Sign up as Parent";
   static const String accountVerified = "Account Verified!";
-  static const String accountVerifiedDes = "Your MamaCare account is now verified. Connect with trusted African caregivers near you.";
+  static const String accountVerifiedDes =
+      "Your MamaCare account is now verified. Connect with trusted African caregivers near you.";
   static const String signUpAsParentDes = "I am Parent/ Guardian seeking care";
-  static const String signInDes = "Sign in to continue finding trusted caregivers for your little ones.";
-  static const String onboardingOneTwoDes = "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
-  static const String onboardingOneThreeDes = "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
+  static const String signInDes =
+      "Sign in to continue finding trusted caregivers for your little ones.";
+  static const String onboardingOneTwoDes =
+      "Browse through profiles of experienced and trusted nannies. All caregivers ready to provide the best care for your children";
+  static const String onboardingOneThreeDes =
+      "Simply book a nanny, select your preferred hours, and make secure payments all within the app. It's fast, easy, and safe!";
   static const String addPhoto = "Add Photo";
   static const String seeAll = "See all";
   static const String findNannyNearYou = "Find a Nanny Near You";
   static const String nannyNearYou = "Nanny Near You";
   static const String sort = "Sort";
   static const String filter = "Filter";
-
+  static const String nannyProfile = "Nanny Profile";
+  static const String reviews = "Reviews";
+  static const String gallery = "Gallery";
+  static const String availability = "Availability";
+  static const String about = "About";
+  static const String experience = "Experience";
+  static const String certifications = "Certifications";
+  static const String servicesOffered = "Services Offered";
+  static const String ageGroup = "Age Group";
+  static const String bookNow = "Book Now";
 }
