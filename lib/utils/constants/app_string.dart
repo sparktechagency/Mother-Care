@@ -142,4 +142,26 @@ class AppString {
   static const String servicesOffered = "Services Offered";
   static const String ageGroup = "Age Group";
   static const String bookNow = "Book Now";
+  static const String requestToBook = "Request to Book";
+  static const String choosePaymentOption = "Choose Payment Option";
+  static const String paymentMethod = "Payment Method";
+  static const String estimateTotal = "Estimate Total";
+  static const String extraBabyCharge = "Extra Baby charge:";
+  static const String hourlyRate = "Hourly Rate:";
+  static const String duration = "Duration";
+  static const String kids = "Kids :";
+  static const String addSpecialNoteForNanny = "Add special Note for Nanny";
+  static const String selectBabies = "Select Babies";
+  static const String selectDuration = "Select Duration";
+  static const String westAfricaTimeGMT = "(West Africa Time GMT +1)";
+  static const String chooseTimeSlot = "Choose Time Slot";
+  static const String chooseDate = "Choose Date";
+  static const String startDate = "Start Date";
+  static const String bookingType = "Booking Type";
+  static const String fullDay = "Full Day";
+  static const String custom = "Custom";
+  static const String hourly = "Hourly";
+  static const String pricing = "Pricing:";
+  static const String iHaveRead = "I have read and agree to the";
+  static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
 }

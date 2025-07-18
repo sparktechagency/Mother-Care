@@ -39,5 +39,6 @@ class AppImages {
   static const String sliderTwo= "$baseurl/slider_two.jpg";
   static const String verifiedBatch= "$baseurl/verified_batch.png";
   static const String gender= "$baseurl/gender.png";
+  static const String dotedLine= "$baseurl/doted_line.png";
 
 }

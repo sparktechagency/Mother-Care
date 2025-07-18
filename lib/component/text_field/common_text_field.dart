@@ -17,6 +17,7 @@ class CommonTextField extends StatefulWidget {
     this.textInputAction = TextInputAction.next,
     this.keyboardType = TextInputType.text,
     this.mexLength,
+    this.maxline,
     this.validator,
     this.prefixText,
     this.paddingHorizontal = 16,
@@ -47,6 +48,7 @@ class CommonTextField extends StatefulWidget {
   final double paddingVertical;
   final double borderRadius;
   final int? mexLength;
+  final int? maxline;
   final bool isPassword;
   final Function(String)? onSubmitted;
   final VoidCallback? onTap;
@@ -69,6 +71,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
       autovalidateMode: AutovalidateMode.onUnfocus,
       keyboardType: widget.keyboardType,
       controller: widget.controller,
+      maxLines: widget.maxline,
       obscureText: widget.isPassword ? _obscureText : false,
       textInputAction: widget.textInputAction,
       maxLength: widget.mexLength,

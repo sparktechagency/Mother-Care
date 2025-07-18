@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/features/another_screens/nunny_dettails/presentation/widgets/nunny_other_details.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
@@ -53,7 +54,12 @@ class NunnyDetailsScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         color: AppColors.white,
         padding: EdgeInsets.symmetric(vertical: 28.h, horizontal: 27.w),
-        child: CommonButton(titleText: AppString.bookNow),
+        child: CommonButton(
+
+            onTap:(){
+              Get.toNamed(AppRoutes.requestBookingScreen);
+            },
+            titleText: AppString.bookNow),
       ),
     );
   }

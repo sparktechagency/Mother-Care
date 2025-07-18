@@ -70,7 +70,7 @@ class OtherHelper {
     );
 
     if (picked != null) {
-      controller.text = "${picked.year}/${picked.month}/${picked.day}";
+      controller.text = "${picked.day}/${picked.month}/${picked.year}";
       return picked.toIso8601String();
     }
     return "";
