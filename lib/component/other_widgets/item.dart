@@ -10,11 +10,12 @@ class Item extends StatelessWidget {
       this.icon,
       required this.title,
       this.image = "",
+        this.iconColor=AppColors.primaryColor,
       this.disableDivider = false,
       this.onTap,
-      this.color = AppColors.black,
+      this.color = AppColors.titleColor,
       this.vertical = 4,
-      this.horizontal = 24,
+      this.horizontal = 0,
       this.disableIcon = false});
 
   final IconData? icon;
@@ -24,6 +25,7 @@ class Item extends StatelessWidget {
   final bool disableIcon;
   final VoidCallback? onTap;
   final Color color;
+  final Color iconColor;
   final double vertical;
   final double horizontal;
 
@@ -41,7 +43,7 @@ class Item extends StatelessWidget {
                 icon != null
                     ? Icon(
                         icon,
-                        color: color,
+                        color: iconColor,
                       )
                     : CommonImage(imageSrc: image),
                 CommonText(
@@ -60,7 +62,7 @@ class Item extends StatelessWidget {
                       )
               ],
             ),
-            disableDivider ? const SizedBox() : const Divider()
+
           ],
         ),
       ),

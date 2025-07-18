@@ -41,5 +41,7 @@ class AppImages {
   static const String gender= "$baseurl/gender.png";
   static const String dotedLine= "$baseurl/doted_line.png";
   static const String mother= "$baseurl/mother.jpg";
+  static const String aboutUs= "$baseurl/about_us.png";
+  static const String privacyPolicy= "$baseurl/privacy_policy.png";
 
 }

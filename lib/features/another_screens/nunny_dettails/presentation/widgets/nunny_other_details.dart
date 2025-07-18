@@ -141,7 +141,7 @@ class NunnyOtherDetails extends StatelessWidget {
                           child: CommonText(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
-                            text: AppString.about,
+                            text: "About",
                           ),
                         ),
 

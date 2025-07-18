@@ -81,11 +81,12 @@ class AppString {
   static const String searchForNanniesNearYou = "Search for nannies near you";
   static const String saveAndChanges = "Save and Changes";
   static const String editProfile = "Edit Profile";
+  static const String childrenDetails = "Children Details";
   static const String settings = "Settings";
   static const String logOut = "Log Out";
   static const String privacyPolicy = "Privacy Policy";
   static const String deleteAccount = "Delete account";
-  static const String termsOfServices = "Terms of Services";
+  static const String termsOfServices = "Terms & Conditions";
   static const String noInternetConnection = "No internet connection";
   static const String badResponseRequest = "Bad Response Request";
   static const String requestTimeOut = "Request Time Out";
@@ -136,7 +137,7 @@ class AppString {
   static const String reviews = "Reviews";
   static const String gallery = "Gallery";
   static const String availability = "Availability";
-  static const String about = "About";
+  static const String aboutUs = "About us";
   static const String experience = "Experience";
   static const String certifications = "Certifications";
   static const String servicesOffered = "Services Offered";
@@ -171,6 +172,7 @@ class AppString {
   static const String editBooking = "Edit Booking";
   static const String savedNanny = "Saved Nanny";
   static const String myBookings = "My Bookings";
+  static const String helpSupports = "Help & Supports";
   static const String iHaveRead = "I have read and agree to the";
   static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
 }
