@@ -22,6 +22,9 @@ class ChatListScreen extends StatelessWidget {
     return Scaffold(
       /// App Bar Section Starts here
       appBar: AppBar(
+        surfaceTintColor: AppColors.transparent,
+        shadowColor: AppColors.transparent,
+        backgroundColor: AppColors.white,
         leading: InkWell(
           onTap: (){
             Get.back();
