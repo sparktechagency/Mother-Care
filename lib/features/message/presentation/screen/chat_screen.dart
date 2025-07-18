@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../config/route/app_routes.dart';
 import '../../../../component/bottom_nav_bar/common_bottom_bar.dart';
 import '../../../../component/other_widgets/common_loader.dart';
@@ -21,6 +22,15 @@ class ChatListScreen extends StatelessWidget {
     return Scaffold(
       /// App Bar Section Starts here
       appBar: AppBar(
+        leading: InkWell(
+          onTap: (){
+            Get.back();
+          },
+          child: Icon(
+              size: 23,
+              color: AppColors.textFiledColor,
+              Icons.arrow_back_ios),
+        ),
         centerTitle: true,
         title: const CommonText(
           text: AppString.inbox,

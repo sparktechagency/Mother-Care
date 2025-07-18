@@ -20,6 +20,7 @@ class AppColors {
   static const normalGray = Color(0xffEFEFF4);
   static const normalGray2 = Color(0xffd4d4dc);
   static const gridClr = Color(0xffFFEDD5);
+  static const chatClr = Color(0xffE5E8EC);
 
 
 

@@ -17,7 +17,7 @@ class CommonTextField extends StatefulWidget {
     this.textInputAction = TextInputAction.next,
     this.keyboardType = TextInputType.text,
     this.mexLength,
-    this.maxline,
+    this.maxline=1,
     this.validator,
     this.prefixText,
     this.paddingHorizontal = 16,

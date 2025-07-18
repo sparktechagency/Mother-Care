@@ -19,7 +19,48 @@ class ChatController extends GetxController {
   int page = 1;
 
   /// Chat List here
-  List chats = [];
+  List chats = [
+    ChatModel(
+      id: "",
+      participant: Participant(
+        id: "",
+        fullName: "Chironjit Roy",
+        image:
+            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+      ),
+      latestMessage: LatestMessage(
+        id: "",
+        message: "How are you?",
+        createdAt: DateTime.now(),
+      ),
+    ), ChatModel(
+      id: "",
+      participant: Participant(
+        id: "",
+        fullName: "Chironjit Roy",
+        image:
+            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+      ),
+      latestMessage: LatestMessage(
+        id: "",
+        message: "How are you?",
+        createdAt: DateTime.now(),
+      ),
+    ), ChatModel(
+      id: "",
+      participant: Participant(
+        id: "",
+        fullName: "Chironjit Roy",
+        image:
+            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+      ),
+      latestMessage: LatestMessage(
+        id: "",
+        message: "How are you?",
+        createdAt: DateTime.now(),
+      ),
+    ),
+  ];
 
   /// Chat Scroll Controller
   ScrollController scrollController = ScrollController();

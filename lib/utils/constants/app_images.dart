@@ -40,5 +40,6 @@ class AppImages {
   static const String verifiedBatch= "$baseurl/verified_batch.png";
   static const String gender= "$baseurl/gender.png";
   static const String dotedLine= "$baseurl/doted_line.png";
+  static const String mother= "$baseurl/mother.jpg";
 
 }

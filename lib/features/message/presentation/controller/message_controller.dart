@@ -17,7 +17,12 @@ class MessageController extends GetxController {
   bool isMoreLoading = false;
   String? video;
 
-  List messages = [];
+  List messages = [
+
+    ChatMessageModel(time: DateTime.now(), text: "I am fine", image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg", isMe: false),
+    ChatMessageModel(time: DateTime.now(), text: "How are you", image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg", isMe: true),
+
+  ];
 
   String chatId = "";
   String name = "";

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/payment_success_popup.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/summary_section.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
@@ -57,7 +58,11 @@ class RequestBookingScreen extends StatelessWidget {
       bottomNavigationBar: Container(
         color: AppColors.white,
         padding: EdgeInsets.all(28),
-        child: CommonButton(titleText: AppString.requestToBook),
+        child: CommonButton(
+            onTap: (){
+              PaymentSuccessPopUp.paymentSuccessDialog();
+            },
+            titleText: AppString.requestToBook),
       ),
     );
   }

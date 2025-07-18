@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../component/image/common_image.dart';
 import '../../../../component/text/common_text.dart';
 import '../../../../component/text_field/common_text_field.dart';
@@ -37,26 +38,68 @@ class _MessageScreenState extends State<MessageScreen> {
         return Scaffold(
           /// App Bar Section starts here
           appBar: AppBar(
+            backgroundColor: AppColors.white,
             leading: Padding(
               padding: EdgeInsets.only(left: 20.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  /// participant image here
-                  CircleAvatar(
-                    radius: 30.sp,
-                    backgroundColor: Colors.transparent,
-                    child: ClipOval(
-                      child: CommonImage(imageSrc: image, size: 60),
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.textFiledColor,
                     ),
+                  ),
+
+                  /// participant image here
+                  Stack(
+                    children: [
+                      CircleAvatar(
+                        child: ClipOval(
+                          child: CommonImage(
+                            fill: BoxFit.cover,
+                            imageSrc: image,
+                            size: 60,
+                          ),
+                        ),
+                      ),
+
+                      Positioned(
+                        bottom: 0,
+                        right: 3,
+                        child: Container(
+                          height: 10,
+                          width: 10,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.green),
+                        ),
+                      ),
+                    ],
                   ),
                   12.width,
 
                   /// participant Name here
-                  CommonText(
-                    text: name,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CommonText(
+                        text: name,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                      ),
+
+                      CommonText(
+                        text: "Online now",
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.bodyClr,
+                        fontSize: 13,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -65,36 +108,35 @@ class _MessageScreenState extends State<MessageScreen> {
           ),
 
           /// Body Section starts here
-          body:
-              controller.isLoading
-                  /// Loading bar here
-                  ? const Center(child: CircularProgressIndicator())
-                  /// Show data  here
-                  : ListView.builder(
-                    reverse: true,
-                    controller: controller.scrollController,
-                    itemCount:
-                        controller.isMoreLoading
-                            ? controller.messages.length + 1
-                            : controller.messages.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      /// Message item here
-                      if (index < controller.messages.length) {
-                        ChatMessageModel message = controller.messages[index];
-                        return ChatBubbleMessage(
-                          index: index,
-                          image: message.image,
-                          time: message.time,
-                          text: message.text,
-                          isMe: message.isMe,
-                          onTap: () {},
-                        );
-                      } else {
-                        /// More data loading bar
-                        return const Center(child: CircularProgressIndicator());
-                      }
-                    },
-                  ),
+          body: controller.isLoading
+              /// Loading bar here
+              ? const Center(child: CircularProgressIndicator())
+              /// Show data  here
+              : ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  reverse: true,
+                  controller: controller.scrollController,
+                  itemCount: controller.isMoreLoading
+                      ? controller.messages.length + 1
+                      : controller.messages.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    /// Message item here
+                    if (index < controller.messages.length) {
+                      ChatMessageModel message = controller.messages[index];
+                      return ChatBubbleMessage(
+                        index: index,
+                        image: message.image,
+                        time: message.time,
+                        text: message.text,
+                        isMe: message.isMe,
+                        onTap: () {},
+                      );
+                    } else {
+                      /// More data loading bar
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ),
 
           /// bottom Navigation Bar Section starts here
           bottomNavigationBar: AnimatedPadding(
@@ -108,7 +150,7 @@ class _MessageScreenState extends State<MessageScreen> {
               child: CommonTextField(
                 hintText: AppString.messageHere,
                 suffixIcon: GestureDetector(
-                  onTap: controller.addNewMessage,
+                  // onTap: controller.addNewMessage,
                   child: Padding(
                     padding: EdgeInsets.all(16.sp),
                     child: const Icon(Icons.send),

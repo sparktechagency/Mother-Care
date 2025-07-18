@@ -145,6 +145,9 @@ class AppString {
   static const String requestToBook = "Request to Book";
   static const String choosePaymentOption = "Choose Payment Option";
   static const String paymentMethod = "Payment Method";
+  static const String goHome = "Go Home";
+  static const String paymentSuccessful = "Payment Successful";
+  static const String paymentSuccessfulDes = "We will notify you , when your booking will be confirmed by the nanny.";
   static const String estimateTotal = "Estimate Total";
   static const String extraBabyCharge = "Extra Baby charge:";
   static const String hourlyRate = "Hourly Rate:";
@@ -162,6 +165,11 @@ class AppString {
   static const String custom = "Custom";
   static const String hourly = "Hourly";
   static const String pricing = "Pricing:";
+  static const String history = "History";
+  static const String ongoing = "Ongoing";
+  static const String upcoming = "Upcoming";
+  static const String editBooking = "Edit Booking";
+  static const String myBookings = "My Bookings";
   static const String iHaveRead = "I have read and agree to the";
   static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
 }

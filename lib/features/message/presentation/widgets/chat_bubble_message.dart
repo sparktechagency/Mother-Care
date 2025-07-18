@@ -35,44 +35,17 @@ class ChatBubbleMessage extends StatelessWidget {
         crossAxisAlignment:
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 10.w),
-                padding: EdgeInsets.only(left: 10.w),
-                width: 220,
-                height: 120,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.r),
-                  color: AppColors.white,
-                ),
-                child: Column(
-                  children: [
-                    /// participant Image here
-                    if (!isMe)
-                      const CommonImage(
-                        imageSrc: AppImages.noImage,
-                        fill: BoxFit.contain,
-                        size: 60,
-                      ),
-
-                    ///Message here
-                    Container(
-                      color: AppColors.primaryColor,
-                      width: 220,
-                      child: CommonText(
-                        maxLines: 5,
-                        text: text,
-                        fontSize: 18,
-                        color: AppColors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+                color: isMe?AppColors.primaryColor:AppColors.chatClr                    ),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            child: CommonText(
+              maxLines: 5,
+              text: text,
+              fontSize: 18,
+              color:isMe? AppColors.white:AppColors.primaryColor,
+            ),
           ),
         ],
       ),
