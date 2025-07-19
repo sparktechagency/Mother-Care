@@ -10,6 +10,7 @@ class AppString {
   static const String areYouSure = "Are you sure";
   static const String enterYouPassword = "Enter you password";
   static const String enterYourFullName = "Enter your full name";
+  static const String enterYourName = "Enter your name";
   static const String cancel = "Cancel";
   static const String done = "Done";
   static const String deleteDetails =
@@ -194,4 +195,12 @@ class AppString {
   static const String removeChildrenDes = "This will permanently remove your child’s information.";
   static const String removeChildrenTitle = "Are you sure you want to remove this child from your profile?";
   static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
+  static const String bookingUpdates = "Booking Updates";
+  static const String chatMessage = "Chat Messages";
+  static const String paymentAndInvoice = "Payment & Invoice Alerts";
+  static const String enterYourMessage = "Enter your message";
+  static const String subject = "Subject";
+  static const String send = "Send";
+  static const String logOutTitle = "Are you sure you want to log out?";
+  static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

@@ -10,8 +10,8 @@ import '../controller/terms_of_services_controller.dart';
 import '../../../../utils/constants/app_string.dart';
 import '../../../../utils/enum/enum.dart';
 
-class TermsOfServicesScreen extends StatelessWidget {
-  const TermsOfServicesScreen({super.key});
+class AboutUsScreen extends StatelessWidget {
+  const AboutUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class TermsOfServicesScreen extends StatelessWidget {
         surfaceTintColor: AppColors.white,
         centerTitle: true,
         title: const CommonText(
-          text: AppString.termsOfServices,
+          text: AppString.aboutUs,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
@@ -38,24 +38,24 @@ class TermsOfServicesScreen extends StatelessWidget {
       body: GetBuilder<TermsOfServicesController>(
         builder:
             (controller) => switch (controller.status) {
-              /// Loading bar here
-              Status.loading => const CommonLoader(),
+        /// Loading bar here
+          Status.loading => const CommonLoader(),
 
-              /// Error Handle here
-              Status.error => ErrorScreen(
-                onTap:
-                    TermsOfServicesController.instance.geTermsOfServicesRepo(),
-              ),
+        /// Error Handle here
+          Status.error => ErrorScreen(
+            onTap:
+            TermsOfServicesController.instance.geTermsOfServicesRepo(),
+          ),
 
-              /// Show main data here
-              Status.completed => SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 24,
-                  horizontal: 20,
-                ),
-                child: Html(data: controller.data.content),
-              ),
-            },
+        /// Show main data here
+          Status.completed => SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(
+              vertical: 24,
+              horizontal: 20,
+            ),
+            child: Html(data: controller.data.content),
+          ),
+        },
       ),
     );
   }

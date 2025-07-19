@@ -10,6 +10,8 @@ import 'package:mother_care/features/auth/sign%20up/presentation/screen/add_phot
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/join_mamaCare_screen.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_screen_two.dart';
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_three_screen.dart';
+import 'package:mother_care/features/profile/presentation/screen/notification_settings.dart';
+import 'package:mother_care/features/setting/presentation/screen/about_us_screen.dart';
 import '../../features/another_screens/parent_booking/presentation/screens/parent_booking_screen.dart';
 import '../../features/another_screens/parents_home/presentation/screens/parents_home_screen.dart';
 import '../../features/another_screens/saved/presentation/screens/saved_screens.dart';
@@ -26,6 +28,7 @@ import '../../features/notifications/presentation/screen/notifications_screen.da
 import '../../features/onboarding_screen/screens/onboarding_screen.dart';
 import '../../features/profile/presentation/screen/edit_profile.dart';
 import '../../features/profile/presentation/screen/profile_screen.dart';
+import '../../features/setting/presentation/screen/help_and_support_screen.dart';
 import '../../features/setting/presentation/screen/privacy_policy_screen.dart';
 import '../../features/setting/presentation/screen/setting_screen.dart';
 import '../../features/setting/presentation/screen/terms_of_services_screen.dart';
@@ -64,6 +67,9 @@ class AppRoutes {
   static const String requestBookingScreen = "/requestBookingScreen.dart";
   static const String addChildrenScreen = "/addChildrenScreen.dart";
   static const String editChildrenScreen = "/editChildrenScreen.dart";
+  static const String notificationSettings = "/notificationSettings.dart";
+  static const String helpAndSupportScreen = "/helpAndSupportScreen.dart";
+  static const String aboutUsScreen = "/aboutUsScreen.dart";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -97,5 +103,8 @@ class AppRoutes {
     GetPage(name: children, page: () => ChildrenDetailsScreen()),
     GetPage(name: addChildrenScreen, page: () => AddChildrenScreen()),
     GetPage(name: editChildrenScreen, page: () => EditChildrenScreen()),
+    GetPage(name: notificationSettings, page: () => NotificationSettings()),
+    GetPage(name: helpAndSupportScreen, page: () => HelpAndSupportScreen()),
+    GetPage(name: aboutUsScreen, page: () => AboutUsScreen()),
   ];
 }

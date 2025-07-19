@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../component/other_widgets/common_loader.dart';
 import '../../../../component/screen/error_screen.dart';
 import '../../../../component/text/common_text.dart';
@@ -16,10 +18,18 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
       /// App Bar Section stats here
       appBar: AppBar(
+        leading: InkWell(
+            onTap: (){
+
+              Get.back();            },
+            child: Icon(Icons.arrow_back_ios, size: 23.sp, color: AppColors.textFiledColor,)),
+        backgroundColor: AppColors.white,
+        surfaceTintColor: AppColors.transparent,
+        shadowColor: AppColors.transparent,
         centerTitle: true,
         title: const CommonText(
           text: AppString.privacyPolicy,
-          fontSize: 20,
+          fontSize: 16,
           fontWeight: FontWeight.w600,
         ),
       ),

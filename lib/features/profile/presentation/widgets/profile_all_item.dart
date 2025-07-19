@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:mother_care/features/profile/presentation/widgets/logout_popup.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 import '../../../../component/image/common_image.dart';
@@ -79,7 +80,7 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 icon: Icons.notifications_active_outlined,
                 title: AppString.notifications,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.notificationSettings),
               ),
 
               17.height,
@@ -87,7 +88,7 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 icon: Icons.support,
                 title: AppString.helpSupports,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.helpAndSupportScreen),
               ),
 
 
@@ -131,7 +132,7 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 image: AppImages.aboutUs,
                 title: AppString.aboutUs,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.aboutUsScreen),
               ),
 
 
@@ -156,7 +157,9 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 icon: Icons.logout,
                 title: AppString.logOut,
-                onTap: () => logOutPopUp,
+                onTap: (){
+                  LogOutPopUp.logoutDialog();
+                },
               ),
 
 
