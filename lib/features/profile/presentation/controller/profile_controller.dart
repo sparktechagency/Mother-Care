@@ -17,8 +17,7 @@ class ProfileController extends GetxController {
   /// select Language here
   String selectedLanguage = "English";
 
-  /// select image here
-  String? image;
+
 
   /// edit button loading here
   bool isLoading = false;
@@ -26,11 +25,17 @@ class ProfileController extends GetxController {
   /// all controller here
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+
+  /// select image function here
+  String? image;
 
   /// select image function here
   getProfileImage() async {
-    image = await OtherHelper.openGalleryForProfile();
+    image = await OtherHelper.openGallery();
     update();
+
   }
 
   /// select language  function here

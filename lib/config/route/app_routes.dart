@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mother_care/features/another_screens/children/presentation/screens/childen_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_dettails/presentation/screens/nunny_dettails_screen.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/screens/nunny_see_all_screen.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/screens/request_booking_screen.dart';
@@ -55,6 +56,7 @@ class AppRoutes {
   static const String parentHomeScreen = "/parent_home.dart";
   static const String parentBookingScreen = "/parentBookingScreen.dart";
   static const String savedScreen = "/savedScreen.dart";
+  static const String children = "/children.dart";
   static const String nunnySeeAllScreen = "/nunnySeeAllScreen.dart";
   static const String nunnyDetailsScreen = "/nunnyDetailsScreen.dart";
   static const String requestBookingScreen = "/requestBookingScreen.dart";
@@ -88,5 +90,6 @@ class AppRoutes {
     GetPage(name: nunnySeeAllScreen, page: () => NunnySeeAllScreen()),
     GetPage(name: nunnyDetailsScreen, page: () => NunnyDetailsScreen()),
     GetPage(name: requestBookingScreen, page: () => RequestBookingScreen()),
+    GetPage(name: children, page: () => ChildrenDetailsScreen()),
   ];
 }

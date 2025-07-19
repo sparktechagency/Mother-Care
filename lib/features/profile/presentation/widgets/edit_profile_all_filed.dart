@@ -21,7 +21,7 @@ class EditProfileAllFiled extends StatelessWidget {
       children: [
         /// User Full Name here
         const CommonText(
-          text: AppString.fullName,
+          text: AppString.fullName,fontSize: 16,
           fontWeight: FontWeight.w600,
           bottom: 12,
         ),
@@ -29,25 +29,66 @@ class EditProfileAllFiled extends StatelessWidget {
           controller: controller.nameController,
           validator: OtherHelper.validator,
           hintText: AppString.fullName,
-          prefixIcon: const Icon(Icons.person),
+
           keyboardType: TextInputType.text,
-          borderColor: AppColors.black,
+          borderColor: AppColors.textFiledColor,
           fillColor: AppColors.transparent,
         ),
 
-        /// User Phone number here
+        /// User Full Name here
         const CommonText(
-          text: AppString.contact,
+          top: 16,
+          text: AppString.email,fontSize: 16,
           fontWeight: FontWeight.w600,
-          top: 20,
           bottom: 12,
         ),
-        CommonPhoneNumberTextFiled(
-          controller: controller.numberController,
-          countryChange: (value) {
-            appLog(value);
-          },
+        CommonTextField(
+          controller: controller.emailController,
+          validator: OtherHelper.emailValidator,
+          hintText: AppString.email,
+
+          keyboardType: TextInputType.emailAddress,
+          borderColor: AppColors.textFiledColor,
+          fillColor: AppColors.transparent,
         ),
+
+
+        /// User Full Name here
+        const CommonText(
+          top: 16,
+          text: AppString.phoneNumber,fontSize: 16,
+          fontWeight: FontWeight.w600,
+          bottom: 12,
+        ),
+        CommonTextField(
+          controller: controller.numberController,
+          validator: OtherHelper.validator,
+          hintText: AppString.phoneNumber,
+
+          keyboardType: TextInputType.number,
+          borderColor: AppColors.textFiledColor,
+          fillColor: AppColors.transparent,
+        ),
+
+
+        /// User Full Name here
+        const CommonText(
+          top: 16,
+          text: AppString.address,fontSize: 16,
+          fontWeight: FontWeight.w600,
+          bottom: 12,
+        ),
+        CommonTextField(
+          controller: controller.addressController,
+          validator: OtherHelper.validator,
+          hintText: AppString.enterAddress,
+
+          keyboardType: TextInputType.number,
+          borderColor: AppColors.textFiledColor,
+          fillColor: AppColors.transparent,
+        ),
+
+
       ],
     );
   }

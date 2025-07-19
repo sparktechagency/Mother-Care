@@ -45,7 +45,7 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 icon: Icons.child_care_outlined,
                 title: AppString.childrenDetails,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.children),
               ),
 
 
@@ -71,7 +71,7 @@ class ProfileAllItem extends StatelessWidget {
                 iconColor: AppColors.primaryColor,
                 icon: Icons.lock_outline_rounded,
                 title: AppString.changePassword,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.changePassword),
               ),
 
               17.height,
@@ -123,7 +123,7 @@ class ProfileAllItem extends StatelessWidget {
                 image: AppImages.privacyPolicy,
                 title: AppString.termsOfServices
                 ,
-                onTap: () => Get.toNamed(AppRoutes.editProfile),
+                onTap: () => Get.toNamed(AppRoutes.termsOfServices),
               ),
 
               17.height,

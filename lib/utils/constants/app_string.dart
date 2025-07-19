@@ -82,6 +82,7 @@ class AppString {
   static const String saveAndChanges = "Save and Changes";
   static const String editProfile = "Edit Profile";
   static const String childrenDetails = "Children Details";
+  static const String children = "Children";
   static const String settings = "Settings";
   static const String logOut = "Log Out";
   static const String privacyPolicy = "Privacy Policy";
@@ -174,5 +175,9 @@ class AppString {
   static const String myBookings = "My Bookings";
   static const String helpSupports = "Help & Supports";
   static const String iHaveRead = "I have read and agree to the";
+  static const String updateInfo = "Update Info";
+  static const String editInformation = "Edit information";
+  static const String address = "Address";
+  static const String enterAddress = "Enter your address";
   static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
 }

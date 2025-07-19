@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../utils/extensions/extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -21,10 +22,20 @@ class EditProfile extends StatelessWidget {
         return Scaffold(
           /// App Bar Sections Starts here
           appBar: AppBar(
+            surfaceTintColor: AppColors.transparent,
+            shadowColor: AppColors.transparent,
+            backgroundColor: AppColors.white,
+            leading: InkWell(
+                onTap: (){
+                  Get.back();
+                },
+                child: Icon(
+                  color: AppColors.textFiledColor,
+                  Icons.arrow_back_ios, size: 23.sp,)),
             centerTitle: true,
             title: const CommonText(
-              text: AppString.profile,
-              fontSize: 20,
+              text: AppString.editInformation,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -41,21 +52,21 @@ class EditProfile extends StatelessWidget {
                     children: [
                       Center(
                         child: CircleAvatar(
-                          radius: 85.sp,
+                          radius: 47.sp,
                           backgroundColor: Colors.transparent,
                           child: ClipOval(
                             child:
                                 controller.image != null
                                     ? Image.file(
                                       File(controller.image!),
-                                      width: 170,
-                                      height: 170,
+                                      width: 93.h,
+                                      height: 93.h,
                                       fit: BoxFit.fill,
                                     )
                                     : const CommonImage(
                                       imageSrc: AppImages.profile,
-                                      height: 170,
-                                      width: 170,
+                                      height: 93,
+                                      width: 93,
                                     ),
                           ),
                         ),
@@ -64,15 +75,20 @@ class EditProfile extends StatelessWidget {
                       /// image change icon here
                       Positioned(
                         bottom: 0,
-                        left: Get.width * 0.53,
-                        child: IconButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStateColor.resolveWith(
-                              (states) => Colors.black,
+                        left: Get.width * 0.48,
+                        child: InkWell(
+                          onTap: controller.getProfileImage,
+                          child: Container(
+                            padding: EdgeInsets.all(5.r),
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: AppColors.white),
+                              color: AppColors.primaryColor,
+                              shape: BoxShape.circle
                             ),
+                            child: Icon(
+                                size: 15.sp,
+                                Icons.edit, color: Colors.white),
                           ),
-                          onPressed: controller.getProfileImage,
-                          icon: const Icon(Icons.edit, color: Colors.white),
                         ),
                       ),
                     ],
@@ -84,9 +100,11 @@ class EditProfile extends StatelessWidget {
 
                   /// Submit Button here
                   CommonButton(
-                    titleText: AppString.saveAndChanges,
+                    titleText: AppString.updateInfo,
                     isLoading: controller.isLoading,
-                    onTap: controller.editProfileRepo,
+                    onTap:(){
+                      Get.back();
+                    },
                   ),
                 ],
               ),
