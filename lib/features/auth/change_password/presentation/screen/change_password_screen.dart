@@ -35,39 +35,54 @@ class ChangePasswordScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  70.height,
+                  10.height,
 
                   /// current Password section
-                  const CommonText(text: AppString.currentPassword, bottom: 8),
+                   CommonText(
+
+                    fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      text: AppString.currentPassword, bottom: 8),
                   CommonTextField(
+                    borderColor: AppColors.normalGray2,
+
                     controller: controller.currentPasswordController,
                     hintText: AppString.currentPassword,
                     validator: OtherHelper.passwordValidator,
                     isPassword: true,
-                    prefixIcon: Icon(Icons.lock, size: 20.sp),
+
                   ),
 
                   /// New Password section
                   const CommonText(
+
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                     text: AppString.newPassword,
                     bottom: 8,
                     top: 16,
                   ),
                   CommonTextField(
+                    borderColor: AppColors.normalGray2,
+
                     controller: controller.newPasswordController,
                     hintText: AppString.newPassword,
                     validator: OtherHelper.passwordValidator,
                     isPassword: true,
-                    prefixIcon: Icon(Icons.lock, size: 20.sp),
+
                   ),
 
                   /// confirm Password section
                   const CommonText(
+
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                     text: AppString.confirmPassword,
                     bottom: 8,
                     top: 16,
                   ),
                   CommonTextField(
+                    borderColor: AppColors.normalGray2,
                     controller: controller.confirmPasswordController,
                     hintText: AppString.confirmPassword,
                     validator:
@@ -76,28 +91,15 @@ class ChangePasswordScreen extends StatelessWidget {
                           controller.newPasswordController,
                         ),
                     isPassword: true,
-                    prefixIcon: Icon(Icons.lock, size: 20.sp),
+
                   ),
 
-                  /// forget Password button
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: () => Get.toNamed(AppRoutes.forgotPassword),
-                      child: CommonText(
-                        text: AppString.forgotPassword,
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18.sp,
-                        top: 16.h,
-                        bottom: 20.h,
-                      ),
-                    ),
-                  ),
+
+                  20.height,
 
                   /// submit Button
                   CommonButton(
-                    titleText: AppString.confirm,
+                    titleText: AppString.update,
                     isLoading: controller.isLoading,
                     onTap: controller.changePasswordRepo,
                   ),

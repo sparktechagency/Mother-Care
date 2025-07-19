@@ -43,5 +43,6 @@ class AppImages {
   static const String mother= "$baseurl/mother.jpg";
   static const String aboutUs= "$baseurl/about_us.png";
   static const String privacyPolicy= "$baseurl/privacy_policy.png";
+  static const String alert= "$baseurl/alert.png";
 
 }

@@ -6,6 +6,7 @@ class AppString {
   static const String youSureWantToLogout = "You sure want to logout";
   static const String no = "No";
   static const String yes = "Yes";
+  static const String yesRemove = "Yes, Remove";
   static const String areYouSure = "Are you sure";
   static const String enterYouPassword = "Enter you password";
   static const String enterYourFullName = "Enter your full name";
@@ -53,6 +54,8 @@ class AppString {
   static const String logIntoYourAccount = "Login to Your Account";
   static const String forgotThePassword = "Forgot Password ?";
   static const String rememberMe = "Remember me";
+  static const String editInfo = "Edit Info";
+  static const String remove = "Remove";
   static const String orLoginWith = "Or login with";
   static const String orSignUpWith = "Or sign up with";
   static const String signIn = "Sign in";
@@ -178,6 +181,17 @@ class AppString {
   static const String updateInfo = "Update Info";
   static const String editInformation = "Edit information";
   static const String address = "Address";
+  static const String addChildren = "Add Children";
+  static const String editChildrenInfo = "Edit Children Info";
   static const String enterAddress = "Enter your address";
+  static const String boy = "Boy";
+  static const String girl = "Girl";
+  static const String update = "Update";
+  static const String save = "Save";
+  static const String uploadChildImage = "Upload Child Image";
+  static const String dateOfBirthFormat = "DD / MM / YYYY";
+  static const String enterChildFullName = "Enter child full name";
+  static const String removeChildrenDes = "This will permanently remove your child’s information.";
+  static const String removeChildrenTitle = "Are you sure you want to remove this child from your profile?";
   static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
 }
