@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mother_care/component/image/common_image.dart';
+import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/utils/constants/app_images.dart';
+import 'package:mother_care/utils/constants/app_string.dart';
+import 'package:mother_care/utils/extensions/extension.dart';
+
+import '../../../../../utils/constants/app_colors.dart';
+
+class HistoryItem extends StatelessWidget {
+  HistoryItem({super.key,});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 12.w),
+      margin: EdgeInsets.symmetric(vertical: 8.h),
+      width: double.infinity,
+
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(6.r),
+      ),
+
+      child: Row(
+        children: [
+          ClipOval(
+            child: CommonImage(
+              height: 48, // Use ScreenUtil for scaling
+              width: 48,
+              // Use ScreenUtil for scaling
+              imageSrc: AppImages.female,
+            ),
+          ),
+
+          15.width,
+
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CommonText(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      text: "Zara Taylor",
+                    ),
+
+                    CommonText(
+                      fontSize: 15,
+
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.primaryColor,
+                      text: "\$60",
+                    ),
+                  ],
+                ),
+                6.height,
+
+                Row(
+                  children: [
+
+                 Icon(Icons.calendar_month, color: AppColors.bodyClr,),
+                    5.width,
+                    CommonText(
+                      fontSize: 12,
+                      top: 3,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.bodyClr,
+                      text: "25 March 25 | 09:30am - 3:00pm",
+                    ),
+                  ],
+                ),
+
+                2.height,
+
+                Row(
+                  children: [
+
+                 Icon(Icons.location_on_outlined, color: AppColors.bodyClr,),
+                    5.width,
+                    CommonText(
+                      fontSize: 12,
+                      top: 3,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.bodyClr,
+                      text: "123 Ngong Road, Nairobi, Kenya",
+                    ),
+                  ],
+                ),
+
+                CommonText(
+                    color: Colors.green,
+                    text: "Completed")
+              ],
+            ),
+          ),
+
+
+
+
+        ],
+      ),
+    );
+  }
+}

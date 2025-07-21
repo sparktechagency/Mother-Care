@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
 import '../../../../../component/image/common_image.dart';
 import '../../../../../config/route/app_routes.dart';
 import '../../../../../utils/constants/app_images.dart';
@@ -178,9 +179,23 @@ class SignInScreen extends StatelessWidget {
 
                           /// Submit Button here
                           CommonButton(
-                            titleText: AppString.signIn,
+                            titleText: AppString.signIn+" as Parents",
                             isLoading: controller.isLoading,
-                            onTap: controller.signInUser,
+                            onTap: (){
+                              LocalStorage.myRoll="parents";
+                              controller.signInUser();
+                            },
+                          ),
+                          10.height,
+
+                          /// Submit Button here
+                          CommonButton(
+                            titleText: AppString.signIn+" as Nunny",
+                            isLoading: controller.isLoading,
+                            onTap: (){
+                              LocalStorage.myRoll="nunny";
+                              controller.signInUser();
+                            },
                           ),
 
                           12.height,

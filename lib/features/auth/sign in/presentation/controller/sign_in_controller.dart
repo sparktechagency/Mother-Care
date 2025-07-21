@@ -37,7 +37,10 @@ class SignInController extends GetxController {
 
   Future<void> signInUser() async {
     if (!formKey.currentState!.validate()) return;
-    Get.toNamed(AppRoutes.parentHomeScreen);
+
+    LocalStorage.myRoll=="nunny"?Get.toNamed(AppRoutes.nunnHomeScreen):Get.toNamed(AppRoutes.parentHomeScreen);
+
+
     return;
 
     isLoading = true;

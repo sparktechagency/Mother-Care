@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
-import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails/presentation/widgets/nunny_other_details.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
-import 'package:mother_care/utils/constants/app_images.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 import '../widgets/nunny_info_section.dart';
+import '../widgets/nunny_other_details.dart';
 
 class NunnyDetailsScreen extends StatelessWidget {
   const NunnyDetailsScreen({super.key});

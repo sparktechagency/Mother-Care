@@ -201,6 +201,15 @@ class AppString {
   static const String enterYourMessage = "Enter your message";
   static const String subject = "Subject";
   static const String send = "Send";
+  static const String onGoingBooking = "On going Booking";
+  static const String upcomingBooking = "Upcoming Booking";
+  static const String newBookingRequest = "New Booking Request";
+  static const String thisWeekEarnings = "This Week's Earnings";
+  static const String bookingHistory = "Booking History";
+  static const String availableForBookings = "Available for bookings";
   static const String logOutTitle = "Are you sure you want to log out?";
+  static const String todaysBooking = "Todays Booking";
+  static const String ongoingBooking = "Ongoing Booking";
+  static const String upcomingBookings = "Upcoming Bookings";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

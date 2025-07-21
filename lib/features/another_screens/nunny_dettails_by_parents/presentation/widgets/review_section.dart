@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mother_care/component/text/common_text.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails/presentation/widgets/review_item.dart';
+import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/widgets/review_item.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 

@@ -2,7 +2,9 @@ import 'package:get/get.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/add_children_screen.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/childen_details_screen.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/edit_children_screen.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails/presentation/screens/nunny_dettails_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/ongoing_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/screens/nunny_see_all_screen.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/screens/request_booking_screen.dart';
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/account_verified_screen.dart';
@@ -12,6 +14,7 @@ import 'package:mother_care/features/onboarding_screen/screens/onboarding_screen
 import 'package:mother_care/features/onboarding_screen/screens/onboarding_three_screen.dart';
 import 'package:mother_care/features/profile/presentation/screen/notification_settings.dart';
 import 'package:mother_care/features/setting/presentation/screen/about_us_screen.dart';
+import '../../features/another_screens/nunny_dettails_by_parents/presentation/screens/nunny_dettails_screen.dart';
 import '../../features/another_screens/parent_booking/presentation/screens/parent_booking_screen.dart';
 import '../../features/another_screens/parents_home/presentation/screens/parents_home_screen.dart';
 import '../../features/another_screens/saved/presentation/screens/saved_screens.dart';
@@ -70,6 +73,10 @@ class AppRoutes {
   static const String notificationSettings = "/notificationSettings.dart";
   static const String helpAndSupportScreen = "/helpAndSupportScreen.dart";
   static const String aboutUsScreen = "/aboutUsScreen.dart";
+  static const String nunnyBookingScreen = "/nunnyBookingScreen.dart";
+  static const String nunnHomeScreen = "/nunnHomeScreen.dart";
+  static const String onGoingScreen = "/onGoingScreen.dart";
+  static const String upCommingScreen = "/upCommingScreen.dart";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -106,5 +113,9 @@ class AppRoutes {
     GetPage(name: notificationSettings, page: () => NotificationSettings()),
     GetPage(name: helpAndSupportScreen, page: () => HelpAndSupportScreen()),
     GetPage(name: aboutUsScreen, page: () => AboutUsScreen()),
+    GetPage(name: nunnHomeScreen, page: () => NunnyHomeScreen()),
+    GetPage(name: nunnyBookingScreen, page: () => NunnyBookingScreen()),
+    GetPage(name: onGoingScreen, page: () => NunnyOngoingScreen()),
+    GetPage(name: upCommingScreen, page: () => NunnyOngoingScreen()),
   ];
 }

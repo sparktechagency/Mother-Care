@@ -44,5 +44,10 @@ class AppImages {
   static const String aboutUs= "$baseurl/about_us.png";
   static const String privacyPolicy= "$baseurl/privacy_policy.png";
   static const String alert= "$baseurl/alert.png";
+  static const String nunnyHomeBg= "$baseurl/nunny_home_bg.png";
+  static const String coin= "$baseurl/coin.png";
+  static const String newRequest= "$baseurl/new_request.png";
+  static const String ongoing= "$baseurl/ongoing.png";
+  static const String upcomming= "$baseurl/upcomming.png";
 
 }
