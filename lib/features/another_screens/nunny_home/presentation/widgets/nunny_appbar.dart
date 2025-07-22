@@ -13,7 +13,7 @@ class NunnyAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      height: 128.h,
+      height: 150.h,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.nunnyHomeBg),

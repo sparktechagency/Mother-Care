@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:mother_care/features/profile/presentation/widgets/logout_popup.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 import '../../../../component/image/common_image.dart';
@@ -41,8 +42,63 @@ class ProfileAllItem extends StatelessWidget {
                 onTap: () => Get.toNamed(AppRoutes.editProfile),
               ),
 
-              17.height,
-              Item(
+              12.height,
+            LocalStorage.myRoll=="nunny"?Column(
+              children: [
+                Item(
+                  iconColor: AppColors.primaryColor,
+                  icon: Icons.privacy_tip_outlined,
+                  title: AppString.certificationAndExperience,
+                  onTap: () => Get.toNamed(AppRoutes.certificationsExperienceScreen),
+
+
+                ),
+
+                17.height,
+
+                Item(
+                  iconColor: AppColors.primaryColor,
+                  image: AppImages.presence,
+                  title: AppString.preference,
+                  onTap: () => Get.toNamed(AppRoutes.preferenceScreen),
+                ),
+
+
+                17.height,
+                Item(
+                  iconColor: AppColors.primaryColor,
+                  icon: Icons.calendar_month,
+                  title: AppString.availability,
+                  onTap: () => Get.toNamed(AppRoutes.children),
+                ),
+
+
+                17.height,
+                Item(
+                  iconColor: AppColors.primaryColor,
+                  icon: Icons.account_circle_outlined,
+                  title: AppString.serviceRates,
+                  onTap: () => Get.toNamed(AppRoutes.children),
+                ),
+
+                // Item(
+                //   iconColor: AppColors.primaryColor,
+                //   image: AppImages.serviceRate,
+                //   title: AppString.serviceRates,
+                //   onTap: () => Get.toNamed(AppRoutes.children),
+                // ),
+
+                17.height,
+                Item(
+                  iconColor: AppColors.primaryColor,
+                  icon: Icons.photo,
+                  title: AppString.gallery,
+                  onTap: () => Get.toNamed(AppRoutes.children),
+                ),
+
+
+              ],
+            ) : Item(
                 iconColor: AppColors.primaryColor,
                 icon: Icons.child_care_outlined,
                 title: AppString.childrenDetails,

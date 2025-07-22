@@ -167,6 +167,7 @@ class AppString {
   static const String chooseTimeSlot = "Choose Time Slot";
   static const String chooseDate = "Choose Date";
   static const String startDate = "Start Date";
+  static const String endDate = "End Date";
   static const String startSession = "Start Session";
   static const String bookingType = "Booking Type";
   static const String fullDay = "Full Day";
@@ -224,6 +225,16 @@ class AppString {
   static const String specialInstruction = "Special Instruction";
   static const String reportUser = "Report User";
   static const String giveFeedback = "Give Feedback";
-
+  static const String certificationAndExperience = "Certification & Experience";
+  static const String preference = "Preference";
+  static const String serviceRates = "Service Rates";
+  static const String addCertificate = "Add Certificate";
+  static const String workExperience = "Work Experience";
+  static const String yearsOfExperience = "Years of experience";
+  static const String add = "Add";
+  static const String enterCertifications = "Enter Certifications";
+  static const String company = "Company";
+  static const String position = "Position";
+  static const String submit = "Submit";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

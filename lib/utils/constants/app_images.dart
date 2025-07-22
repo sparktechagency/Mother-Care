@@ -52,5 +52,7 @@ class AppImages {
   static const String duration= "$baseurl/duration.png";
   static const String map= "$baseurl/map.png";
   static const String alertAmber= "$baseurl/alert_amber.png";
+  static const String presence= "$baseurl/presence.png";
+  static const String serviceRate= "$baseurl/service rate.png";
 
 }

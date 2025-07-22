@@ -5,6 +5,8 @@ import 'package:mother_care/features/another_screens/children/presentation/scree
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/certifications_experience_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/preference_screen.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/screens/nunny_see_all_screen.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/screens/request_booking_screen.dart';
 import 'package:mother_care/features/auth/sign%20up/presentation/screen/account_verified_screen.dart';
@@ -78,6 +80,8 @@ class AppRoutes {
   static const String onGoingScreen = "/onGoingScreen.dart";
   static const String upCommingScreen = "/upCommingScreen.dart";
   static const String nunnyBookingDetailsScreen = "/NunnyBookingDetailsScreen.dart";
+  static const String certificationsExperienceScreen = "/certificationsExperienceScreen.dart";
+  static const String preferenceScreen = "/preferenceScreen";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -117,6 +121,8 @@ class AppRoutes {
     GetPage(name: nunnHomeScreen, page: () => NunnyHomeScreen()),
     GetPage(name: nunnyBookingScreen, page: () => NunnyBookingScreen()),
     GetPage(name: nunnyBookingDetailsScreen, page: () => NunnyBookingDetailsScreen()),
+    GetPage(name: certificationsExperienceScreen, page: () => CertificationsExperienceScreen()),
+    GetPage(name: preferenceScreen, page: () => PreferenceScreen()),
 
   ];
 }
