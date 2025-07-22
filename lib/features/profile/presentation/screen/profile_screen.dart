@@ -34,7 +34,9 @@ class ProfileScreen extends StatelessWidget {
             
                 Stack(
                   children: [
-                    CommonImage(imageSrc: AppImages.profileBg),
+                    CommonImage(
+                        width: double.infinity,
+                        imageSrc: AppImages.profileBg),
 
                     Padding(
                       padding:  EdgeInsets.symmetric(horizontal: 8.w),

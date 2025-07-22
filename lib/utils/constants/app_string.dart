@@ -12,6 +12,7 @@ class AppString {
   static const String enterYourFullName = "Enter your full name";
   static const String enterYourName = "Enter your name";
   static const String cancel = "Cancel";
+  static const String cancelBooking = "Cancel Booking";
   static const String done = "Done";
   static const String deleteDetails =
       "All your changes will be deleted and you will no longer be able to access them.";
@@ -166,6 +167,7 @@ class AppString {
   static const String chooseTimeSlot = "Choose Time Slot";
   static const String chooseDate = "Choose Date";
   static const String startDate = "Start Date";
+  static const String startSession = "Start Session";
   static const String bookingType = "Booking Type";
   static const String fullDay = "Full Day";
   static const String custom = "Custom";
@@ -201,6 +203,12 @@ class AppString {
   static const String enterYourMessage = "Enter your message";
   static const String subject = "Subject";
   static const String send = "Send";
+  static const String accept = "Accept";
+  static const String decline = "Decline";
+  static const String bookingDetailsPage = "Booking Details Page";
+  static const String payment = "Payment";
+  static const String location = "Location";
+  static const String dateTime = "Date & Time";
   static const String onGoingBooking = "On going Booking";
   static const String upcomingBooking = "Upcoming Booking";
   static const String newBookingRequest = "New Booking Request";
@@ -211,5 +219,11 @@ class AppString {
   static const String todaysBooking = "Todays Booking";
   static const String ongoingBooking = "Ongoing Booking";
   static const String upcomingBookings = "Upcoming Bookings";
+  static const String bookingID = "Booking ID:";
+  static const String pending = "Pending";
+  static const String specialInstruction = "Special Instruction";
+  static const String reportUser = "Report User";
+  static const String giveFeedback = "Give Feedback";
+
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

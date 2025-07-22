@@ -37,17 +37,23 @@ class NunnyBookingScreen extends StatelessWidget {
           }
         ),
       ),
-      body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 20.w
-        ),
-        child: ListView.builder(
-            itemCount: 5,
+      body: GetBuilder(
+        init: NunnyBookingController(),
+        builder: (controller) {
+          return Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 20.w
+            ),
+            child: ListView.builder(
+                itemCount: 5,
 
 
-            itemBuilder: (context, index){
-              return HistoryItem();
+                itemBuilder: (context, index){
+                  return HistoryItem(status: controller.bookingType,);
 
-            }),
+
+                }),
+          );
+        }
       ),
       
       bottomNavigationBar: GetBuilder(

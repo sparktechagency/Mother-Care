@@ -49,5 +49,8 @@ class AppImages {
   static const String newRequest= "$baseurl/new_request.png";
   static const String ongoing= "$baseurl/ongoing.png";
   static const String upcomming= "$baseurl/upcomming.png";
+  static const String duration= "$baseurl/duration.png";
+  static const String map= "$baseurl/map.png";
+  static const String alertAmber= "$baseurl/alert_amber.png";
 
 }

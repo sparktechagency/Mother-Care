@@ -1,15 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:mother_care/features/another_screens/children/presentation/widget/remove_children_popup.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 import '../../../../../component/image/common_image.dart';
 import '../../../../../component/text/common_text.dart';
-import '../../../../../config/route/app_routes.dart';
 import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/constants/app_images.dart';
-import '../../../../../utils/constants/app_string.dart';
 
 class ChildrenItem extends StatelessWidget {
   const ChildrenItem({super.key});
@@ -70,7 +67,6 @@ class ChildrenItem extends StatelessWidget {
               ],
             ),
           ),
-
 
 
 
