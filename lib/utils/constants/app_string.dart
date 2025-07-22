@@ -236,5 +236,7 @@ class AppString {
   static const String company = "Company";
   static const String position = "Position";
   static const String submit = "Submit";
+  static const String ageGroupsYouWorkWith = "Age Groups You Work With*";
+  static const String servicesYouOffer = "Services You Offer*";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

@@ -4,13 +4,7 @@ import 'package:mother_care/features/another_screens/nunny_profile_screens/data/
 
 class CertificateAndExperienceController extends GetxController{
   List certificateList=[];
-  List<PreferenceModel> preferenceList=[
-    PreferenceModel(isSelected: false, title: "Infants (0-1)"),
-    PreferenceModel(isSelected: false, title: "Toddlers (1-3)"),
-    PreferenceModel(isSelected: false, title: "Preschool (3-5)"),
-    PreferenceModel(isSelected: false, title: "School age (5-12)"),
-    PreferenceModel(isSelected: false, title: "Teenagers (13+)"),
-  ];
+
   TextEditingController addCertificateAndExperienceController=TextEditingController(text: "1");
   TextEditingController experienceController=TextEditingController();
   TextEditingController positionController=TextEditingController();
@@ -24,10 +18,6 @@ class CertificateAndExperienceController extends GetxController{
   int experience=1;
 
 
-  togglePreference(int index){
-    preferenceList[index].isSelected=!preferenceList[index].isSelected;
-    update();
-  }
 
   getCertificate( ){
     if(addCertificateAndExperienceController.text.isEmpty){
