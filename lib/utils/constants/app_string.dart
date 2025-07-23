@@ -169,6 +169,9 @@ class AppString {
   static const String chooseTimeSlot = "Choose Time Slot";
   static const String chooseDate = "Choose Date";
   static const String startDate = "Start Date";
+  static const String startTime = "Start Time";
+  static const String endTime = "End Time";
+  static const String saveAvailability = "Save Availability";
   static const String endDate = "End Date";
   static const String startSession = "Start Session";
   static const String bookingType = "Booking Type";
@@ -240,6 +243,8 @@ class AppString {
   static const String position = "Position";
   static const String submit = "Submit";
   static const String dayRate = "Day Rate";
+  static const String monday = "Monday";
+  static const String setYourAvailability = "Set Your Availability";
   static const String ageGroupsYouWorkWith = "Age Groups You Work With*";
   static const String servicesYouOffer = "Services You Offer*";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";

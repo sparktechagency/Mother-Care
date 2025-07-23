@@ -69,7 +69,7 @@ class ProfileAllItem extends StatelessWidget {
                   iconColor: AppColors.primaryColor,
                   icon: Icons.calendar_month,
                   title: AppString.availability,
-                  onTap: () => Get.toNamed(AppRoutes.children),
+                  onTap: () => Get.toNamed(AppRoutes.availabilityScreen),
                 ),
 
 

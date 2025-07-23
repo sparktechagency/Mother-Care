@@ -4,6 +4,7 @@ import 'package:mother_care/features/another_screens/children/presentation/scree
 import 'package:mother_care/features/another_screens/children/presentation/screens/edit_children_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/widgets/availability_section.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/add_photo_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/certifications_experience_screen.dart';
@@ -20,6 +21,7 @@ import 'package:mother_care/features/onboarding_screen/screens/onboarding_three_
 import 'package:mother_care/features/profile/presentation/screen/notification_settings.dart';
 import 'package:mother_care/features/setting/presentation/screen/about_us_screen.dart';
 import '../../features/another_screens/nunny_dettails_by_parents/presentation/screens/nunny_dettails_screen.dart';
+import '../../features/another_screens/nunny_profile_screens/presentation/screens/availability_screen.dart';
 import '../../features/another_screens/parent_booking/presentation/screens/parent_booking_screen.dart';
 import '../../features/another_screens/parents_home/presentation/screens/parents_home_screen.dart';
 import '../../features/another_screens/saved/presentation/screens/saved_screens.dart';
@@ -88,6 +90,7 @@ class AppRoutes {
   static const String certificationsExperienceScreen = "/certificationsExperienceScreen.dart";
   static const String preferenceScreen = "/preferenceScreen";
   static const String serviceRateScreen = "/ServiceRateScreen";
+  static const String availabilityScreen = "/availabilityScreen";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -132,6 +135,7 @@ class AppRoutes {
     GetPage(name: galleryScreen, page: () => GalleryScreen()),
     GetPage(name: addPhotoGallery, page: () => AddPhotoGalleryScreen()),
     GetPage(name: serviceRateScreen, page: () => ServiceRateScreen()),
+    GetPage(name: availabilityScreen, page: () => ServiceAvailabilityScreen()),
 
   ];
 }
