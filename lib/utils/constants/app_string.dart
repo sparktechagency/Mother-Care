@@ -192,6 +192,7 @@ class AppString {
   static const String girl = "Girl";
   static const String update = "Update";
   static const String save = "Save";
+  static const String upload = "Upload";
   static const String uploadChildImage = "Upload Child Image";
   static const String dateOfBirthFormat = "DD / MM / YYYY";
   static const String enterChildFullName = "Enter child full name";

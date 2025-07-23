@@ -93,7 +93,7 @@ class ProfileAllItem extends StatelessWidget {
                   iconColor: AppColors.primaryColor,
                   icon: Icons.photo,
                   title: AppString.gallery,
-                  onTap: () => Get.toNamed(AppRoutes.children),
+                  onTap: () => Get.toNamed(AppRoutes.galleryScreen),
                 ),
 
 

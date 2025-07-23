@@ -5,7 +5,9 @@ import 'package:mother_care/features/another_screens/children/presentation/scree
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/add_photo_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/certifications_experience_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/gallery_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/preference_screen.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/screens/nunny_see_all_screen.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/screens/request_booking_screen.dart';
@@ -79,6 +81,8 @@ class AppRoutes {
   static const String nunnHomeScreen = "/nunnHomeScreen.dart";
   static const String onGoingScreen = "/onGoingScreen.dart";
   static const String upCommingScreen = "/upCommingScreen.dart";
+  static const String galleryScreen = "/galleryScreen.dart";
+  static const String addPhotoGallery = "/addPhotoGallery.dart";
   static const String nunnyBookingDetailsScreen = "/NunnyBookingDetailsScreen.dart";
   static const String certificationsExperienceScreen = "/certificationsExperienceScreen.dart";
   static const String preferenceScreen = "/preferenceScreen";
@@ -123,6 +127,8 @@ class AppRoutes {
     GetPage(name: nunnyBookingDetailsScreen, page: () => NunnyBookingDetailsScreen()),
     GetPage(name: certificationsExperienceScreen, page: () => CertificationsExperienceScreen()),
     GetPage(name: preferenceScreen, page: () => PreferenceScreen()),
+    GetPage(name: galleryScreen, page: () => GalleryScreen()),
+    GetPage(name: addPhotoGallery, page: () => AddPhotoGalleryScreen()),
 
   ];
 }
