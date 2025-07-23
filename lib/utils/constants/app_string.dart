@@ -158,6 +158,8 @@ class AppString {
   static const String estimateTotal = "Estimate Total";
   static const String extraBabyCharge = "Extra Baby charge:";
   static const String hourlyRate = "Hourly Rate:";
+  static const String enterHourlyRate = "Enter Hourly Rate";
+  static const String enterDailyRate = "Enter Daily Rate";
   static const String duration = "Duration";
   static const String kids = "Kids :";
   static const String addSpecialNoteForNanny = "Add special Note for Nanny";
@@ -237,6 +239,7 @@ class AppString {
   static const String company = "Company";
   static const String position = "Position";
   static const String submit = "Submit";
+  static const String dayRate = "Day Rate";
   static const String ageGroupsYouWorkWith = "Age Groups You Work With*";
   static const String servicesYouOffer = "Services You Offer*";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";

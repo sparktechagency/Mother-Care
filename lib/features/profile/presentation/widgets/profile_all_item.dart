@@ -78,7 +78,7 @@ class ProfileAllItem extends StatelessWidget {
                   iconColor: AppColors.primaryColor,
                   icon: Icons.account_circle_outlined,
                   title: AppString.serviceRates,
-                  onTap: () => Get.toNamed(AppRoutes.children),
+                  onTap: () => Get.toNamed(AppRoutes.serviceRateScreen),
                 ),
 
                 // Item(
