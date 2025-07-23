@@ -5,16 +5,11 @@ import 'package:mother_care/features/profile/presentation/widgets/profile_all_it
 import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
-import '../../../../config/route/app_routes.dart';
 import '../../../../component/bottom_nav_bar/common_bottom_bar.dart';
 import '../../../../component/image/common_image.dart';
-import '../../../../component/other_widgets/item.dart';
-import '../../../../component/pop_up/common_pop_menu.dart';
 import '../../../../component/text/common_text.dart';
-import '../../../../services/storage/storage_keys.dart';
 import '../controller/profile_controller.dart';
 import '../../../../utils/constants/app_images.dart';
-import '../../../../utils/constants/app_string.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -81,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                               text: "Mrs. Amina Okonkwo"),
 
-                          50.height,
+                          75.height,
                           ProfileAllItem()
                         ],
                       ),

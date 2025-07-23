@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/text/common_text.dart';
-import 'package:mother_care/features/another_screens/nunny_booking/presentation/widgets/children_list_and_instruction_section.dart';
+import 'package:mother_care/features/another_screens/booking_details_screen/presentation/widgets/children_list_and_instruction_section.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/accept_cancel_button_section.dart';
 import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';

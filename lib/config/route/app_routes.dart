@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
+import 'package:mother_care/features/another_screens/booking_details_screen/presentation/screens/reschedule_booking_screen.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/add_children_screen.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/childen_details_screen.dart';
 import 'package:mother_care/features/another_screens/children/presentation/screens/edit_children_screen.dart';
-import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_details_screen.dart';
+import 'package:mother_care/features/another_screens/booking_details_screen/presentation/screens/nunny_booking_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/widgets/availability_section.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
@@ -91,6 +92,7 @@ class AppRoutes {
   static const String preferenceScreen = "/preferenceScreen";
   static const String serviceRateScreen = "/ServiceRateScreen";
   static const String availabilityScreen = "/availabilityScreen";
+  static const String rescheduleBooking = "/rescheduleBooking";
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -136,6 +138,7 @@ class AppRoutes {
     GetPage(name: addPhotoGallery, page: () => AddPhotoGalleryScreen()),
     GetPage(name: serviceRateScreen, page: () => ServiceRateScreen()),
     GetPage(name: availabilityScreen, page: () => ServiceAvailabilityScreen()),
+    GetPage(name: rescheduleBooking, page: () => RescheduleBookingScreen()),
 
   ];
 }

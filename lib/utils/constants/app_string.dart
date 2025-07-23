@@ -6,6 +6,7 @@ class AppString {
   static const String youSureWantToLogout = "You sure want to logout";
   static const String no = "No";
   static const String yes = "Yes";
+  static const String yesCancel = "Yes, Cancel";
   static const String yesRemove = "Yes, Remove";
   static const String areYouSure = "Are you sure";
   static const String enterYouPassword = "Enter you password";
@@ -251,5 +252,7 @@ class AppString {
   static const String submitReport = "Submit a report";
   static const String giveReview = "Give Review";
   static const String reschedule = "Reschedule";
+  static const String cancelTitle = "Are you sure you want to cancel this booking?";
+  static const String cancelDes = "Canceling will remove your booking and may prevent rebooking for the same time.";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }
