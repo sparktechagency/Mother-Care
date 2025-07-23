@@ -11,7 +11,7 @@ class ApiEndPoint {
   static const resetPassword = "users/reset-password";
   static const changePassword = "users/change-password";
   static const user = "users";
-  static const notifications = "notifications";
+  static const notifications = "Notifications";
   static const privacyPolicies = "privacy-policies";
   static const termsOfServices = "terms-and-conditions";
   static const chats = "chats";

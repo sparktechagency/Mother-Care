@@ -6,9 +6,9 @@ import '../../../../utils/extensions/extension.dart';
 import '../../../../utils/constants/app_colors.dart';
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({super.key, required this.item});
+  const NotificationItem({super.key,});
 
-  final NotificationModel item;
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +16,18 @@ class NotificationItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 12.h),
       padding: EdgeInsets.all(12.sp),
       decoration: BoxDecoration(
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: AppColors.primaryColor),
+
       ),
       child: Row(
         children: [
           /// icon or image here
           CircleAvatar(
-            backgroundColor: AppColors.background,
-            radius: 35.r,
-            child: const ClipOval(
-              child: Icon(Icons.date_range, color: AppColors.primaryColor),
+            backgroundColor: Colors.green.shade50,
+            radius: 20.r,
+            child:  ClipOval(
+              child: Icon(Icons.notifications, color: Colors.green),
             ),
           ),
           16.width,
@@ -40,8 +41,8 @@ class NotificationItem extends StatelessWidget {
                     /// Notification Title here
                     Flexible(
                       child: CommonText(
-                        text: item.type,
-                        fontSize: 16,
+                        text:"Booking Confirmed",
+                        fontSize: 14,
                         fontWeight: FontWeight.w700,
                         textAlign: TextAlign.start,
                         maxLines: 1,
@@ -50,11 +51,11 @@ class NotificationItem extends StatelessWidget {
 
                     /// Notification Time here
                     CommonText(
-                      text: item.createdAt.checkTime,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+                      text:"9min ago",
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
                       textAlign: TextAlign.start,
-                      color: AppColors.black,
+                      color: AppColors.bodyClr,
                       maxLines: 1,
                     ),
                   ],
@@ -62,11 +63,11 @@ class NotificationItem extends StatelessWidget {
 
                 /// Notification Message here
                 CommonText(
-                  text: item.message,
-                  fontSize: 14,
+                  text:"Your booking with Tandiwe Amina for tomorrow, 9 AM to 1 PM, is confirmed!",
+                  fontSize: 12,
                   fontWeight: FontWeight.w400,
                   maxLines: 2,
-                  color: AppColors.black,
+                  color: AppColors.bodyClr,
                   textAlign: TextAlign.start,
                   bottom: 10,
                   top: 4,
