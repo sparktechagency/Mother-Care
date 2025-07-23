@@ -8,8 +8,8 @@ import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
-class ButtonSection extends StatelessWidget {
-  const ButtonSection({super.key});
+class NunnyButtonSection extends StatelessWidget {
+  const NunnyButtonSection({super.key});
 
   @override
   Widget build(BuildContext context) {

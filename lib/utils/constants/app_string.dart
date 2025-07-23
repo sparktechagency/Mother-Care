@@ -247,5 +247,9 @@ class AppString {
   static const String setYourAvailability = "Set Your Availability";
   static const String ageGroupsYouWorkWith = "Age Groups You Work With*";
   static const String servicesYouOffer = "Services You Offer*";
+  static const String extendSession = "Extend Session";
+  static const String submitReport = "Submit a report";
+  static const String giveReview = "Give Review";
+  static const String reschedule = "Reschedule";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
 }

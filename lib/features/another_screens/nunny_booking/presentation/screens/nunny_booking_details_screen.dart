@@ -4,11 +4,13 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/widgets/children_list_and_instruction_section.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/accept_cancel_button_section.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 import '../widgets/booking_and_date_time_section.dart';
+import '../widgets/parents_button_section.dart';
 
 class NunnyBookingDetailsScreen extends StatelessWidget {
   const NunnyBookingDetailsScreen({super.key});
@@ -46,7 +48,8 @@ class NunnyBookingDetailsScreen extends StatelessWidget {
               ChildrenListAndInstructionSection(),
 
               20.height,
-              ButtonSection(),
+              LocalStorage.myRoll=="nunny"?
+              NunnyButtonSection():ParentsButtonSection (),
               60.height
 
             ],
