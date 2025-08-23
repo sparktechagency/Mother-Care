@@ -202,6 +202,7 @@ class EditChildrenScreen extends StatelessWidget {
         padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 35.h),
         child: CommonButton(
 
+
             onTap: (){
               Get.back();
             },

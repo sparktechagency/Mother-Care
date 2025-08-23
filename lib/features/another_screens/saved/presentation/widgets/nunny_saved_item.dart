@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
+import 'package:mother_care/component/other_widgets/common_loader.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
@@ -29,6 +30,8 @@ class NunnySavedItem extends StatelessWidget {
         ),
         child: Row(
           children: [
+
+
 
             Expanded(
               flex: 1,
