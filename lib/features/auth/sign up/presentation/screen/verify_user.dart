@@ -179,7 +179,7 @@ class _VerifyUserState extends State<VerifyUser> {
                         isLoading: controller.isLoadingVerify,
                         onTap: () {
                           if (formKey.currentState!.validate()) {
-                            Get.toNamed(AppRoutes.accountVerifiedScreen);
+                          controller.verifyOtpRepo();
                           }
                         },
                       ),

@@ -102,8 +102,9 @@ class AddPhotoScreen extends StatelessWidget {
                     100.height,
 
                     CommonButton(
+                      isLoading: controller.isLoading,
                         onTap: (){
-                          Get.toNamed(AppRoutes.signIn);
+                     //   controller.addImageRepo();
                         },
                         titleText: AppString.continues),
 

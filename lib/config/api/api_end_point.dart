@@ -1,14 +1,14 @@
 class ApiEndPoint {
-  static const baseUrl = "http://103.145.138.74:3000/api/v1";
-  static const imageUrl = "http://103.145.138.74:3000";
-  static const socketUrl = "http://103.145.138.74:3001";
+  static const baseUrl = "http://10.10.7.111:5001/api/v1";
+  static const imageUrl = "http://10.10.7.111:5001";
+  static const socketUrl = "http://10.10.7.111:5001";
 
-  static const signUp = "users/sign-up";
-  static const verifyEmail = "users/verify-email";
+  static const signUp = "$baseUrl/users";
+  static const verifyEmail = "$baseUrl/auth/verify-email";
   static const signIn = "users/sign-in";
-  static const forgotPassword = "users/forget-password";
-  static const verifyOtp = "users/verify-otp";
-  static const resetPassword = "users/reset-password";
+  static const forgotPassword = "$baseUrl/auth/forget-password";
+  static const verifyOtp = "$baseUrl/auth/verify-email";
+  static const resetPassword = "$baseUrl/auth/reset-password";
   static const changePassword = "users/change-password";
   static const user = "users";
   static const notifications = "Notifications";
@@ -16,4 +16,5 @@ class ApiEndPoint {
   static const termsOfServices = "terms-and-conditions";
   static const chats = "chats";
   static const messages = "messages";
+  static const profile = "$baseUrl/users/profile";
 }
