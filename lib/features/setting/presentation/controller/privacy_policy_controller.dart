@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import '../../data/model/html_model.dart';
 import '../../../../services/api/api_service.dart';
@@ -18,14 +20,16 @@ class PrivacyPolicyController extends GetxController {
 
   /// Privacy Policy Api call here
   getPrivacyPolicyRepo() async {
-    return;
+    // return;
     status = Status.loading;
     update();
 
-    var response = await ApiService.get(ApiEndPoint.privacyPolicies);
+    var response = await ApiService.get(ApiEndPoint.privacyPolicyUrl);
 
     if (response.statusCode == 200) {
-      data = HtmlModel.fromJson(response.data['data']['attributes']);
+      log("✅✅✅ Value of response ${response.data["data"]["content"]}");
+
+      data = HtmlModel.fromJson(response.data["data"]);
 
       status = Status.completed;
       update();

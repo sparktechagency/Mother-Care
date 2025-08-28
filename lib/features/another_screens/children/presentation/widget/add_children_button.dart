@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -15,15 +13,15 @@ class AddChildrenButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.toNamed(AppRoutes.addChildrenScreen);
+        Get.toNamed(AppRoutes.addChildrenScreen,arguments: "Add Children");
       },
       child: Container(
         margin: const EdgeInsets.only(left: 21, right: 21, bottom: 20),
         width:double.infinity,
         height: 56.h,
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(60.r)
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(60.r)
         ),
 
         child: Row(
@@ -31,7 +29,7 @@ class AddChildrenButton extends StatelessWidget {
           children: [
             Icon(Icons.child_care_outlined, color: AppColors.white,),
             CommonText(
-              left: 6,              color: AppColors.white,
+                left: 6,              color: AppColors.white,
                 fontSize:16,
                 fontWeight: FontWeight.w700,
                 text: AppString.addChildren)

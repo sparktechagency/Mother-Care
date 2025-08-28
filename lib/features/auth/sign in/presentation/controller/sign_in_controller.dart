@@ -11,38 +11,29 @@ class SignInController extends GetxController {
   /// Sign in Button Loading variable
   bool isLoading = false;
 
-  bool isRemember=false;
+  bool isRemember = false;
 
   /// Sign in form key , help for Validation
   final formKey = GlobalKey<FormState>();
 
   /// email and password Controller here
   TextEditingController emailController = TextEditingController(
-    text: kDebugMode ? 'developernaimul00@gmail.com' : '',
+    text: kDebugMode ? 'parent@gmail.com' : '',
   );
   TextEditingController passwordController = TextEditingController(
-    text: kDebugMode ? 'hello123' : "",
+    text: kDebugMode ? 'user@1234' : "",
   );
 
   //================isRemember Toggle============
 
-
-
-  isRememberToggle(){
-    isRemember=!isRemember;
+  isRememberToggle() {
+    isRemember = !isRemember;
     update();
   }
 
   /// Sign in Api call here
 
   Future<void> signInUser() async {
-    if (!formKey.currentState!.validate()) return;
-
-    LocalStorage.myRoll=="nunny"?Get.toNamed(AppRoutes.nunnHomeScreen):Get.toNamed(AppRoutes.parentHomeScreen);
-
-
-    return;
-
     isLoading = true;
     update();
 
@@ -59,26 +50,30 @@ class SignInController extends GetxController {
     if (response.statusCode == 200) {
       var data = response.data;
 
-      LocalStorage.token = data['data']["accessToken"];
-      LocalStorage.userId = data['data']["attributes"]["_id"];
-      LocalStorage.myImage = data['data']["attributes"]["image"];
-      LocalStorage.myName = data['data']["attributes"]["fullName"];
+      LocalStorage.userId = data['data']['user']['_id'];
 
-      LocalStorage.myEmail = data['data']["attributes"]["email"];
+      LocalStorage.token = data['data']["token"];
+      if (data['data']["user"]["role"] == "PARENT") {
+        LocalStorage.myRoll = "parents";
+      } else {
+        LocalStorage.myRoll = "nunny";
+      }
+
+
+
       LocalStorage.isLogIn = true;
-
       LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
-      LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
       LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);
-      LocalStorage.setString(LocalStorageKeys.myImage, LocalStorage.myImage);
-      LocalStorage.setString(LocalStorageKeys.myName, LocalStorage.myName);
-      LocalStorage.setString(LocalStorageKeys.myEmail, LocalStorage.myEmail);
-
-      // if (LocalStorage.myRole == 'consultant') {
-      //   Get.offAllNamed(AppRoutes.doctorHome);
-      // } else {
-      //   Get.offAllNamed(AppRoutes.patientsHome);
-      // }
+      LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
+      LocalStorage.setString(LocalStorageKeys.myRoll, LocalStorage.myRoll);
+      // LocalStorage.myRoll == "nunny"
+      //     ? Get.toNamed(AppRoutes.nunnHomeScreen)
+      //     : Get.toNamed(AppRoutes.parentHomeScreen);
+      if (LocalStorage.myRoll == 'parents') {
+        Get.offAllNamed(AppRoutes.parentHomeScreen);
+      } else {
+        Get.offAllNamed(AppRoutes.nunnHomeScreen);
+      }
 
       emailController.clear();
       passwordController.clear();

@@ -95,7 +95,7 @@ class SignInScreen extends StatelessWidget {
                           ),
 
                           /// Account Email Input here
-                           CommonText(
+                          CommonText(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               text: AppString.email, bottom: 8),
@@ -208,15 +208,15 @@ class SignInScreen extends StatelessWidget {
                                 width: 96.w,
                                 color: AppColors.textFiledColor,
                               ),
-                              
+
                               CommonText(
-                                left: 8,
+                                  left: 8,
                                   right: 8,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                   text: AppString.orLoginWith),
 
-                              
+
 
                               Container(
                                 height: 1,

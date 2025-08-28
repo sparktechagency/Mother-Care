@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/countries.dart';
+import 'package:mother_care/utils/constants/app_string.dart';
 
 import '../../../../../config/route/app_routes.dart';
 import '../../../../../services/api/api_service.dart';
@@ -75,26 +76,29 @@ class SignUpController extends GetxController {
     update();
   }
 
-  signUpUser() async {
-    if (!signUpFormKey.currentState!.validate()) return;
-    Get.toNamed(AppRoutes.verifyUser);
-    return;
+  signUpUser({role}) async {
     isLoading = true;
+    String userRole="";
+
+    if(role=="parent"){
+      userRole="PARENT";
+    }else{
+      userRole="NANNY";
+    }
+
+
     update();
     Map<String, String> body = {
-      "fullName": nameController.text,
+      "name": nameController.text,
       "email": emailController.text,
-      "phoneNumber": numberController.text,
-      "countryCode": countryCode,
+      "role": userRole,
       "password": passwordController.text,
-      "role": selectRole.toLowerCase(),
+
     };
 
     var response = await ApiService.post(ApiEndPoint.signUp, body: body);
 
     if (response.statusCode == 200) {
-      var data = response.data;
-      signUpToken = data['data']['signUpToken'];
       Get.toNamed(AppRoutes.verifyUser);
     } else {
       Utils.errorSnackBar(response.statusCode.toString(), response.message);
@@ -104,8 +108,8 @@ class SignUpController extends GetxController {
   }
 
   void startTimer() {
-    _timer?.cancel(); // Cancel any existing timer
-    start = 180; // Reset the start value
+    _timer?.cancel();
+    start = 180;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (start > 0) {
         start--;
@@ -122,41 +126,22 @@ class SignUpController extends GetxController {
   }
 
   Future<void> verifyOtpRepo() async {
-    Get.toNamed(AppRoutes.signIn);
-    return;
 
     isLoadingVerify = true;
     update();
-    Map<String, String> body = {"otp": otpController.text};
-    Map<String, String> header = {"SignUpToken": "signUpToken $signUpToken"};
+    Map<String, dynamic> body = {
+      "oneTimeCode": int.parse(otpController.text),
+      "email": emailController.text,
+
+    };
+
     var response = await ApiService.post(
-      ApiEndPoint.verifyEmail,
+      ApiEndPoint.verifyOtp,
       body: body,
-      header: header,
     );
 
     if (response.statusCode == 200) {
-      var data = response.data;
-
-      LocalStorage.token = data['data']["accessToken"];
-      LocalStorage.userId = data['data']["attributes"]["_id"];
-      LocalStorage.myImage = data['data']["attributes"]["image"];
-      LocalStorage.myName = data['data']["attributes"]["fullName"];
-      LocalStorage.myEmail = data['data']["attributes"]["email"];
-      LocalStorage.isLogIn = true;
-
-      LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
-      LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
-      LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);
-      LocalStorage.setString(LocalStorageKeys.myImage, LocalStorage.myImage);
-      LocalStorage.setString(LocalStorageKeys.myName, LocalStorage.myName);
-      LocalStorage.setString(LocalStorageKeys.myEmail, LocalStorage.myEmail);
-
-      // if (LocalStorage.myRole == 'consultant') {
-      //   Get.toNamed(AppRoutes.personalInformation);
-      // } else {
-      //   Get.offAllNamed(AppRoutes.patientsHome);
-      // }
+     Get.toNamed(AppRoutes.accountVerifiedScreen);
     } else {
       Get.snackbar(response.statusCode.toString(), response.message);
     }

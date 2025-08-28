@@ -11,25 +11,46 @@ import 'package:mother_care/utils/extensions/extension.dart';
 import '../../../../../utils/constants/app_colors.dart';
 
 class HistoryItem extends StatelessWidget {
-  String status;
-  HistoryItem({super.key,required this.status});
+  final String status;
+  final String bookingId;
+  final String amount;
+  final String parentsName;
+  final String date;
+  final String startTime;
+  final String endTime;
+  final String location;
+  final String? bookingType;
+  const HistoryItem({
+    super.key,
+    required this.status,
+    required this.amount,
+    required this.parentsName,
+    required this.date,
+    required this.startTime,
+    required this.endTime,
+    required this.location,
+    required this.bookingId,
+    this.bookingType,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        Get.toNamed(AppRoutes.nunnyBookingDetailsScreen);
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 12.w),
-        margin: EdgeInsets.symmetric(vertical: 8.h),
-        width: double.infinity,
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 12.w),
+      margin: EdgeInsets.symmetric(vertical: 8.h),
+      width: double.infinity,
 
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(6.r),
-        ),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(6.r),
+      ),
 
+      child: InkWell(
+
+        onTap: (){
+          Get.toNamed(AppRoutes.nunnyBookingDetailsScreen, arguments: bookingId);
+
+        },
         child: Row(
           children: [
             ClipOval(
@@ -53,7 +74,7 @@ class HistoryItem extends StatelessWidget {
                       CommonText(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        text: "Zara Taylor",
+                        text: parentsName, //"Zara Taylor",
                       ),
 
                       CommonText(
@@ -61,7 +82,7 @@ class HistoryItem extends StatelessWidget {
 
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor,
-                        text: "\$60",
+                        text: "\$$amount", // "\$60",
                       ),
                     ],
                   ),
@@ -69,16 +90,25 @@ class HistoryItem extends StatelessWidget {
 
                   Row(
                     children: [
-
-                   Icon(Icons.calendar_month, color: AppColors.bodyClr,),
+                      Icon(Icons.calendar_month, color: AppColors.bodyClr),
                       5.width,
-                      CommonText(
-                        fontSize: 12,
-                        top: 3,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.bodyClr,
-                        text: "25 March 25 | 09:30am - 3:00pm",
-                      ),
+                      bookingType != 'FULL_DAY'
+                          ? CommonText(
+                              fontSize: 12,
+                              top: 3,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.bodyClr,
+                              text:
+                                  '$date | $startTime - $endTime', //"25 March 25 | 09:30am - 3:00pm",
+                            )
+                          : CommonText(
+                              fontSize: 12,
+                              top: 3,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.bodyClr,
+                              text:
+                                  ' $startTime | $endTime', //"25 March 25 | 09:30am - 3:00pm",
+                            ),
                     ],
                   ),
 
@@ -86,63 +116,62 @@ class HistoryItem extends StatelessWidget {
 
                   Row(
                     children: [
-
-                   Icon(Icons.location_on_outlined, color: AppColors.bodyClr,),
+                      Icon(Icons.location_on_outlined, color: AppColors.bodyClr),
                       5.width,
                       CommonText(
                         fontSize: 12,
                         top: 3,
                         fontWeight: FontWeight.w400,
                         color: AppColors.bodyClr,
-                        text: "123 Ngong Road, Nairobi, Kenya",
+                        text: location, //"123 Ngong Road, Nairobi, Kenya",
                       ),
                     ],
                   ),
 
-               if(status!="upComing" && status!="onGoing" && status!="newRequest")   CommonText(
-                      color: Colors.green,
-                      text: "Completed"),
+                  if (status != "upComing" &&
+                      status != "onGoing" &&
+                      status != "newRequest")
+                    CommonText(color: Colors.green, text: "COMPLETED"),
 
-                  if(status=="newRequest")Row(children: [
+                  if (status == "newRequest")
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(60.r),
+                          ),
+                          child: CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.white,
+                            text: AppString.accept,
+                          ),
+                        ),
 
-                    Container(
-                      margin: EdgeInsets.only(top: 6.h),
-                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(60.r)
-                      ),
-                      child: CommonText(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.white,
-                          text: AppString.accept),
+                        12.width,
+
+                        Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                          decoration: BoxDecoration(
+                            color: AppColors.red,
+                            borderRadius: BorderRadius.circular(60.r),
+                          ),
+                          child: CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.white,
+                            text: AppString.decline,
+                          ),
+                        ),
+                      ],
                     ),
-
-                    12.width,
-
-
-                    Container(
-                      margin: EdgeInsets.only(top: 6.h),
-                      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                      decoration: BoxDecoration(
-                        color: AppColors.red,
-                        borderRadius: BorderRadius.circular(60.r)
-                      ),
-                      child: CommonText(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: AppColors.white,
-                          text: AppString.decline),
-                    ),
-                  ],)
                 ],
               ),
             ),
-
-
-
-
           ],
         ),
       ),

@@ -17,8 +17,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       /// Body Section Starts here
       body: GetBuilder<ProfileController>(
         builder: (controller) {
@@ -26,69 +24,75 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 /// User Profile Image here
-            
                 Stack(
                   children: [
                     CommonImage(
-                        width: double.infinity,
-                        imageSrc: AppImages.profileBg),
+                      width: double.infinity,
+                      imageSrc: AppImages.profileBg,
+                    ),
 
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 8.w),
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-
                           45.height,
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
-                            child: InkWell(
-                              onTap: (){
+                            child:
+                            InkWell(
+                              onTap: () {
                                 Get.back();
                               },
                               child: Icon(
-                                  color: AppColors.white,
-                                  Icons.arrow_back_ios),
+                                color: AppColors.white,
+                                Icons.arrow_back_ios,
+                              ),
                             ).start,
                           ),
 
                           10.height,
+                          Obx(
+                                ()=> controller.isLoadingProfileLoad.value
+                                ? CircularProgressIndicator(color: Colors.white)
+                                : Column(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.all(2),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.white,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: ClipOval(
+                                    child: CommonImage(
+                                      fill: BoxFit.fill,
+                                      height: 100,
+                                      width: 100,
+                                      imageSrc: controller.profileData.profileImage ?? "",
 
-                          Container(
-                            padding: EdgeInsets.all(2),
-                            decoration: BoxDecoration(
-                                color: AppColors.white,
-                                shape: BoxShape.circle
+                                      // imageSrc: AppImages.female,
+                                    ),
+                                  ),
+                                ).center,
+
+                                CommonText(
+                                  top: 12,
+                                  fontSize: 18,
+                                  color: AppColors.white,
+                                  fontWeight: FontWeight.w700,
+                                  text: controller.profileData.name ?? "",
+                                ),
+                              ],
                             ),
-                            child: ClipOval(
-                              child: CommonImage(
-                                  height: 100,
-                                  width: 100,
-
-                                  imageSrc: AppImages.female),
-                            ),
-                          ).center,
-
-                          CommonText(
-                              top: 12,
-                              fontSize: 18,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.w700,
-                              text: "Mrs. Amina Okonkwo"),
+                          ),
 
                           75.height,
-                          ProfileAllItem()
+                          ProfileAllItem(),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
-
-
-
-            
-
-
               ],
             ),
           );
@@ -96,7 +100,9 @@ class ProfileScreen extends StatelessWidget {
       ),
 
       /// Bottom Navigation Bar Section Starts here
-      bottomNavigationBar:  CommonBottomNavBar(currentIndex:LocalStorage.myRoll=="parents"? 4:3),
+      bottomNavigationBar: CommonBottomNavBar(
+        currentIndex: LocalStorage.myRoll == "parents" ? 4 : 3,
+      ),
     );
   }
 }

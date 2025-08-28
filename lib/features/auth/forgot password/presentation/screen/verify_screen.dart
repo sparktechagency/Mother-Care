@@ -154,8 +154,9 @@ class _VerifyScreenState extends State<VerifyScreen> {
                             text: AppString.otpSent),
                         controller.time == '00:00'? InkWell(
                           onTap: (){
-                            controller.startTimer();
-                            controller.forgotPasswordRepo();
+                            controller.resentOtp();
+
+                            //controller.forgotPasswordRepo();
                           },
                           child: CommonText(
                             top: 5,
