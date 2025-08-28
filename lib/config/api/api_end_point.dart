@@ -5,7 +5,6 @@ class ApiEndPoint {
 
   static const signUp = "$baseUrl/users";
   static const verifyEmail = "$baseUrl/auth/verify-email";
-  static const signIn = "users/sign-in";
   static const forgotPassword = "$baseUrl/auth/forget-password";
   static const verifyOtp = "$baseUrl/auth/verify-email";
   static const resetPassword = "$baseUrl/auth/reset-password";
@@ -17,4 +16,25 @@ class ApiEndPoint {
   static const chats = "chats";
   static const messages = "messages";
   static const profile = "$baseUrl/users/profile";
+  static const resendOtp = "$baseUrl/auth/resend-otp";
+
+
+
+  //=============ajay
+
+  static const editProfileUrl = "/users/profile";
+  static const getProfileUrl = "/users/profile";
+  static const getBookmarkListUrl = "/bookmarks";
+  static const childrenUrl = "/childrens";
+  static const supports = "/supports";
+  static const termsAndConditionsUrl = "/rules/terms-and-conditions";
+  static const privacyPolicyUrl = "/rules/privacy-policy";
+  static const aboutUsUrl = "/rules/about";
+  static const parentsHomepageGetNannies = "/users/nearby-nannies";
+  static const getNannyDetailsUrl = "/users/nanny/";
+  static const getBannerUrl = "/banners";
+  static const bookmarkUrl = "/bookmarks";
+  static const chatUrl = "/chats";
+  static const signIn = "/auth/login";
+
 }

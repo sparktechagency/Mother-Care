@@ -18,10 +18,10 @@ class SignInController extends GetxController {
 
   /// email and password Controller here
   TextEditingController emailController = TextEditingController(
-    text: kDebugMode ? 'developernaimul00@gmail.com' : '',
+    text: kDebugMode ? 'parent@gmail.com' : '',
   );
   TextEditingController passwordController = TextEditingController(
-    text: kDebugMode ? 'hello123' : "",
+    text: kDebugMode ? 'user@1234' : "",
   );
 
   //================isRemember Toggle============
@@ -34,10 +34,6 @@ class SignInController extends GetxController {
   /// Sign in Api call here
 
   Future<void> signInUser() async {
-
-
-
-
     isLoading = true;
     update();
 
@@ -55,7 +51,11 @@ class SignInController extends GetxController {
       var data = response.data;
 
       LocalStorage.token = data['data']["token"];
-      LocalStorage.myRoll = data['data']["user"]["role"];
+      if (data['data']["user"]["role"] == "PARENT") {
+        LocalStorage.myRoll = "parents";
+      } else {
+        LocalStorage.myRoll = "nunny";
+      }
 
       LocalStorage.isLogIn = true;
       LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
@@ -65,10 +65,10 @@ class SignInController extends GetxController {
       // LocalStorage.myRoll == "nunny"
       //     ? Get.toNamed(AppRoutes.nunnHomeScreen)
       //     : Get.toNamed(AppRoutes.parentHomeScreen);
-      if (LocalStorage.myRoll == 'PARENT') {
-        Get.offAllNamed(AppRoutes.nunnHomeScreen);
-      } else {
+      if (LocalStorage.myRoll == 'parents') {
         Get.offAllNamed(AppRoutes.parentHomeScreen);
+      } else {
+        Get.offAllNamed(AppRoutes.nunnHomeScreen);
       }
 
       emailController.clear();

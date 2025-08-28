@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../utils/constants/app_colors.dart';
 import '../text/common_text.dart';
 
 class CommonTextField extends StatefulWidget {
-  CommonTextField({
+  const CommonTextField({
     super.key,
     this.hintText,
     this.labelText,
     this.prefixIcon,
     this.isPassword = false,
+    this.readOnly = false,
     this.controller,
     this.textInputAction = TextInputAction.next,
     this.keyboardType = TextInputType.text,
@@ -50,6 +50,7 @@ class CommonTextField extends StatefulWidget {
   final int? mexLength;
   final int? maxline;
   final bool isPassword;
+  final bool readOnly;
   final Function(String)? onSubmitted;
   final VoidCallback? onTap;
   final TextEditingController? controller;
@@ -68,6 +69,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       autovalidateMode: AutovalidateMode.onUnfocus,
       keyboardType: widget.keyboardType,
       controller: widget.controller,
@@ -75,8 +77,9 @@ class _CommonTextFieldState extends State<CommonTextField> {
       obscureText: widget.isPassword ? _obscureText : false,
       textInputAction: widget.textInputAction,
       maxLength: widget.mexLength,
-      cursorColor: AppColors.white,
+      cursorColor: AppColors.black,
       inputFormatters: widget.inputFormatters,
+      readOnly: widget.readOnly,
       style: TextStyle(fontSize: 14, color: widget.textColor),
       onFieldSubmitted: widget.onSubmitted,
       onTap: widget.onTap,

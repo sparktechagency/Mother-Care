@@ -26,12 +26,15 @@ class EditProfile extends StatelessWidget {
             shadowColor: AppColors.transparent,
             backgroundColor: AppColors.white,
             leading: InkWell(
-                onTap: (){
-                  Get.back();
-                },
-                child: Icon(
-                  color: AppColors.textFiledColor,
-                  Icons.arrow_back_ios, size: 23.sp,)),
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(
+                color: AppColors.textFiledColor,
+                Icons.arrow_back_ios,
+                size: 23.sp,
+              ),
+            ),
             centerTitle: true,
             title: const CommonText(
               text: AppString.editInformation,
@@ -51,23 +54,42 @@ class EditProfile extends StatelessWidget {
                   Stack(
                     children: [
                       Center(
-                        child: CircleAvatar(
-                          radius: 47.sp,
-                          backgroundColor: Colors.transparent,
-                          child: ClipOval(
-                            child:
+                        child: GestureDetector(
+                          onTap: controller.getProfileImage,
+                          child: Container(
+                            padding: EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Colors.grey.shade400,
+                            ),
+                            child: CircleAvatar(
+                              radius: 47.sp,
+                              backgroundColor: Colors.transparent,
+                              child: ClipOval(
+                                child:
                                 controller.image != null
                                     ? Image.file(
-                                      File(controller.image!),
-                                      width: 93.h,
-                                      height: 93.h,
-                                      fit: BoxFit.fill,
-                                    )
-                                    : const CommonImage(
-                                      imageSrc: AppImages.profile,
-                                      height: 93,
-                                      width: 93,
-                                    ),
+                                  File(controller.image!),
+                                  width: 93.h,
+                                  height: 93.h,
+                                  fit: BoxFit.fill,
+                                )
+                                    : controller.oldIage != null ?
+                                Image.network(
+                                  controller.oldIage ?? "",
+                                  width: 93.h,
+                                  height: 93.h,
+                                  fit: BoxFit.fill,
+                                )
+                                    :
+
+                                const CommonImage(
+                                  imageSrc: AppImages.profile,
+                                  height: 93,
+                                  width: 93,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -81,13 +103,18 @@ class EditProfile extends StatelessWidget {
                           child: Container(
                             padding: EdgeInsets.all(5.r),
                             decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: AppColors.white),
+                              border: Border.all(
+                                width: 2,
+                                color: AppColors.white,
+                              ),
                               color: AppColors.primaryColor,
-                              shape: BoxShape.circle
+                              shape: BoxShape.circle,
                             ),
                             child: Icon(
-                                size: 15.sp,
-                                Icons.edit, color: Colors.white),
+                              size: 15.sp,
+                              Icons.edit,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
@@ -102,8 +129,11 @@ class EditProfile extends StatelessWidget {
                   CommonButton(
                     titleText: AppString.updateInfo,
                     isLoading: controller.isLoading,
-                    onTap:(){
-                      Get.back();
+                    onTap: () {
+
+                      controller.editProfileRepo();
+
+                      // Get.back();
                     },
                   ),
                 ],

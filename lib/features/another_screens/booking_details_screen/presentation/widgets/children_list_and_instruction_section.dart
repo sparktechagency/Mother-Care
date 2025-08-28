@@ -41,7 +41,8 @@ class ChildrenListAndInstructionSection extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 2,
                   itemBuilder: (context, index){
-                return ChildrenItem();
+                    return SizedBox();
+                // return ChildrenItem();
               }),
 
 

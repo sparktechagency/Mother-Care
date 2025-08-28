@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 import '../../config/route/app_routes.dart';
 import 'package:get/get.dart';
@@ -17,15 +17,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      // if (LocalStorage.isLogIn) {
-      //   if (LocalStorage.myRole == 'consultant') {
-      //     Get.offAllNamed(AppRoutes.doctorHome);
-      //   } else {
-      //     Get.offAllNamed(AppRoutes.patientsHome);
-      //   }
-      // } else {
-         Get.offAllNamed(AppRoutes.onboarding);
+      if (LocalStorage.isLogIn) {
+        if (LocalStorage.myRoll == 'parents') {
+          Get.offAllNamed(AppRoutes.parentHomeScreen);
+        } else {
+          Get.offAllNamed(AppRoutes.nunnHomeScreen);
+        }
+      } else {
+        Get.offAllNamed(AppRoutes.onboarding);
+      }
     });
+
     super.initState();
   }
 

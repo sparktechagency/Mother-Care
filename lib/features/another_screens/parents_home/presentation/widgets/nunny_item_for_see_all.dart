@@ -5,16 +5,20 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
-import 'package:mother_care/features/another_screens/parents_home/presentation/controller/parents_home_controller.dart';
+import 'package:mother_care/features/another_screens/parents_home/presentation/controller/nanny_see_all_controller.dart';
 import 'package:mother_care/features/another_screens/parents_home/presentation/model/nanny_model.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
-class NunnyItem extends StatelessWidget {
-  const NunnyItem({super.key, required this.item, required this.controller});
+class NunnyItemForSeeAll extends StatelessWidget {
+  const NunnyItemForSeeAll({
+    super.key,
+    required this.item,
+    required this.controller,
+  });
   final NannyModel item;
-  final ParentsHomeController controller;
+  final NannySeeAllController controller;
   @override
   Widget build(BuildContext context) {
     RxBool isLoadingBookmark = false.obs;
@@ -59,7 +63,7 @@ class NunnyItem extends StatelessWidget {
                         right: 4,
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        text: item.name ?? "N/A",
+                    text: item.name ?? "N/A",
                       ),
 
                       CommonImage(
@@ -79,7 +83,6 @@ class NunnyItem extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                         text: item.address ?? "N/A",
-                        // text: "0.31 mi away",
                       ),
                     ],
                   ),
@@ -137,7 +140,6 @@ class NunnyItem extends StatelessWidget {
                               ),
                     ),
                   ),
-
                   if (item.servicerates?.length != 0)
                     CommonText(
                       top: 8,

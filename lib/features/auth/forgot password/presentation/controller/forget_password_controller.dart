@@ -99,15 +99,31 @@ class ForgetPasswordController extends GetxController {
     update();
   }
 
+  ///Resend otp
+
+
+  resentOtp()async{
+    var body={
+      "email":emailController.text
+    };
+    
+    var response=await ApiService.post(ApiEndPoint.resendOtp, body: body);
+
+    if(response.statusCode==200){
+      startTimer();
+    }
+
+  }
+
   /// Verify OTP Api Call
 
   Future<void> verifyOtpRepo() async {
 
     isLoadingVerify = true;
     update();
-    Map<String, String> body = {
+    Map<String, dynamic> body = {
       "email": emailController.text,
-      "oneTimeCode": otpController.text,
+      "oneTimeCode": int.parse(otpController.text),
     };
     var response = await ApiService.post(ApiEndPoint.verifyOtp, body: body);
 

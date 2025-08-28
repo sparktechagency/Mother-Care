@@ -1,47 +1,54 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
-import 'package:mother_care/component/other_widgets/common_loader.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
+import 'package:mother_care/features/another_screens/saved/presentation/controller/saved_screen_controller.dart';
+import 'package:mother_care/features/another_screens/saved/presentation/model/bookmark_model.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 class NunnySavedItem extends StatelessWidget {
-  const NunnySavedItem({super.key});
-
+  const NunnySavedItem({
+    super.key,
+    required this.item,
+    required this.controller,
+    required this.isLoadingBookmark,
+  });
+  final BookmarkModel item;
+  final SavedScreenController controller;
+  final RxBool isLoadingBookmark;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:(){
-        Get.toNamed(AppRoutes.nunnyDetailsScreen);
+      onTap: () {
+        Get.toNamed(AppRoutes.nunnyDetailsScreen, arguments: item.nanny?.id);
       },
       child: Container(
-
         margin: EdgeInsets.symmetric(vertical: 6),
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(12.r),
 
-            color: AppColors.white
+          color: AppColors.white,
         ),
         child: Row(
           children: [
-
-
-
             Expanded(
               flex: 1,
               child: CircleAvatar(
                 radius: 25,
                 child: ClipOval(
                   child: CommonImage(
-                      height: 50,
-                      width: 50,
-                      imageSrc: AppImages.female),
+                    height: 50,
+                    width: 50,
+                    fill: BoxFit.fill,
+                    imageSrc: item.nanny?.profileImage ?? "",
+                    // imageSrc: AppImages.female,
+                  ),
                 ),
               ),
             ),
@@ -52,40 +59,34 @@ class NunnySavedItem extends StatelessWidget {
               flex: 4,
               child: Column(
                 children: [
-
                   Row(
                     children: [
                       CommonText(
-                          right: 4,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          text: "Tandiwe Amina"),
+                        right: 4,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        text: item.nanny?.name ?? "N/A",
+                      ),
 
                       CommonImage(
-                          height: 20,
-                          width: 20,
-                          imageSrc: AppImages.verifiedBatch
-                      )
-
-
-
-
-
+                        height: 20,
+                        width: 20,
+                        imageSrc: AppImages.verifiedBatch,
+                      ),
                     ],
                   ),
 
                   Row(
                     children: [
-
-                      Icon(
-                          size: 16,
-                          Icons.location_on_outlined),
+                      Icon(size: 16, Icons.location_on_outlined),
 
                       CommonText(
-                          top: 2,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          text: "0.31 mi away")
+                        top: 2,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        text: item.nanny?.address ?? "N/A",
+                        // text: "0.31 mi away",
+                      ),
                     ],
                   ),
 
@@ -93,59 +94,65 @@ class NunnySavedItem extends StatelessWidget {
 
                   Row(
                     children: [
-
-                      Icon(
-                          size: 10,
-                          color: Colors.amber,
-                          Icons.star),
+                      Icon(size: 10, color: Colors.amber, Icons.star),
 
                       CommonText(
-                          top: 2,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          text: "4.8 (120  Reviews)")
+                        top: 2,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        text:
+                        "${item.nanny?.averageRating ?? 0} (${item.nanny?.totalReviews ?? 0}  Reviews)",
+                        // text: "4.8 (120  Reviews)",
+                      ),
                     ],
                   ),
-
-
-
-
-
                 ],
               ),
             ),
 
             Expanded(
-                flex: 1,
-                child: Column(
-                  children: [
-                    Icon(
+              flex: 1,
+              child: Column(
+                children: [
+                  Obx(
+                        () => IconButton(
+                      onPressed: () async {
+                        await controller.removeBookmarkFunction(
+                          item,
+                          isLoadingBookmark,
+                        );
+                      },
+                      icon:
+                      isLoadingBookmark.value
+                          ? CupertinoActivityIndicator(color: Colors.black)
+                          : Icon(
                         size: 24,
-                        color: AppColors.primaryColor,
-                        Icons.bookmark),
+                        Icons.bookmark,
+                        // color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ),
 
+                  CommonText(
+                    top: 8,
+                    fontSize: 14,
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.w600,
+                    text: "\$${item.serviceRate?.hourlyRate ?? 0}",
+                  ),
 
-                    CommonText(
-                        top: 8,
-                        fontSize: 14,
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.w600,
-                        text: "\$50") ,
+                  CommonText(
+                    top: 4,
+                    fontSize: 12,
 
-
-                    CommonText(
-                        top:
-                        4,
-                        fontSize: 12,
-
-                        fontWeight: FontWeight.w500,
-                        text: "Per hour")
-                  ],
-
-                ))
+                    fontWeight: FontWeight.w500,
+                    text: "Per hour",
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-
       ),
     );
   }
