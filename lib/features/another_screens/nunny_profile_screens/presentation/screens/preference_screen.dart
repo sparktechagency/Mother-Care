@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
+import 'package:mother_care/component/other_widgets/common_loader.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/controller/presence_controller.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
@@ -24,11 +25,7 @@ class PreferenceScreen extends StatelessWidget {
           onTap: () {
             Get.back();
           },
-          child: Icon(
-            color: AppColors.titleColor,
-            Icons.arrow_back_ios,
-            size: 23.sp,
-          ),
+          child: Icon(color: AppColors.titleColor, Icons.arrow_back_ios, size: 23.sp),
         ),
       ),
 
@@ -37,7 +34,7 @@ class PreferenceScreen extends StatelessWidget {
         child: GetBuilder(
           init: PresenceController(),
           builder: (controller) {
-            return Column(
+            return controller.isLoading?CommonLoader(): Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CommonText(
@@ -55,14 +52,13 @@ class PreferenceScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     var item = controller.preferenceList[index];
                     return Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 5.h),
+                      padding: EdgeInsets.symmetric(vertical: 5.h),
                       child: Row(
                         children: [
                           SizedBox(
                             height: 24.h,
                             width: 24.h,
                             child: Checkbox(
-
                               activeColor: AppColors.primaryColor,
                               value: item.isSelected,
                               onChanged: (value) {
@@ -70,10 +66,7 @@ class PreferenceScreen extends StatelessWidget {
                               },
                             ),
                           ),
-                          CommonText(
-                              left: 5,
-                              color: AppColors.bodyClr,
-                              text: item.title),
+                          CommonText(left: 5, color: AppColors.bodyClr, text: item.title),
                         ],
                       ),
                     );
@@ -95,14 +88,13 @@ class PreferenceScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     var item = controller.serviceOfferList[index];
                     return Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 5.h),
+                      padding: EdgeInsets.symmetric(vertical: 5.h),
                       child: Row(
                         children: [
                           SizedBox(
                             height: 24.h,
                             width: 24.h,
                             child: Checkbox(
-
                               activeColor: AppColors.primaryColor,
                               value: item.isSelected,
                               onChanged: (value) {
@@ -110,10 +102,7 @@ class PreferenceScreen extends StatelessWidget {
                               },
                             ),
                           ),
-                          CommonText(
-                              left: 5,
-                              color: AppColors.bodyClr,
-                              text: item.title),
+                          CommonText(left: 5, color: AppColors.bodyClr, text: item.title),
                         ],
                       ),
                     );
@@ -122,7 +111,10 @@ class PreferenceScreen extends StatelessWidget {
 
                 30.height,
 
-                CommonButton(titleText: AppString.save)
+                CommonButton(
+                  titleText: AppString.save,
+                  onTap: () => controller.uploadPefrence(),
+                ),
               ],
             );
           },

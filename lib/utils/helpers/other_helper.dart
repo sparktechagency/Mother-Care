@@ -65,7 +65,7 @@ class OtherHelper {
           ),
       context: Get.context!,
       initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
+      firstDate: DateTime(2000),
       lastDate: DateTime(2101),
     );
 

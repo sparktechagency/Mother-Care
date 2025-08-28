@@ -37,4 +37,10 @@ class ApiEndPoint {
   static const chatUrl = "/chats";
   static const signIn = "/auth/login";
 
+  //===============nasim
+  static const naniAllBookings = '/bookings/me/nanny';
+  static const naniPefrence = '/nanny-preferences';
+  static const naniGalleries = '/nanny-galleries';
+
+
 }

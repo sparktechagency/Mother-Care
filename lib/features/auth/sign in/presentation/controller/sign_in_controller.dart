@@ -50,6 +50,8 @@ class SignInController extends GetxController {
     if (response.statusCode == 200) {
       var data = response.data;
 
+      LocalStorage.userId = data['data']['user']['_id'];
+
       LocalStorage.token = data['data']["token"];
       if (data['data']["user"]["role"] == "PARENT") {
         LocalStorage.myRoll = "parents";
@@ -57,9 +59,11 @@ class SignInController extends GetxController {
         LocalStorage.myRoll = "nunny";
       }
 
+
+
       LocalStorage.isLogIn = true;
       LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
-
+      LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);
       LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
       LocalStorage.setString(LocalStorageKeys.myRoll, LocalStorage.myRoll);
       // LocalStorage.myRoll == "nunny"
