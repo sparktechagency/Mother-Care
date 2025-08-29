@@ -20,6 +20,7 @@ class HistoryItem extends StatelessWidget {
   final String endTime;
   final String location;
   final String? bookingType;
+  final String image;
   const HistoryItem({
     super.key,
     required this.status,
@@ -31,6 +32,7 @@ class HistoryItem extends StatelessWidget {
     required this.location,
     required this.bookingId,
     this.bookingType,
+    required this.image,
   });
 
   @override
@@ -46,22 +48,19 @@ class HistoryItem extends StatelessWidget {
       ),
 
       child: InkWell(
-
-        onTap: (){
+        onTap: () {
           Get.toNamed(AppRoutes.nunnyBookingDetailsScreen, arguments: bookingId);
-
         },
         child: Row(
           children: [
             ClipOval(
               child: CommonImage(
-                height: 48, // Use ScreenUtil for scaling
+                height: 48,
                 width: 48,
-                // Use ScreenUtil for scaling
-                imageSrc: AppImages.female,
+                imageSrc: image,
+                fill: BoxFit.cover,
               ),
             ),
-
             15.width,
 
             Expanded(

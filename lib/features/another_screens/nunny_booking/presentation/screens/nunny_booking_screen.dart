@@ -13,22 +13,27 @@ class NunnyBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        surfaceTintColor: AppColors.transparent,
-        shadowColor: AppColors.transparent,
-        backgroundColor: AppColors.white,
-        leading: SizedBox.shrink(),
-        // leading: InkWell(
-        //   onTap: () {
-        //     Get.back();
-        //   },
-        //   child: Icon(Icons.arrow_back_ios, size: 23.sp, color: AppColors.titleColor),
-        // ),
-        title: GetBuilder(
-          init: NunnyBookingController(),
-          builder: (controller) {
-            return CommonText(
+    return GetBuilder(
+      init: NunnyBookingController(),
+      builder: (controller) {
+        return Scaffold(
+          appBar: AppBar(
+            surfaceTintColor: AppColors.transparent,
+            shadowColor: AppColors.transparent,
+            backgroundColor: AppColors.white,
+            leading: controller.bookingType == "history"
+                ? SizedBox.shrink()
+                : InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      size: 23.sp,
+                      color: AppColors.titleColor,
+                    ),
+                  ),
+            title: CommonText(
               fontSize: 16,
               fontWeight: FontWeight.w600,
               text: controller.bookingType == "history"
@@ -38,93 +43,116 @@ class NunnyBookingScreen extends StatelessWidget {
                   : controller.bookingType == "onGoing"
                   ? AppString.onGoingBooking
                   : AppString.newBookingRequest,
-            );
-          },
-        ),
-      ),
-      body: GetBuilder(
-        init: NunnyBookingController(),
-        builder: (controller) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: ListView.builder(
-              controller: controller.naniAllBookingscrollController,
-              itemCount: controller.nunnyallBookingList.length, //5,
-              itemBuilder: (context, index) {
-                switch (controller.nunnyallBookingList[index].bookingType) {
-                  case 'HOURLY':
-                    return HistoryItem(
-                      status: controller.bookingType,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
-                      date: controller.nunnyallBookingList[index].hourlyBooking!.date,
-                      startTime:
-                          controller.nunnyallBookingList[index].hourlyBooking!.startTime,
-                      endTime:
-                          controller.nunnyallBookingList[index].hourlyBooking!.endTime,
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                    );
+            ),
+          ),
 
-                  case 'FULL_DAY':
-                    return HistoryItem(
-                      bookingType: 'FULL_DAY',
-                      status: controller.bookingType,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
-                      date: controller
-                          .nunnyallBookingList[index]
-                          .fullDayBooking!
-                          .fullDays[0],
-                      startTime:
-                          controller
+          body: GetBuilder(
+            init: NunnyBookingController(),
+            builder: (controller) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: ListView.builder(
+                  controller: controller.naniAllBookingscrollController,
+                  itemCount: controller.nunnyallBookingList.length, //5,
+                  itemBuilder: (context, index) {
+                    switch (controller.nunnyallBookingList[index].bookingType) {
+                      case 'HOURLY':
+                        return HistoryItem(
+                          status: controller.bookingType,
+                          amount: controller.nunnyallBookingList[index].totalPayable
+                              .toString(),
+                          parentsName:
+                              controller.nunnyallBookingList[index].parentId.name,
+                          date: controller.nunnyallBookingList[index].hourlyBooking!.date,
+                          startTime: controller
+                              .nunnyallBookingList[index]
+                              .hourlyBooking!
+                              .startTime,
+                          endTime: controller
+                              .nunnyallBookingList[index]
+                              .hourlyBooking!
+                              .endTime,
+                          location:
+                              controller.nunnyallBookingList[index].parentId.address,
+                          bookingId: controller.nunnyallBookingList[index].id,
+                          image:
+                              controller.nunnyallBookingList[index].parentId.profileImage,
+                        );
+
+                      case 'FULL_DAY':
+                        return HistoryItem(
+                          bookingType: 'FULL_DAY',
+                          status: controller.bookingType,
+                          amount: controller.nunnyallBookingList[index].totalPayable
+                              .toString(),
+                          parentsName:
+                              controller.nunnyallBookingList[index].parentId.name,
+                          date: controller
                               .nunnyallBookingList[index]
                               .fullDayBooking!
-                              .startDate ??
-                          '',
-                      endTime:
-                          controller.nunnyallBookingList[index].fullDayBooking!.endDate ??
-                          '',
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                    );
+                              .fullDays[0],
+                          startTime:
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .fullDayBooking!
+                                  .startDate ??
+                              '',
+                          endTime:
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .fullDayBooking!
+                                  .endDate ??
+                              '',
+                          location:
+                              controller.nunnyallBookingList[index].parentId.address,
+                          bookingId: controller.nunnyallBookingList[index].id,
+                          image:
+                              controller.nunnyallBookingList[index].parentId.profileImage,
+                        );
 
-                  case 'CUSTOM':
-                    return HistoryItem(
-                      status: controller.nunnyallBookingList[index].bookingStatus,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
-                      date: controller.nunnyallBookingList[index].customBooking[0].date,
-                      startTime: controller
-                          .nunnyallBookingList[index]
-                          .customBooking[0]
-                          .startTime,
-                      endTime:
-                          controller.nunnyallBookingList[index].customBooking[0].endTime,
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                    );
-                  default:
-                    return null;
-                }
-              },
-            ),
-          );
-        },
-      ),
+                      case 'CUSTOM':
+                        return HistoryItem(
+                          status: controller.nunnyallBookingList[index].bookingStatus,
+                          amount: controller.nunnyallBookingList[index].totalPayable
+                              .toString(),
+                          parentsName:
+                              controller.nunnyallBookingList[index].parentId.name,
+                          date:
+                              controller.nunnyallBookingList[index].customBooking[0].date,
+                          startTime: controller
+                              .nunnyallBookingList[index]
+                              .customBooking[0]
+                              .startTime,
+                          endTime: controller
+                              .nunnyallBookingList[index]
+                              .customBooking[0]
+                              .endTime,
+                          location:
+                              controller.nunnyallBookingList[index].parentId.address,
+                          bookingId: controller.nunnyallBookingList[index].id,
+                          image:
+                              controller.nunnyallBookingList[index].parentId.profileImage,
+                        );
+                      default:
+                        return null;
+                    }
+                  },
+                ),
+              );
+            },
+          ),
 
-      bottomNavigationBar: GetBuilder(
-        init: NunnyBookingController(),
+          bottomNavigationBar: GetBuilder(
+            init: NunnyBookingController(),
 
-        builder: (controller) {
-          return controller.bookingType == "history"
-              ? CommonBottomNavBar(currentIndex: 1)
-              : SizedBox();
-        },
-      ),
+            builder: (controller) {
+              return controller.bookingType == "history"
+                  ? CommonBottomNavBar(currentIndex: 1)
+                  : SizedBox();
+            },
+          ),
+        );
+      },
     );
   }
 }
