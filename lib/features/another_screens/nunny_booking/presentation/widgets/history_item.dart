@@ -1,0 +1,180 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:mother_care/component/image/common_image.dart';
+import 'package:mother_care/component/text/common_text.dart';
+import 'package:mother_care/config/route/app_routes.dart';
+import 'package:mother_care/utils/constants/app_images.dart';
+import 'package:mother_care/utils/constants/app_string.dart';
+import 'package:mother_care/utils/extensions/extension.dart';
+
+import '../../../../../utils/constants/app_colors.dart';
+
+class HistoryItem extends StatelessWidget {
+  final String status;
+  final String bookingId;
+  final String amount;
+  final String parentsName;
+  final String date;
+  final String startTime;
+  final String endTime;
+  final String location;
+  final String? bookingType;
+  const HistoryItem({
+    super.key,
+    required this.status,
+    required this.amount,
+    required this.parentsName,
+    required this.date,
+    required this.startTime,
+    required this.endTime,
+    required this.location,
+    required this.bookingId,
+    this.bookingType,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 13.h, horizontal: 12.w),
+      margin: EdgeInsets.symmetric(vertical: 8.h),
+      width: double.infinity,
+
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(6.r),
+      ),
+
+      child: InkWell(
+
+        onTap: (){
+          Get.toNamed(AppRoutes.nunnyBookingDetailsScreen, arguments: bookingId);
+
+        },
+        child: Row(
+          children: [
+            ClipOval(
+              child: CommonImage(
+                height: 48, // Use ScreenUtil for scaling
+                width: 48,
+                // Use ScreenUtil for scaling
+                imageSrc: AppImages.female,
+              ),
+            ),
+
+            15.width,
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CommonText(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        text: parentsName, //"Zara Taylor",
+                      ),
+
+                      CommonText(
+                        fontSize: 16,
+
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primaryColor,
+                        text: "\$$amount", // "\$60",
+                      ),
+                    ],
+                  ),
+                  6.height,
+
+                  Row(
+                    children: [
+                      Icon(Icons.calendar_month, color: AppColors.bodyClr),
+                      5.width,
+                      bookingType != 'FULL_DAY'
+                          ? CommonText(
+                              fontSize: 12,
+                              top: 3,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.bodyClr,
+                              text:
+                                  '$date | $startTime - $endTime', //"25 March 25 | 09:30am - 3:00pm",
+                            )
+                          : CommonText(
+                              fontSize: 12,
+                              top: 3,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.bodyClr,
+                              text:
+                                  ' $startTime | $endTime', //"25 March 25 | 09:30am - 3:00pm",
+                            ),
+                    ],
+                  ),
+
+                  2.height,
+
+                  Row(
+                    children: [
+                      Icon(Icons.location_on_outlined, color: AppColors.bodyClr),
+                      5.width,
+                      CommonText(
+                        fontSize: 12,
+                        top: 3,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.bodyClr,
+                        text: location, //"123 Ngong Road, Nairobi, Kenya",
+                      ),
+                    ],
+                  ),
+
+                  if (status != "upComing" &&
+                      status != "onGoing" &&
+                      status != "newRequest")
+                    CommonText(color: Colors.green, text: "COMPLETED"),
+
+                  if (status == "newRequest")
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(60.r),
+                          ),
+                          child: CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.white,
+                            text: AppString.accept,
+                          ),
+                        ),
+
+                        12.width,
+
+                        Container(
+                          margin: EdgeInsets.only(top: 6.h),
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                          decoration: BoxDecoration(
+                            color: AppColors.red,
+                            borderRadius: BorderRadius.circular(60.r),
+                          ),
+                          child: CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.white,
+                            text: AppString.decline,
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
