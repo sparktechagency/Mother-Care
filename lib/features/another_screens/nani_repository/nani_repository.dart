@@ -89,6 +89,67 @@ Future<Booking?> getSinglebookingByIdRepository({required String bookingID}) asy
   return null;
 }
 
+Future<List<Booking>> naniGetAllBookingRequestRepository() async {
+  try {
+    var response = await ApiService.get(ApiEndPoint.naniBookingRequest);
+    if (response.statusCode == 200) {
+      var nannyRequestList = response.data["data"]["data"] as List;
+      return nannyRequestList.map((json) => Booking.fromJson(json)).toList();
+    } else {
+      Get.snackbar('Error', 'An error occuerd from Repository');
+      return [];
+    }
+  } on FormatException catch (e) {
+    Get.snackbar('Error', 'Contact with backend developer $e');
+    return [];
+  } catch (e) {
+    Get.snackbar('Error ', 'Contact with developer $e');
+    return [];
+  }
+}
+
+void handleBookingActionrepository({
+  required String bookingID,
+  required String bookingStatus,
+}) async {
+  try {
+    var body = {"bookingStatus": bookingStatus};
+
+    var response = await ApiService.patch(
+      '/bookings/me/nanny/$bookingID/status',
+      body: body,
+    );
+    if (response.statusCode == 200) {
+      Get.snackbar('Success', response.message);
+    }
+    if (response.statusCode == 400) {
+      Get.snackbar('Error', 'An Error occured. Please contact with developer');
+    }
+  } catch (e) {
+    Get.snackbar('Error', 'An Error occured. Please contact with developer');
+  }
+}
+
+void bookingSessioneRpository({
+  required String bookingID,
+  required String bookingStatus,
+  required String session,
+}) async {
+  try {
+    var body = {"bookingStatus": bookingStatus};
+
+    var response = await ApiService.patch('/bookings/$bookingID/$session', body: body);
+    if (response.statusCode == 200) {
+      Get.snackbar('Success', response.message);
+    }
+    if (response.statusCode == 400) {
+      Get.snackbar('Error', 'An Error occured. Please contact with developer');
+    }
+  } catch (e) {
+    Get.snackbar('Error', 'An Error occured. Please contact with developer');
+  }
+}
+
 void uploadPreferenceRepository(Map<String, dynamic> body) async {
   try {
     var response = await ApiService.post(ApiEndPoint.naniPefrence, body: body);
@@ -255,14 +316,13 @@ Future<List<GalleryImage>?> fetchImageRepository() async {
   try {
     var response = await ApiService.get('/nanny-galleries');
 
-    if(response.statusCode==200){
-      var data=response.data["data"]["images"];
+    if (response.statusCode == 200) {
+      var data = response.data["data"]["images"];
 
       for (var element in data) {
         imageList.add(GalleryImage.fromJson(element));
       }
     }
-
 
     return imageList;
   } catch (e) {

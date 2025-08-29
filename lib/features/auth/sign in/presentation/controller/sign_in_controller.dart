@@ -59,8 +59,6 @@ class SignInController extends GetxController {
         LocalStorage.myRoll = "nunny";
       }
 
-
-
       LocalStorage.isLogIn = true;
       LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
       LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);

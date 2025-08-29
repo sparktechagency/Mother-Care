@@ -58,7 +58,15 @@ class NunnyBookingDetailsScreen extends StatelessWidget {
                           ChildrenListAndInstructionSection(controller: controller),
                           20.height,
                           LocalStorage.myRoll == "nunny"
-                              ? NunnyButtonSection()
+                              ? NunnyButtonSection(
+                                  controller: controller,
+
+                                  /// Once on a dinosaur era
+                                  /// I got a argument on controller
+                                  /// for a Booking Identity. Now I am calling
+                                  /// the booking Id from RescheduleController
+                                  bookingID: controller.bookingId,
+                                )
                               : ParentsButtonSection(),
                           60.height,
                         ],

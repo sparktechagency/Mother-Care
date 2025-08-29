@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
+import 'package:mother_care/features/another_screens/nunny_booking/presentation/controller/nunny_booking_controller.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
@@ -20,6 +21,7 @@ class HistoryItem extends StatelessWidget {
   final String location;
   final String? bookingType;
   final String image;
+  final NunnyBookingController controller;
   const HistoryItem({
     super.key,
     required this.status,
@@ -32,6 +34,7 @@ class HistoryItem extends StatelessWidget {
     required this.bookingId,
     this.bookingType,
     required this.image,
+    required this.controller,
   });
 
   @override
@@ -134,36 +137,18 @@ class HistoryItem extends StatelessWidget {
                   if (status == "newRequest")
                     Row(
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 6.h),
-                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(60.r),
-                          ),
-                          child: CommonText(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.white,
-                            text: AppString.accept,
-                          ),
+                        AcceptDeclineButton(
+                          buttonText: AppString.accept,
+                          buttonColor: Colors.green,
+                          onTap: () => controller.acceptBooking(bookingID: bookingId),
                         ),
 
                         12.width,
 
-                        Container(
-                          margin: EdgeInsets.only(top: 6.h),
-                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                          decoration: BoxDecoration(
-                            color: AppColors.red,
-                            borderRadius: BorderRadius.circular(60.r),
-                          ),
-                          child: CommonText(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.white,
-                            text: AppString.decline,
-                          ),
+                        AcceptDeclineButton(
+                          buttonText: AppString.decline,
+                          buttonColor: Colors.red,
+                          onTap: () => controller.declineBooking(bookingID: bookingId),
                         ),
                       ],
                     ),
@@ -171,6 +156,39 @@ class HistoryItem extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AcceptDeclineButton extends StatelessWidget {
+  final String buttonText;
+  final Color buttonColor;
+  final void Function() onTap;
+  const AcceptDeclineButton({
+    super.key,
+    required this.buttonText,
+    required this.buttonColor,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.only(top: 6.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+        decoration: BoxDecoration(
+          color: buttonColor,
+          borderRadius: BorderRadius.circular(60.r),
+        ),
+        child: CommonText(
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          color: AppColors.white,
+          text: buttonText,
         ),
       ),
     );

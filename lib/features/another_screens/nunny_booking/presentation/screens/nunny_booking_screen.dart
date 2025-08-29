@@ -78,6 +78,7 @@ class NunnyBookingScreen extends StatelessWidget {
                           bookingId: controller.nunnyallBookingList[index].id,
                           image:
                               controller.nunnyallBookingList[index].parentId.profileImage,
+                          controller: controller,
                         );
 
                       case 'FULL_DAY':
@@ -109,6 +110,7 @@ class NunnyBookingScreen extends StatelessWidget {
                           bookingId: controller.nunnyallBookingList[index].id,
                           image:
                               controller.nunnyallBookingList[index].parentId.profileImage,
+                          controller: controller,
                         );
 
                       case 'CUSTOM':
@@ -134,6 +136,7 @@ class NunnyBookingScreen extends StatelessWidget {
                           bookingId: controller.nunnyallBookingList[index].id,
                           image:
                               controller.nunnyallBookingList[index].parentId.profileImage,
+                          controller: controller,
                         );
                       default:
                         return null;
