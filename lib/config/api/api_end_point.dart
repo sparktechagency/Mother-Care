@@ -18,8 +18,6 @@ class ApiEndPoint {
   static const profile = "$baseUrl/users/profile";
   static const resendOtp = "$baseUrl/auth/resend-otp";
 
-
-
   //=============ajay
 
   static const editProfileUrl = "/users/profile";
@@ -41,6 +39,5 @@ class ApiEndPoint {
   static const naniAllBookings = '/bookings/me/nanny';
   static const naniPefrence = '/nanny-preferences';
   static const naniGalleries = '/nanny-galleries';
-
-
+  static const naniBookingRequest = '/bookings/me/nanny/new-booking-requests';
 }

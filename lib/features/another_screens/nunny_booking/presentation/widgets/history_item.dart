@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
-import 'package:mother_care/utils/constants/app_images.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 

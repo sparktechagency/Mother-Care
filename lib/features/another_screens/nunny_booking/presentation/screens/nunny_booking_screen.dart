@@ -58,6 +58,7 @@ class NunnyBookingScreen extends StatelessWidget {
                     switch (controller.nunnyallBookingList[index].bookingType) {
                       case 'HOURLY':
                         return HistoryItem(
+                          bookingType: 'HOURLY',
                           status: controller.bookingType,
                           amount: controller.nunnyallBookingList[index].totalPayable
                               .toString(),
@@ -112,7 +113,8 @@ class NunnyBookingScreen extends StatelessWidget {
 
                       case 'CUSTOM':
                         return HistoryItem(
-                          status: controller.nunnyallBookingList[index].bookingStatus,
+                          bookingType: 'CUSTOM',
+                          status: controller.bookingType,
                           amount: controller.nunnyallBookingList[index].totalPayable
                               .toString(),
                           parentsName:
