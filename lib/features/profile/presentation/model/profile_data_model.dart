@@ -93,6 +93,12 @@ class Location {
     List<double>? coordinates;
 
     Location({
+
+
+
+
+
+
         this.type,
         this.coordinates,
     });
