@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:mother_care/component/text/common_text.dart';
 
 Future<void> giveFeedbackPopUp(BuildContext context) {

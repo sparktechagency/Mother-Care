@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/model/nanny_details_model.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/widgets/review_item.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/data/nanny_review_model.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/controller/nanny_reviews_controller.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/widgets/review_item.dart';

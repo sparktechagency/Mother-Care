@@ -43,11 +43,7 @@ class NunnyOtherDetails extends StatelessWidget {
 
             20.height,
 
-            Container(
-              height: 1,
-              width: double.infinity,
-              color: AppColors.normalGray2,
-            ),
+            Container(height: 1, width: double.infinity, color: AppColors.normalGray2),
 
             8.height,
 
@@ -59,9 +55,7 @@ class NunnyOtherDetails extends StatelessWidget {
                     CommonText(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
-                      text: calculateAge(
-                        controller.nannyDetailsData.dateOfBirth ?? "",
-                      ),
+                      text: calculateAge(controller.nannyDetailsData.dateOfBirth ?? ""),
                     ),
 
                     CommonText(
@@ -113,7 +107,7 @@ class NunnyOtherDetails extends StatelessWidget {
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                             text:
-                                "${double.parse(controller.nannyDetailsData.averageRating.toString()) ?? 0}",
+                                "${double.parse(controller.nannyDetailsData.averageRating.toString())}",
                           )
                         else
                           SizedBox(),
@@ -133,11 +127,7 @@ class NunnyOtherDetails extends StatelessWidget {
 
             8.height,
 
-            Container(
-              height: 1,
-              width: double.infinity,
-              color: AppColors.normalGray2,
-            ),
+            Container(height: 1, width: double.infinity, color: AppColors.normalGray2),
 
             16.height,
 
@@ -164,16 +154,16 @@ class NunnyOtherDetails extends StatelessWidget {
                         6.height,
                         controller.selectedIndex == 0
                             ? Container(
-                              width: 100,
-                              height: 5,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(6.r),
-                                  topRight: Radius.circular(6.r),
+                                width: 100,
+                                height: 5,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(6.r),
+                                    topRight: Radius.circular(6.r),
+                                  ),
                                 ),
-                              ),
-                            )
+                              )
                             : SizedBox(),
                       ],
                     ),
@@ -197,16 +187,16 @@ class NunnyOtherDetails extends StatelessWidget {
                         6.height,
                         controller.selectedIndex == 1
                             ? Container(
-                              width: 100,
-                              height: 5,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(6.r),
-                                  topRight: Radius.circular(6.r),
+                                width: 100,
+                                height: 5,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(6.r),
+                                    topRight: Radius.circular(6.r),
+                                  ),
                                 ),
-                              ),
-                            )
+                              )
                             : SizedBox(),
                       ],
                     ),
@@ -230,16 +220,16 @@ class NunnyOtherDetails extends StatelessWidget {
                         6.height,
                         controller.selectedIndex == 2
                             ? Container(
-                              width: 100,
-                              height: 5,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(6.r),
-                                  topRight: Radius.circular(6.r),
+                                width: 100,
+                                height: 5,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(6.r),
+                                    topRight: Radius.circular(6.r),
+                                  ),
                                 ),
-                              ),
-                            )
+                              )
                             : SizedBox(),
                       ],
                     ),
@@ -263,16 +253,16 @@ class NunnyOtherDetails extends StatelessWidget {
                         6.height,
                         controller.selectedIndex == 3
                             ? Container(
-                              width: 100.w,
-                              height: 5,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(6.r),
-                                  topRight: Radius.circular(6.r),
+                                width: 100.w,
+                                height: 5,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(6.r),
+                                    topRight: Radius.circular(6.r),
+                                  ),
                                 ),
-                              ),
-                            )
+                              )
                             : SizedBox(),
                       ],
                     ),

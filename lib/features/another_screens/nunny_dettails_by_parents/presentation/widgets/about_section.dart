@@ -41,8 +41,7 @@ class AboutSection extends StatelessWidget {
               fontSize: 12,
               left: 6,
               fontWeight: FontWeight.w400,
-              text:
-                  "Date of Birth: ${controller.nannyDetailsData.dateOfBirth ?? "N/A"}",
+              text: "Date of Birth: ${controller.nannyDetailsData.dateOfBirth ?? "N/A"}",
             ),
           ],
         ),
@@ -59,8 +58,7 @@ class AboutSection extends StatelessWidget {
                 textAlign: TextAlign.start,
                 left: 6,
                 fontWeight: FontWeight.w400,
-                text:
-                    "Address: ${controller.nannyDetailsData.address ?? "N/A"}",
+                text: "Address: ${controller.nannyDetailsData.address ?? "N/A"}",
               ),
             ),
           ],
@@ -68,11 +66,7 @@ class AboutSection extends StatelessWidget {
 
         20.height,
 
-        CommonText(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          text: AppString.ageGroup,
-        ),
+        CommonText(fontSize: 14, fontWeight: FontWeight.w600, text: AppString.ageGroup),
 
         16.height,
 
@@ -113,7 +107,7 @@ class AboutSection extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: AppColors.primaryColor,
-                    text: item.toString() ?? "N/A",
+                    text: item.toString(),
                   ),
                 ),
               );
@@ -134,22 +128,14 @@ class AboutSection extends StatelessWidget {
         if (controller.nannyDetailsData.preferences?.length != 0)
           ListView.builder(
             itemCount:
-                controller
-                    .nannyDetailsData
-                    .preferences?[0]
-                    .serviceYouOffer
-                    ?.length ??
-                0,
+                controller.nannyDetailsData.preferences?[0].serviceYouOffer?.length ?? 0,
 
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
 
             itemBuilder: (context, index) {
               var item =
-                  controller
-                      .nannyDetailsData
-                      .preferences?[0]
-                      .serviceYouOffer?[index] ??
+                  controller.nannyDetailsData.preferences?[0].serviceYouOffer?[index] ??
                   0;
               return Padding(
                 padding: EdgeInsets.symmetric(vertical: 4),
@@ -166,7 +152,7 @@ class AboutSection extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.bodyClr,
-                      text: item.toString() ?? "N/A",
+                      text: item.toString(),
                     ),
                   ],
                 ),
@@ -217,7 +203,7 @@ class AboutSection extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.bodyClr,
-                      text: item.toString() ?? "N/A",
+                      text: item.toString(),
                     ),
                   ],
                 ),
@@ -226,11 +212,7 @@ class AboutSection extends StatelessWidget {
           )
         else
           SizedBox(),
-        CommonText(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          text: AppString.experience,
-        ),
+        CommonText(fontSize: 14, fontWeight: FontWeight.w600, text: AppString.experience),
 
         2.height,
         if (controller.nannyDetailsData.professionalbackgrounds?.length != 0)
@@ -267,7 +249,7 @@ class AboutSection extends StatelessWidget {
                     Flexible(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                   
+
                         children: [
                           Row(
                             children: [

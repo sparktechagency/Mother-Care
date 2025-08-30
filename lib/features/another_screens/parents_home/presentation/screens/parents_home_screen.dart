@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/component/text_field/common_text_field.dart';
-import 'package:mother_care/config/api/api_end_point.dart';
 import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
@@ -53,44 +52,39 @@ class ParentsHomeScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   Obx(
-                                    () =>
-                                        controller.isLoadingProfile.value
-                                            ? Container(
-                                              padding: EdgeInsets.all(14),
-                                              child: Center(
-                                                child:
-                                                    CupertinoActivityIndicator(
-                                                      color: Colors.black,
-                                                    ),
+                                    () => controller.isLoadingProfile.value
+                                        ? Container(
+                                            padding: EdgeInsets.all(14),
+                                            child: Center(
+                                              child: CupertinoActivityIndicator(
+                                                color: Colors.black,
                                               ),
-                                            )
-                                            : Container(
-                                              padding: EdgeInsets.all(2),
-                                              decoration: BoxDecoration(
-                                                color: AppColors.white,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: ClipOval(
-                                                child: CommonImage(
-                                                  fill: BoxFit.fill,
-                                                  height: 48,
-                                                  width: 48,
-                                                  imageSrc:
-                                                      controller
-                                                          .profileData
-                                                          .profileImage ??
-                                                      "",
+                                            ),
+                                          )
+                                        : Container(
+                                            padding: EdgeInsets.all(2),
+                                            decoration: BoxDecoration(
+                                              color: AppColors.white,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: ClipOval(
+                                              child: CommonImage(
+                                                fill: BoxFit.fill,
+                                                height: 48,
+                                                width: 48,
+                                                imageSrc:
+                                                    controller.profileData.profileImage ??
+                                                    "",
 
-                                                  // imageSrc: AppImages.female,
-                                                ),
+                                                // imageSrc: AppImages.female,
                                               ),
-                                            ).center,
+                                            ),
+                                          ).center,
                                   ),
 
                                   const SizedBox(width: 10),
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       CommonText(
                                         fontSize: 16,
@@ -105,11 +99,7 @@ class ParentsHomeScreen extends StatelessWidget {
                                             fontSize: 13,
                                             fontWeight: FontWeight.w400,
                                             color: AppColors.white,
-                                            text:
-                                                controller
-                                                    .profileData
-                                                    .address ??
-                                                "",
+                                            text: controller.profileData.address ?? "",
                                             // text: "Dugbe, Ibadan",
                                           ),
                                           Icon(
@@ -139,7 +129,7 @@ class ParentsHomeScreen extends StatelessWidget {
 
                           /// Search Box
                           CommonTextField(
-                               textInputAction: TextInputAction.search,
+                            textInputAction: TextInputAction.search,
                             controller: controller.searchController,
                             onSubmitted: (p0) {
                               log("value Of $p0");
@@ -148,11 +138,7 @@ class ParentsHomeScreen extends StatelessWidget {
                               );
                             },
                             suffixIcon: Container(
-                              margin: EdgeInsets.only(
-                                right: 10.w,
-                                top: 6.h,
-                                bottom: 6.h,
-                              ),
+                              margin: EdgeInsets.only(right: 10.w, top: 6.h, bottom: 6.h),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: AppColors.title2,

@@ -6,7 +6,6 @@ import 'package:mother_care/component/other_widgets/no_data.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/component/text_field/common_text_field.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/controller/certificate_and_experience_controller.dart';
-import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/widgets/add_experience_popup.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
@@ -206,7 +205,7 @@ class ExperienceSection extends StatelessWidget {
 
   // Show add experience popup
   void _showAddExperiencePopup() {
-    final controller = Get.find<CertificateAndExperienceController>();
+    // final controller = Get.find<CertificateAndExperienceController>();
 
     showDialog(
       context: Get.context!,

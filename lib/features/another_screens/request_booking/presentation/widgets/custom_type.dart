@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mother_care/utils/extensions/extension.dart';
-
 import '../../../../../component/text/common_text.dart';
 import '../../../../../component/text_field/common_text_field.dart';
-import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/constants/app_string.dart';
 import '../controller/request_booking_controller.dart';
 
@@ -37,11 +34,6 @@ class CustomType extends StatelessWidget {
               ),
               hintText: "DD/MM/YYYY",
             ),
-
-
-
-
-
           ],
         );
       },

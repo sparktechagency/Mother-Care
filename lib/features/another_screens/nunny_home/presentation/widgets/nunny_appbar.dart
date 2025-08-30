@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
-import 'package:mother_care/component/text_field/common_text_field.dart';
 import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
-import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 class NunnyAppbar extends StatelessWidget {
+  const NunnyAppbar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +29,6 @@ class NunnyAppbar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               10.height,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,10 +65,7 @@ class NunnyAppbar extends StatelessWidget {
                                 color: AppColors.white,
                                 text: "Dugbe, Ibadan",
                               ),
-                              Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Colors.white70,
-                              ),
+                              Icon(Icons.keyboard_arrow_down, color: Colors.white70),
                             ],
                           ),
                         ],
@@ -78,7 +73,7 @@ class NunnyAppbar extends StatelessWidget {
                     ],
                   ),
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       Get.toNamed(AppRoutes.notifications);
                     },
                     child: CommonImage(
@@ -89,8 +84,6 @@ class NunnyAppbar extends StatelessWidget {
                   ),
                 ],
               ),
-
-
             ],
           ),
         ),

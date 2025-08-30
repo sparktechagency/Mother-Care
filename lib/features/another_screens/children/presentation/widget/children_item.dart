@@ -65,7 +65,7 @@ class ChildrenItem extends StatelessWidget {
                     fontSize: 12,
                     color: AppColors.bodyClr,
                     fontWeight: FontWeight.w400,
-                    text: item.gender == "MALE" ?"Boy" : "Girl" ?? "",
+                    text: item.gender == "MALE" ? "Boy" : "Girl",
                   ),
 
                   CommonText(
@@ -88,8 +88,7 @@ class ChildrenItem extends StatelessWidget {
               onPressed: () {
                 controller.deleteChildrenItem(item);
               },
-              icon:
-              controller.isLoadingDelete
+              icon: controller.isLoadingDelete
                   ? CupertinoActivityIndicator(color: Colors.black)
                   : Icon(Icons.delete, color: Colors.red),
             ),

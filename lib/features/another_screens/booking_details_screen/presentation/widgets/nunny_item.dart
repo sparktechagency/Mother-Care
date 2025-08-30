@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mother_care/config/api/api_end_point.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/controller/reschedule_controller.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/data/model/nani_booking_all_model.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
@@ -37,7 +36,7 @@ class NunnyChildrenItem extends StatelessWidget {
                 fill: BoxFit.cover,
                 height: 56,
                 width: 56,
-                imageSrc:item.childImage,
+                imageSrc: item.childImage,
                 // imageSrc: AppImages.female,
               ),
             ),
@@ -50,10 +49,14 @@ class NunnyChildrenItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                CommonText(fontSize: 16, fontWeight: FontWeight.w700, text: item.name),
+
                 CommonText(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  text: item.name ?? "",
+                  top: 2,
+                  fontSize: 12,
+                  color: AppColors.bodyClr,
+                  fontWeight: FontWeight.w400,
+                  text: item.gender,
                 ),
 
                 CommonText(
@@ -61,15 +64,7 @@ class NunnyChildrenItem extends StatelessWidget {
                   fontSize: 12,
                   color: AppColors.bodyClr,
                   fontWeight: FontWeight.w400,
-                  text: item.gender ?? "",
-                ),
-
-                CommonText(
-                  top: 2,
-                  fontSize: 12,
-                  color: AppColors.bodyClr,
-                  fontWeight: FontWeight.w400,
-                  text: item.dateOfBirth ?? "",
+                  text: item.dateOfBirth,
                 ),
               ],
             ),

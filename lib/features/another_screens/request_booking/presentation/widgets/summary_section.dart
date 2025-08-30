@@ -1,4 +1,3 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -40,10 +39,7 @@ class SummarySection extends StatelessWidget {
 
                   10.height,
 
-                  CommonImage(
-                    width: double.infinity,
-                    imageSrc: AppImages.dotedLine,
-                  ),
+                  CommonImage(width: double.infinity, imageSrc: AppImages.dotedLine),
 
                   10.height,
 
@@ -57,11 +53,7 @@ class SummarySection extends StatelessWidget {
                         text: "Estimate Total",
                       ),
 
-                      CommonText(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        text: "\$80",
-                      ),
+                      CommonText(fontSize: 14, fontWeight: FontWeight.w700, text: "\$80"),
                     ],
                   ),
                 ],
@@ -111,38 +103,33 @@ class SummarySection extends StatelessWidget {
                 ),
 
                 Column(
-           
                   children: [
                     Row(
                       children: [
                         CommonText(
                           left: 8,
-                        
+
                           fontSize: 12,
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.w600,
                           text: AppString.termsOfServices,
                         ),
                         CommonText(
+                          fontSize: 12,
+                          color: AppColors.primaryColor,
 
-                            fontSize: 12,
-                            color: AppColors.primaryColor,
-
-                            text: "*")
+                          text: "*",
+                        ),
                       ],
                     ),
 
-                    Container(
-                      height: 1,
-                      width: 100,
-                      color: AppColors.primaryColor,
-                    )
+                    Container(height: 1, width: 100, color: AppColors.primaryColor),
                   ],
                 ),
               ],
             ),
 
-            35.height
+            35.height,
           ],
         );
       },
