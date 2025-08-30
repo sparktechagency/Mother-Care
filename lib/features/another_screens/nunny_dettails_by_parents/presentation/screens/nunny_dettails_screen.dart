@@ -39,39 +39,34 @@ class NunnyDetailsScreen extends StatelessWidget {
             ),
           ),
 
-          body:
-              controller.isLoading
-                  ? Center(child: CircularProgressIndicator(color: Colors.black))
-                  : Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          13.height,
-                          NunnyInfoSection(controller: controller),
-                          NunnyOtherDetails(controller: controller),
-                        ],
-                      ),
+          body: controller.isLoading
+              ? Center(child: CircularProgressIndicator(color: Colors.black))
+              : Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        13.height,
+                        NunnyInfoSection(controller: controller),
+                        NunnyOtherDetails(controller: controller),
+                      ],
                     ),
                   ),
+                ),
 
-          bottomNavigationBar:
-              controller.isLoading == false
-                  ? Container(
-                    color: AppColors.white,
-                    padding: EdgeInsets.symmetric(
-                      vertical: 28.h,
-                      horizontal: 27.w,
-                    ),
-                    child: CommonButton(
-                      onTap: () {
-                        Get.toNamed(AppRoutes.requestBookingScreen);
-                      },
-                      titleText: AppString.bookNow,
-                    ),
-                  )
-                  : SizedBox(),
+          bottomNavigationBar: controller.isLoading == false
+              ? Container(
+                  color: AppColors.white,
+                  padding: EdgeInsets.symmetric(vertical: 28.h, horizontal: 27.w),
+                  child: CommonButton(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.requestBookingScreen);
+                    },
+                    titleText: AppString.bookNow,
+                  ),
+                )
+              : SizedBox(),
         );
       },
     );

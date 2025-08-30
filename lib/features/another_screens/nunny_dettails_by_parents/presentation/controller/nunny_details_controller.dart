@@ -39,14 +39,10 @@ class NunnyDetailsController extends GetxController {
       isLoading = true;
       update();
 
-      var response = await ApiService.get(
-        "${ApiEndPoint.getNannyDetailsUrl}$id",
-      );
+      var response = await ApiService.get("${ApiEndPoint.getNannyDetailsUrl}$id");
 
       if (response.statusCode == 200) {
         nannyDetailsData = NannyDetailsModel.fromJson(response.data["data"]);
-     
-
       } else {
         Utils.errorSnackBar(response.statusCode, response.message);
       }

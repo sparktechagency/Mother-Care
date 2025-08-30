@@ -48,15 +48,13 @@ class ReviewSection extends StatelessWidget {
                   CommonText(
                     fontSize: 12,
                     fontWeight: FontWeight.w700,
-                    text:
-                        "${controller.nannyDetailsData.totalReviews ?? 0} reviews",
+                    text: "${controller.nannyDetailsData.totalReviews ?? 0} reviews",
                   ),
                   6.height,
 
                   RatingBar.builder(
                     initialRating: double.parse(
-                      (controller.nannyDetailsData.averageRating?.toString() ??
-                          '0.0'),
+                      (controller.nannyDetailsData.averageRating?.toString() ?? '0.0'),
                     ),
                     minRating: 1,
                     direction: Axis.horizontal,
@@ -65,8 +63,7 @@ class ReviewSection extends StatelessWidget {
                     ignoreGestures: true,
                     itemSize: 15.sp,
                     itemPadding: EdgeInsets.symmetric(horizontal: 1.w),
-                    itemBuilder:
-                        (context, _) => Icon(Icons.star, color: Colors.amber),
+                    itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
                     onRatingUpdate: (rating) {
                       print(rating);
                     },
@@ -82,32 +79,27 @@ class ReviewSection extends StatelessWidget {
                     children: [
                       RatingBarRow(
                         label: "5 stars",
-                        count:
-                            controller.nannyDetailsData.starCounts?["5"] ?? 0,
+                        count: controller.nannyDetailsData.starCounts?["5"] ?? 0,
                         totalCount: 5,
                       ),
                       RatingBarRow(
                         label: "4 stars",
-                        count:
-                            controller.nannyDetailsData.starCounts?["4"] ?? 0,
+                        count: controller.nannyDetailsData.starCounts?["4"] ?? 0,
                         totalCount: 5,
                       ),
                       RatingBarRow(
                         label: "3 stars",
-                        count:
-                            controller.nannyDetailsData.starCounts?["3"] ?? 0,
+                        count: controller.nannyDetailsData.starCounts?["3"] ?? 0,
                         totalCount: 5,
                       ),
                       RatingBarRow(
                         label: "2 stars",
-                        count:
-                            controller.nannyDetailsData.starCounts?["2"] ?? 0,
+                        count: controller.nannyDetailsData.starCounts?["2"] ?? 0,
                         totalCount: 5,
                       ),
                       RatingBarRow(
                         label: "1 stars",
-                        count:
-                            controller.nannyDetailsData.starCounts?["1"] ?? 0,
+                        count: controller.nannyDetailsData.starCounts?["1"] ?? 0,
                         totalCount: 5,
                       ),
                     ],
@@ -127,8 +119,7 @@ class ReviewSection extends StatelessWidget {
             shrinkWrap: true,
 
             itemBuilder: (context, index) {
-              Review item =
-                  controller.nannyDetailsData.reviews?[index] ?? Review();
+              Review item = controller.nannyDetailsData.reviews?[index] ?? Review();
 
               return ReviewItem(item: item);
             },
@@ -145,11 +136,7 @@ class RatingBarRow extends StatelessWidget {
   final int count;
   final int totalCount;
 
-  RatingBarRow({
-    required this.label,
-    required this.count,
-    required this.totalCount,
-  });
+  RatingBarRow({required this.label, required this.count, required this.totalCount});
 
   @override
   Widget build(BuildContext context) {
@@ -180,9 +167,7 @@ class RatingBarRow extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: percentage,
                     backgroundColor: AppColors.transparent,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      AppColors.primaryColor,
-                    ),
+                    valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryColor),
                   ),
                 ),
               ),

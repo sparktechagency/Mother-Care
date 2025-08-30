@@ -40,4 +40,5 @@ class ApiEndPoint {
   static const naniPefrence = '/nanny-preferences';
   static const naniGalleries = '/nanny-galleries';
   static const naniBookingRequest = '/bookings/me/nanny/new-booking-requests';
+  static const nannyReviewsRequest = '/reviews/';
 }

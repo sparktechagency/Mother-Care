@@ -155,7 +155,8 @@ class AppString {
   static const String paymentMethod = "Payment Method";
   static const String goHome = "Go Home";
   static const String paymentSuccessful = "Payment Successful";
-  static const String paymentSuccessfulDes = "We will notify you , when your booking will be confirmed by the nanny.";
+  static const String paymentSuccessfulDes =
+      "We will notify you , when your booking will be confirmed by the nanny.";
   static const String estimateTotal = "Estimate Total";
   static const String extraBabyCharge = "Extra Baby charge:";
   static const String hourlyRate = "Hourly Rate:";
@@ -202,9 +203,12 @@ class AppString {
   static const String uploadChildImage = "Upload Child Image";
   static const String dateOfBirthFormat = "DD / MM / YYYY";
   static const String enterChildFullName = "Enter child full name";
-  static const String removeChildrenDes = "This will permanently remove your child’s information.";
-  static const String removeChildrenTitle = "Are you sure you want to remove this child from your profile?";
-  static const String anySpecialInstructionsOrRequirements = "Any Special Instructions or Requirements";
+  static const String removeChildrenDes =
+      "This will permanently remove your child’s information.";
+  static const String removeChildrenTitle =
+      "Are you sure you want to remove this child from your profile?";
+  static const String anySpecialInstructionsOrRequirements =
+      "Any Special Instructions or Requirements";
   static const String bookingUpdates = "Booking Updates";
   static const String chatMessage = "Chat Messages";
   static const String paymentAndInvoice = "Payment & Invoice Alerts";
@@ -253,6 +257,9 @@ class AppString {
   static const String giveReview = "Give Review";
   static const String reschedule = "Reschedule";
   static const String cancelTitle = "Are you sure you want to cancel this booking?";
-  static const String cancelDes = "Canceling will remove your booking and may prevent rebooking for the same time.";
-  static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
+  static const String cancelDes =
+      "Canceling will remove your booking and may prevent rebooking for the same time.";
+  static const String logOutDes =
+      "Any unsaved changes will be lost. Do you want to log out?";
+  static const String myReviews = "My Reviews";
 }

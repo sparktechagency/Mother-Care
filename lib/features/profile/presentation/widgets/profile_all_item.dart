@@ -17,15 +17,12 @@ class ProfileAllItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-
         Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 10.h,
-              horizontal: 12.w),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
           margin: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(12.r)
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
             children: [
@@ -38,69 +35,71 @@ class ProfileAllItem extends StatelessWidget {
               ),
 
               12.height,
-              LocalStorage.myRoll=="nunny"?Column(
-                children: [
-                  Item(
-                    iconColor: AppColors.primaryColor,
-                    icon: Icons.privacy_tip_outlined,
-                    title: AppString.certificationAndExperience,
-                    onTap: () => Get.toNamed(AppRoutes.certificationsExperienceScreen),
+              LocalStorage.myRoll == "nunny"
+                  ? Column(
+                      children: [
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          icon: Icons.privacy_tip_outlined,
+                          title: AppString.certificationAndExperience,
+                          onTap: () =>
+                              Get.toNamed(AppRoutes.certificationsExperienceScreen),
+                        ),
 
+                        17.height,
 
-                  ),
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          image: AppImages.presence,
+                          title: AppString.preference,
+                          onTap: () => Get.toNamed(AppRoutes.preferenceScreen),
+                        ),
 
-                  17.height,
+                        17.height,
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          icon: Icons.calendar_month,
+                          title: AppString.availability,
+                          onTap: () => Get.toNamed(AppRoutes.availabilityScreen),
+                        ),
 
-                  Item(
-                    iconColor: AppColors.primaryColor,
-                    image: AppImages.presence,
-                    title: AppString.preference,
-                    onTap: () => Get.toNamed(AppRoutes.preferenceScreen),
-                  ),
+                        17.height,
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          icon: Icons.account_circle_outlined,
+                          title: AppString.serviceRates,
+                          onTap: () => Get.toNamed(AppRoutes.serviceRateScreen),
+                        ),
 
+                        // Item(
+                        //   iconColor: AppColors.primaryColor,
+                        //   image: AppImages.serviceRate,
+                        //   title: AppString.serviceRates,
+                        //   onTap: () => Get.toNamed(AppRoutes.children),
+                        // ),
+                        17.height,
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          icon: Icons.photo,
+                          title: AppString.gallery,
+                          onTap: () => Get.toNamed(AppRoutes.galleryScreen),
+                        ),
 
-                  17.height,
-                  Item(
-                    iconColor: AppColors.primaryColor,
-                    icon: Icons.calendar_month,
-                    title: AppString.availability,
-                    onTap: () => Get.toNamed(AppRoutes.availabilityScreen),
-                  ),
-
-
-                  17.height,
-                  Item(
-                    iconColor: AppColors.primaryColor,
-                    icon: Icons.account_circle_outlined,
-                    title: AppString.serviceRates,
-                    onTap: () => Get.toNamed(AppRoutes.serviceRateScreen),
-                  ),
-
-                  // Item(
-                  //   iconColor: AppColors.primaryColor,
-                  //   image: AppImages.serviceRate,
-                  //   title: AppString.serviceRates,
-                  //   onTap: () => Get.toNamed(AppRoutes.children),
-                  // ),
-
-                  17.height,
-                  Item(
-                    iconColor: AppColors.primaryColor,
-                    icon: Icons.photo,
-                    title: AppString.gallery,
-                    onTap: () => Get.toNamed(AppRoutes.galleryScreen),
-                  ),
-
-
-                ],
-              ) : Item(
-                iconColor: AppColors.primaryColor,
-                icon: Icons.child_care_outlined,
-                title: AppString.childrenDetails,
-                onTap: () => Get.toNamed(AppRoutes.children),
-              ),
-
-
+                        17.height,
+                        Item(
+                          iconColor: AppColors.primaryColor,
+                          icon: Icons.reviews,
+                          title: AppString.myReviews,
+                          onTap: () => Get.toNamed(AppRoutes.myReviewsScreen),
+                        ),
+                      ],
+                    )
+                  : Item(
+                      iconColor: AppColors.primaryColor,
+                      icon: Icons.child_care_outlined,
+                      title: AppString.childrenDetails,
+                      onTap: () => Get.toNamed(AppRoutes.children),
+                    ),
             ],
           ),
         ),
@@ -108,13 +107,11 @@ class ProfileAllItem extends StatelessWidget {
         16.height,
 
         Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 10.h,
-              horizontal: 12.w),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
           margin: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(12.r)
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
             children: [
@@ -133,7 +130,6 @@ class ProfileAllItem extends StatelessWidget {
               //   title: AppString.notifications,
               //   onTap: () => Get.toNamed(AppRoutes.notificationSettings),
               // ),
-
               17.height,
               Item(
                 iconColor: AppColors.primaryColor,
@@ -141,23 +137,18 @@ class ProfileAllItem extends StatelessWidget {
                 title: AppString.helpSupports,
                 onTap: () => Get.toNamed(AppRoutes.helpAndSupportScreen),
               ),
-
-
             ],
           ),
         ),
 
-
         16.height,
 
         Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 10.h,
-              horizontal: 12.w),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
           margin: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(12.r)
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
             children: [
@@ -173,8 +164,7 @@ class ProfileAllItem extends StatelessWidget {
               Item(
                 iconColor: AppColors.primaryColor,
                 image: AppImages.privacyPolicy,
-                title: AppString.termsOfServices
-                ,
+                title: AppString.termsOfServices,
                 onTap: () => Get.toNamed(AppRoutes.termsOfServices),
               ),
 
@@ -185,40 +175,33 @@ class ProfileAllItem extends StatelessWidget {
                 title: AppString.aboutUs,
                 onTap: () => Get.toNamed(AppRoutes.aboutUsScreen),
               ),
-
-
             ],
           ),
         ),
 
         16.height,
         Container(
-          padding: EdgeInsets.symmetric(
-              vertical: 10.h,
-              horizontal: 12.w),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
           margin: EdgeInsets.symmetric(horizontal: 20.w),
           decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(12.r)
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
             children: [
-
               Item(
                 iconColor: AppColors.primaryColor,
                 icon: Icons.logout,
                 title: AppString.logOut,
-                onTap: (){
+                onTap: () {
                   LogOutPopUp.logoutDialog();
                 },
               ),
-
-
             ],
           ),
         ),
 
-        30.height
+        30.height,
       ],
     );
   }

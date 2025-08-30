@@ -3,13 +3,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/model/nanny_details_model.dart';
+import 'package:mother_care/features/another_screens/nunny_profile_screens/data/nanny_review_model.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
-class ReviewItem extends StatelessWidget {
-  const ReviewItem({super.key, required this.item});
-  final Review item;
+class ReviewItemByNunny extends StatelessWidget {
+  const ReviewItemByNunny({super.key, required this.item});
+  final Review2 item;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,6 +26,7 @@ class ReviewItem extends StatelessWidget {
                 ),
                 child: ClipOval(
                   child: CommonImage(
+                    fill: BoxFit.cover,
                     imageColor: Colors.red,
                     height: 43,
                     width: 43,
@@ -76,12 +77,12 @@ class ReviewItem extends StatelessWidget {
                 ),
               ),
 
-              CommonText(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                color: AppColors.bodyClr,
-                text: "12 Nov 24",
-              ),
+              // CommonText(
+              //   fontSize: 12,
+              //   fontWeight: FontWeight.w400,
+              //   color: AppColors.bodyClr,
+              //   text: "12 Nov 24",
+              // ),
             ],
           ),
 

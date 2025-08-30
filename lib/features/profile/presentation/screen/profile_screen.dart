@@ -26,10 +26,7 @@ class ProfileScreen extends StatelessWidget {
                 /// User Profile Image here
                 Stack(
                   children: [
-                    CommonImage(
-                      width: double.infinity,
-                      imageSrc: AppImages.profileBg,
-                    ),
+                    CommonImage(width: double.infinity, imageSrc: AppImages.profileBg),
 
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -39,51 +36,48 @@ class ProfileScreen extends StatelessWidget {
                           45.height,
                           Padding(
                             padding: const EdgeInsets.only(left: 12),
-                            child:
-                            InkWell(
+                            child: InkWell(
                               onTap: () {
                                 Get.back();
                               },
-                              child: Icon(
-                                color: AppColors.white,
-                                Icons.arrow_back_ios,
-                              ),
+                              child: Icon(color: AppColors.white, Icons.arrow_back_ios),
                             ).start,
                           ),
 
                           10.height,
                           Obx(
-                                ()=> controller.isLoadingProfileLoad.value
+                            () => controller.isLoadingProfileLoad.value
                                 ? CircularProgressIndicator(color: Colors.white)
                                 : Column(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(2),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: ClipOval(
-                                    child: CommonImage(
-                                      fill: BoxFit.fill,
-                                      height: 100,
-                                      width: 100,
-                                      imageSrc: controller.profileData.profileImage ?? "",
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(2),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: ClipOval(
+                                          child: CommonImage(
+                                            fill: BoxFit.fill,
+                                            height: 100,
+                                            width: 100,
+                                            imageSrc:
+                                                controller.profileData.profileImage ?? "",
 
-                                      // imageSrc: AppImages.female,
-                                    ),
-                                  ),
-                                ).center,
+                                            // imageSrc: AppImages.female,
+                                          ),
+                                        ),
+                                      ).center,
 
-                                CommonText(
-                                  top: 12,
-                                  fontSize: 18,
-                                  color: AppColors.white,
-                                  fontWeight: FontWeight.w700,
-                                  text: controller.profileData.name ?? "",
-                                ),
-                              ],
-                            ),
+                                      CommonText(
+                                        top: 12,
+                                        fontSize: 18,
+                                        color: AppColors.white,
+                                        fontWeight: FontWeight.w700,
+                                        text: controller.profileData.name ?? "",
+                                      ),
+                                    ],
+                                  ),
                           ),
 
                           75.height,
