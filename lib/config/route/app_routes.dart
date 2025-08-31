@@ -26,6 +26,7 @@ import '../../features/another_screens/nunny_dettails_by_parents/presentation/sc
 import '../../features/another_screens/nunny_profile_screens/presentation/screens/availability_screen.dart';
 import '../../features/another_screens/parent_booking/presentation/screens/parent_booking_screen.dart';
 import '../../features/another_screens/parents_home/presentation/screens/parents_home_screen.dart';
+import '../../features/another_screens/request_booking/presentation/screens/payment_view_screen.dart';
 import '../../features/another_screens/saved/presentation/screens/saved_screens.dart';
 import '../../features/auth/change_password/presentation/screen/change_password_screen.dart';
 import '../../features/auth/forgot password/presentation/screen/create_password.dart';
@@ -95,6 +96,8 @@ class AppRoutes {
   static const String availabilityScreen = "/availabilityScreen";
   static const String rescheduleBooking = "/rescheduleBooking";
   static const String myReviewsScreen = "/myReviewsScreen";
+  static const String paymentScreen = "/paymentScreen.dart";
+
 
   static List<GetPage> routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
@@ -142,6 +145,10 @@ class AppRoutes {
     GetPage(name: availabilityScreen, page: () => ServiceAvailabilityScreen()),
     GetPage(name: rescheduleBooking, page: () => RescheduleBookingScreen()),
     GetPage(name: myReviewsScreen, page: () => MyReviewsScreen()),
+
+    GetPage(
+        name: paymentScreen,
+        page: () =>  PaymentViewScreen()),
 
   ];
 }

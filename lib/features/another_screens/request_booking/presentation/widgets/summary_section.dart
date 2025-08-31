@@ -34,9 +34,17 @@ class SummarySection extends StatelessWidget {
               child: Column(
                 children: [
                   infoItem(title: "Kids :", value: "02"),
-                  infoItem(title: "Duration:", value: "5 hours"),
-                  infoItem(title: "Hourly Rate:", value: "\$15.00"),
-                  infoItem(title: "Extra Baby charge:", value: "\$15.00"),
+                  infoItem(
+                    title: "Duration:",
+                    value: controller.selectedBookingType == "hourly"
+                        ? "${controller.duration} hours"
+                        : controller.selectedBookingType == 'fullDay'
+                        ? "${controller.dayCount} days"
+                        : "1",
+                  ),
+                  controller.selectedBookingType == "hourly"
+                      ? infoItem(title: "Hourly Rate:", value: "\$${controller.hourlyRate}")
+                      : infoItem(title: "Daily Rate:", value: "\$${controller.dailyRate}"),
 
                   10.height,
 
@@ -60,7 +68,7 @@ class SummarySection extends StatelessWidget {
                       CommonText(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        text: "\$80",
+                        text: "\$${controller.totalEstmate}",
                       ),
                     ],
                   ),
@@ -70,30 +78,29 @@ class SummarySection extends StatelessWidget {
 
             16.height,
 
-            CommonText(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              text: AppString.paymentMethod,
-            ),
-
-            12.height,
-
-            CommonTextField(
-              borderColor: AppColors.textFiledColor,
-              suffixIcon: Icon(
-                color: AppColors.textFiledColor,
-                Icons.keyboard_arrow_down,
-              ),
-              hintText: AppString.choosePaymentOption,
-            ),
-
+            // CommonText(
+            //   fontSize: 16,
+            //   fontWeight: FontWeight.w700,
+            //   text: AppString.paymentMethod,
+            // ),
+            //
+            // 12.height,
+            //
+            // CommonTextField(
+            //   borderColor: AppColors.textFiledColor,
+            //   suffixIcon: Icon(
+            //     color: AppColors.textFiledColor,
+            //     Icons.keyboard_arrow_down,
+            //   ),
+            //   hintText: AppString.choosePaymentOption,
+            // ),
             20.height,
 
             Row(
               children: [
                 SizedBox(
-                  height: 24,
-                  width: 24,
+                  height: 20,
+                  width: 20,
                   child: Checkbox(
                     activeColor: AppColors.primaryColor,
                     value: controller.isTermsSelect,
@@ -110,39 +117,42 @@ class SummarySection extends StatelessWidget {
                   text: AppString.iHaveRead,
                 ),
 
-                Column(
-           
-                  children: [
-                    Row(
-                      children: [
-                        CommonText(
-                          left: 8,
-                        
-                          fontSize: 12,
-                          color: AppColors.primaryColor,
-                          fontWeight: FontWeight.w600,
-                          text: AppString.termsOfServices,
-                        ),
-                        CommonText(
+                Expanded(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: CommonText(
+                              left: 8,
 
+                              fontSize: 12,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                              text: AppString.termsOfServices,
+                            ),
+                          ),
+                          CommonText(
                             fontSize: 12,
                             color: AppColors.primaryColor,
 
-                            text: "*")
-                      ],
-                    ),
+                            text: "*",
+                          ),
+                        ],
+                      ),
 
-                    Container(
-                      height: 1,
-                      width: 100,
-                      color: AppColors.primaryColor,
-                    )
-                  ],
+                      Container(
+                        height: 1,
+                        width: 100,
+                        color: AppColors.primaryColor,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
 
-            35.height
+            35.height,
           ],
         );
       },

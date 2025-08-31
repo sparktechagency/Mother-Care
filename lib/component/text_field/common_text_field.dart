@@ -24,6 +24,7 @@ class CommonTextField extends StatefulWidget {
     this.paddingVertical = 14,
     this.borderRadius = 10,
     this.inputFormatters,
+    this.focusNode,
     this.fillColor = AppColors.white,
     this.hintTextColor = AppColors.textFiledColor,
     this.labelTextColor = AppColors.textFiledColor,
@@ -53,6 +54,7 @@ class CommonTextField extends StatefulWidget {
   final bool readOnly;
   final Function(String)? onSubmitted;
   final VoidCallback? onTap;
+  final FocusNode? focusNode;
   final TextEditingController? controller;
   final TextInputAction textInputAction;
   final FormFieldValidator? validator;
@@ -69,6 +71,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: widget. focusNode,
 
       autovalidateMode: AutovalidateMode.onUnfocus,
       keyboardType: widget.keyboardType,

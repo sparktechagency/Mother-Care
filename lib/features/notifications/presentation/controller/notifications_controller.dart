@@ -1,76 +1,62 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/config/api/api_end_point.dart';
+import 'package:mother_care/services/api/api_service.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
+import 'package:mother_care/utils/app_utils.dart';
+import 'package:mother_care/utils/log/app_log.dart';
 import '../../data/model/notification_model.dart';
-import '../../repository/notification_repository.dart';
 
 class NotificationsController extends GetxController {
-  /// Notification List
-  List notifications = [];
-
-  /// Notification Loading Bar
-  bool isLoading = false;
-
-  /// Notification more Data Loading Bar
-  bool isLoadingMore = false;
-
-  /// No more notification data
-  bool hasNoData = false;
-
-  /// page no here
-  int page = 0;
-
-  /// Notification Scroll Controller
-  ScrollController scrollController = ScrollController();
-
-  /// Notification More data Loading function
-
-  void moreNotification() {
-    scrollController.addListener(() async {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        if (isLoadingMore || hasNoData) return;
-        isLoadingMore = true;
-        update();
-        page++;
-        List<NotificationModel> list = await notificationRepository(page);
-        if (list.isEmpty) {
-          hasNoData = true;
-        } else {
-          notifications.addAll(list);
-        }
-        isLoadingMore = false;
-        update();
-      }
-    });
-  }
-
-  /// Notification data Loading function
-  getNotificationsRepo() async {
-    return;
-    if (isLoading || hasNoData) return;
-    isLoading = true;
-    update();
-
-    page++;
-    List<NotificationModel> list = await notificationRepository(page);
-    if (list.isEmpty) {
-      hasNoData = true;
-    } else {
-      notifications.addAll(list);
+/////////////////////////////
+  String getRole = "";
+  void getUserRole(){
+    if (LocalStorage.myRoll == "parents" ) {
+      getRole = "parent";
+      
+    }else{
+      getRole = "nanny";
     }
-    isLoading = false;
-    update();
+  }
+  bool isLoading = false;
+  List<NotificationModel> notificationList = <NotificationModel>[];
+
+  void getNotificationList() async {
+    try {
+      isLoading = true;
+      update();
+      var response = await ApiService.get(
+        "${ApiEndPoint.notificationUrl}$getRole",
+      ).timeout(const Duration(seconds: 30));
+
+      if (response.statusCode == 200) {
+        notificationList.clear();
+        for (var element in response.data["data"]) {
+          notificationList.add(NotificationModel.fromJson(element));
+        }
+        appLog("✅ ✅ ✅ Value Of Response ${notificationList.length}");
+      }
+    } catch (e) {
+      Utils.errorSnackBar("Error", "Error From Get Bookmark List $e");
+    } finally {
+      isLoading = false;
+      update();
+    }
+  }
+  
+
+  void initDataLoadFunction() {
+    try {
+      getUserRole();
+      getNotificationList();
+    } catch (e) {
+      Utils.errorSnackBar("Error", "Error From Init Data Load Function $e");
+    }
   }
 
-  /// Notification Controller Instance create here
-  static NotificationsController get instance =>
-      Get.put(NotificationsController());
-
-  /// Controller on Init
   @override
   void onInit() {
-    getNotificationsRepo();
-    moreNotification();
+    initDataLoadFunction();
     super.onInit();
   }
 }
+

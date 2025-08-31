@@ -179,24 +179,14 @@ class SignInScreen extends StatelessWidget {
 
                           /// Submit Button here
                           CommonButton(
-                            titleText: AppString.signIn+" as Parents",
+                            titleText: AppString.signIn,
                             isLoading: controller.isLoading,
                             onTap: (){
-                              LocalStorage.myRoll="parents";
-                              controller.signInUser();
-                            },
-                          ),
-                          10.height,
 
-                          /// Submit Button here
-                          CommonButton(
-                            titleText: AppString.signIn+" as Nunny",
-                            isLoading: controller.isLoading,
-                            onTap: (){
-                              LocalStorage.myRoll="nunny";
                               controller.signInUser();
                             },
                           ),
+
 
                           12.height,
 

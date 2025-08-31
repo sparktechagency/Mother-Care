@@ -60,12 +60,17 @@ class NunnyDetailsController extends GetxController {
     }
   }
 
+
+
+
   void initialDataLoadFunction() {
     if (Get.arguments.runtimeType != Null) {
       id = Get.arguments;
       getNannyDetailsData();
     }
   }
+
+
 
   @override
   void onInit() {

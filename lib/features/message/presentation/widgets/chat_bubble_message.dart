@@ -38,13 +38,14 @@ class ChatBubbleMessage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-                color: isMe?AppColors.primaryColor:AppColors.chatClr                    ),
+                color: isMe?AppColors.primaryColor:AppColors.black
+                                    ),
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: CommonText(
               maxLines: 5,
               text: text,
               fontSize: 18,
-              color:isMe? AppColors.white:AppColors.primaryColor,
+              color:isMe? AppColors.black:AppColors.primaryColor,
             ),
           ),
         ],
