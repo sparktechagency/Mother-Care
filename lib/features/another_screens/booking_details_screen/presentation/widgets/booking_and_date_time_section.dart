@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mother_care/config/api/api_end_point.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/controller/reschedule_controller.dart';
+import 'package:mother_care/services/storage/storage_services.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 import '../../../../../component/image/common_image.dart';
 import '../../../../../component/text/common_text.dart';
@@ -71,13 +71,8 @@ class CustomBookingWidget extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                   ),
+
                   // Spacer(),
-                  CommonText(
-                    fontSize: 12,
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.w400,
-                    text: controller.singleBookingById?.bookingStatus ?? 'Status Error',
-                  ),
                 ],
               ),
 
@@ -94,14 +89,13 @@ class CustomBookingWidget extends StatelessWidget {
                         fill: BoxFit.cover,
                         height: 56,
                         width: 56,
-                        imageSrc:
-                            controller.singleBookingById!.parentId.profileImage, //AppImages.female,
+                        imageSrc: LocalStorage.myRoll == 'nunny'
+                            ? controller.singleBookingById!.parentId.profileImage
+                            : controller.singleBookingById!.nannyId.profileImage,
                       ),
                     ),
                   ),
                   6.width,
-
-
 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,6 +119,14 @@ class CustomBookingWidget extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             // TODO: Data Missing from backend
                             text: "4.8 (120  Reviews)",
+                          ),
+
+                          CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            left: 3,
+                            // TODO: Duration missing
+                            text: controller.singleBookingById?.bookingType ?? 'N/A',
                           ),
                         ],
                       ),
@@ -160,39 +162,54 @@ class CustomBookingWidget extends StatelessWidget {
               13.height,
               ListView.builder(
                 padding: EdgeInsets.all(0),
+                physics: NeverScrollableScrollPhysics(),
+                primary: true,
                 shrinkWrap: true,
-                itemCount: controller.singleBookingById!.customBooking.length,
+                itemCount: controller.singleBookingById?.customBooking.length ?? 0,
                 itemBuilder: (context, index) {
+                  var aDate = controller.singleBookingById!.customBooking[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.calendar_month, color: AppColors.bodyClr, size: 16.sp),
-                        CommonText(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          left: 3,
-                          text:
-                              '${controller.singleBookingById!.customBooking[index].date} | ${controller.singleBookingById!.customBooking[index].startTime} - ${controller.singleBookingById!.customBooking[index].endTime}', //"25 March 25",
-                        ),
-                      ],
+                    child: ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.all(0),
+                      primary: false,
+                      shrinkWrap: true,
+                      itemCount: aDate.fullDays.length,
+                      itemBuilder: (context, index) {
+                        return Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_month,
+                              color: AppColors.bodyClr,
+                              size: 16.sp,
+                            ),
+                            CommonText(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              left: 3,
+                              text: aDate.fullDays[index], //"25 March 25 CUSTOM Booking",
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   );
                 },
               ),
               3.height,
-              Row(
-                children: [
-                  CommonImage(imageSrc: AppImages.duration),
-                  CommonText(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    left: 3,
-                    // TODO: Duration missing
-                    text: "Duration : 6 Hours",
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     CommonImage(imageSrc: AppImages.duration),
+              //     CommonText(
+              //       fontSize: 12,
+              //       fontWeight: FontWeight.w400,
+              //       left: 3,
+              //       // TODO: Duration missing
+              //       text: "Duration : 6 Hours",
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
@@ -261,8 +278,9 @@ class FullDayBookingWidget extends StatelessWidget {
                         fill: BoxFit.cover,
                         height: 56,
                         width: 56,
-                        imageSrc:
-                            '${ApiEndPoint.imageUrl}${controller.singleBookingById!.parentId.profileImage}', //AppImages.female,
+                        imageSrc: LocalStorage.myRoll == 'nunny'
+                            ? controller.singleBookingById!.parentId.profileImage
+                            : controller.singleBookingById!.nannyId.profileImage,
                       ),
                     ),
                   ),
@@ -290,6 +308,14 @@ class FullDayBookingWidget extends StatelessWidget {
                             // TODO: Data Missing from backend
                             text: "4.8 (120  Reviews)",
                           ),
+
+                          // CommonText(
+                          //   fontSize: 12,
+                          //   fontWeight: FontWeight.w400,
+                          //   left: 3,
+                          //   // TODO: Duration missing
+                          //   text: controller.singleBookingById?.bookingType ?? 'N/A',
+                          // ),
                         ],
                       ),
                     ],
@@ -326,7 +352,8 @@ class FullDayBookingWidget extends StatelessWidget {
               ListView.builder(
                 padding: EdgeInsets.all(0),
                 shrinkWrap: true,
-                itemCount: controller.singleBookingById!.fullDayBooking!.fullDays.length,
+                itemCount:
+                    controller.singleBookingById?.fullDayBooking?.fullDays.length ?? 0,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),
@@ -338,7 +365,11 @@ class FullDayBookingWidget extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           left: 3,
                           text:
-                              '${controller.singleBookingById!.fullDayBooking!.fullDays[index]} | ${controller.singleBookingById!.fullDayBooking!.startDate} - ${controller.singleBookingById!.fullDayBooking!.endDate}', //"25 March 25",
+                              controller
+                                  .singleBookingById
+                                  ?.fullDayBooking
+                                  ?.fullDays[index] ??
+                              'N/A', //"25 March 25",
                         ),
                       ],
                     ),
@@ -346,18 +377,18 @@ class FullDayBookingWidget extends StatelessWidget {
                 },
               ),
               3.height,
-              Row(
-                children: [
-                  CommonImage(imageSrc: AppImages.duration),
-                  CommonText(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    left: 3,
-                    // TODO: Duration missing
-                    text: "Duration : 6 Hours",
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     CommonImage(imageSrc: AppImages.duration),
+              //     CommonText(
+              //       fontSize: 12,
+              //       fontWeight: FontWeight.w400,
+              //       left: 3,
+              //       // TODO: Duration missing
+              //       text: "Duration : 6 Hours",
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
@@ -426,8 +457,9 @@ class HourlyBookingWidget extends StatelessWidget {
                         fill: BoxFit.cover,
                         height: 56,
                         width: 56,
-                        imageSrc:
-                            controller.singleBookingById!.parentId.profileImage, //AppImages.female,
+                        imageSrc: LocalStorage.myRoll == 'nunny'
+                            ? controller.singleBookingById!.parentId.profileImage
+                            : controller.singleBookingById!.nannyId.profileImage,
                       ),
                     ),
                   ),
@@ -454,6 +486,14 @@ class HourlyBookingWidget extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             // TODO: Data Missing from backend
                             text: "4.8 (120  Reviews)",
+                          ),
+
+                          CommonText(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            left: 3,
+                            // TODO: Duration missing
+                            text: controller.singleBookingById?.bookingType ?? 'N/A',
                           ),
                         ],
                       ),
@@ -487,33 +527,38 @@ class HourlyBookingWidget extends StatelessWidget {
               ),
 
               13.height,
-              Row(
-                children: [
-                  Icon(Icons.calendar_month, color: AppColors.bodyClr, size: 16.sp),
-                  CommonText(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    left: 3,
-                    text: controller
-                        .singleBookingById!
-                        .hourlyBooking!
-                        .date, //"25 March 25",
-                  ),
-                ],
-              ),
-              6.height,
 
-              Row(
-                children: [
-                  Icon(Icons.watch_later_outlined, color: AppColors.bodyClr, size: 16.sp),
-                  CommonText(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    left: 3,
-                    text:
-                        '${controller.singleBookingById!.hourlyBooking!.startTime} - ${controller.singleBookingById!.hourlyBooking!.endTime}', //"09-00 am - 3:00 pm",
-                  ),
-                ],
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.all(0),
+                shrinkWrap: true,
+                itemCount: controller.singleBookingById?.hourlyBooking?.slots.length ?? 0,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 3.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.calendar_month, color: AppColors.bodyClr, size: 16.sp),
+                        CommonText(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          left: 3,
+                          text:
+                              '${controller.singleBookingById?.hourlyBooking?.slots[index].date}',
+                          //"25 March 25",
+                        ),
+
+                        CommonText(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          left: 3,
+                          text:
+                              '- ${controller.singleBookingById?.hourlyBooking?.slots[index].startTime}',
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
 
               6.height,
@@ -525,15 +570,13 @@ class HourlyBookingWidget extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     left: 3,
-                    // TODO: Duration missing
-                    text: "Duration : 6 Hours",
+                    text: '${controller.singleBookingById?.bookedHours ?? '0'} hours ',
                   ),
                 ],
               ),
             ],
           ),
         ),
-
         20.height,
 
         Map(),

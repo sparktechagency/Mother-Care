@@ -5,18 +5,19 @@ import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/controller/reschedule_controller.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/controller/nunny_booking_controller.dart';
+import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/popUP/cancle_booking_popUp.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/popUP/give_feedback_pop_up.dart';
-import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/popUP/give_report_pop_up.dart';
+import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/popUP/report_popUP.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
 class NunnyButtonSection extends StatelessWidget {
-  final RescheduleController controller;
+  final RescheduleController singleBookingController;
   final String bookingID;
   const NunnyButtonSection({
     super.key,
-    required this.controller,
+    required this.singleBookingController,
     required this.bookingID,
   });
 
@@ -69,7 +70,12 @@ class NunnyButtonSection extends StatelessWidget {
               )
             : controller.bookingType == "upComing"
             ? CommonButton(
-                onTap: () => controller.declineBooking(bookingID: bookingID),
+                onTap: () => cancleBopokingPopUp(
+                  context: context,
+                  singleBookingController: singleBookingController,
+                  bookingID: bookingID,
+                  nannyBookingController: controller,
+                ), //controller.declineBooking(bookingID: bookingID),
                 buttonRadius: 60,
                 borderColor: AppColors.red,
                 buttonColor: AppColors.background,
@@ -91,7 +97,10 @@ class NunnyButtonSection extends StatelessWidget {
             ? Column(
                 children: [
                   CommonButton(
-                    onTap: () => giveFeedbackPopUp(context),
+                    onTap: () => giveFeedbackPopUp(
+                      context: context,
+                      singleBookingController: singleBookingController,
+                    ),
                     buttonRadius: 60,
                     titleColor: AppColors.white,
                     buttonColor: Colors.green,
@@ -101,7 +110,7 @@ class NunnyButtonSection extends StatelessWidget {
                   18.height,
 
                   CommonButton(
-                    onTap: () => giveReportPopUp(context),
+                    onTap: () => showReportPopup(context),
                     titleColor: AppColors.white,
                     buttonColor: Colors.red,
                     borderColor: Colors.red,

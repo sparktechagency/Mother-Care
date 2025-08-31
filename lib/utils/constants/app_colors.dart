@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -7,7 +6,7 @@ class AppColors {
   static const Color background = Color(0xffF9FAFB);
 
   static const Color transparent = Colors.transparent;
-  static const Color white =Color(0xffFFFFFF);
+  static const Color white = Color(0xffFFFFFF);
   static const Color black = Colors.black;
   static const Color red = Colors.red;
   static const Color filledColor = Color(0xFFe7e7e7);
@@ -21,7 +20,5 @@ class AppColors {
   static const normalGray2 = Color(0xffd4d4dc);
   static const gridClr = Color(0xffFFEDD5);
   static const chatClr = Color(0xffE5E8EC);
-
-
-
+  static const withdrawaboutTextColor = Color(0xff191919);
 }

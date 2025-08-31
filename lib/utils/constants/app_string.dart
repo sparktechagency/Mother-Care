@@ -225,6 +225,7 @@ class AppString {
   static const String upcomingBooking = "Upcoming Booking";
   static const String newBookingRequest = "New Booking Request";
   static const String thisWeekEarnings = "This Week's Earnings";
+  static const String totalBalance = "Total Balance";
   static const String bookingHistory = "Booking History";
   static const String availableForBookings = "Available for bookings";
   static const String logOutTitle = "Are you sure you want to log out?";
@@ -256,6 +257,12 @@ class AppString {
   static const String submitReport = "Submit a report";
   static const String giveReview = "Give Review";
   static const String reschedule = "Reschedule";
+  static const String transectionHistory = "Transaction History";
+  static const String topUPdanaup = "Top Up Dananup";
+  static const String transferATM = "Transfer ATM";
+  static const String confirmWithdrawal = "Confirm Withdrawal";
+  static const String withdrawAmount = "Withdraw Amount";
+  static const String yourCurrentBalance = "Your Current Balance";
   static const String cancelTitle = "Are you sure you want to cancel this booking?";
   static const String cancelDes =
       "Canceling will remove your booking and may prevent rebooking for the same time.";

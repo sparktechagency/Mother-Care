@@ -59,7 +59,7 @@ class NunnyBookingDetailsScreen extends StatelessWidget {
                           20.height,
                           LocalStorage.myRoll == "nunny"
                               ? NunnyButtonSection(
-                                  controller: controller,
+                                  singleBookingController: controller,
 
                                   /// Once on a dinosaur era
                                   /// I got a argument on controller

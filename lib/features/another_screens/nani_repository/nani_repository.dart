@@ -333,3 +333,156 @@ Future<List<GalleryImage>?> fetchImageRepository() async {
     return imageList;
   }
 }
+
+Future<int?> withdrawRequestRepository({required String amount}) async {
+  try {
+    var body = {"amount": amount};
+
+    var response = await ApiService.post('/withdraws', body: body);
+
+    if (response.statusCode == 200) {
+      Get.snackbar(
+        "Success",
+        'Withdraw Request Completed',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return response.statusCode;
+    } else {
+      Get.snackbar(
+        "Error",
+        '${response.data["message"]}',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return null;
+    }
+  } catch (e) {
+    Get.snackbar(
+      "Error",
+      'An error occured. Please contact to developer',
+      snackPosition: SnackPosition.BOTTOM,
+    );
+    return null;
+  }
+}
+
+Future<int?> walletRepository() async {
+  try {
+    var response = await ApiService.get('/wallets/me');
+
+    if (response.statusCode == 200) {
+      return response.data["data"]["balance"] as int;
+    } else {
+      Get.snackbar(
+        "Error",
+        '${response.data["message"]}',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return null;
+    }
+  } catch (e) {
+    Get.snackbar(
+      "Error",
+      'An error occured. Please contact to developer',
+      snackPosition: SnackPosition.BOTTOM,
+    );
+    return null;
+  }
+}
+
+Future<void> sendFeedBackRepository({
+  required String bookingId,
+  required String toUserId,
+  required int ratingValue,
+  required String feedback,
+}) async {
+  try {
+    var body = {
+      "bookingId": bookingId,
+      "toUserId": toUserId,
+      "ratingValue": ratingValue,
+      "feedback": feedback,
+    };
+
+    var response = await ApiService.post('/reviews', body: body);
+
+    if (response.statusCode == 200) {
+      Get.snackbar(
+        "Success",
+        'Thank You for reviewing',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } else {
+      Get.snackbar(
+        "Error",
+        '${response.data["message"]}',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  } catch (e) {
+    Get.snackbar(
+      "Error",
+      'An error occured. Please contact to developer',
+      snackPosition: SnackPosition.BOTTOM,
+    );
+  }
+}
+
+Future<List<Booking>?> getNannyTodysBookingRepository() async {
+  try {
+    var response = await ApiService.get('/bookings/me/nanny/request/today');
+
+    if (response.statusCode == 200) {
+      var data = response.data["data"]["data"] as List;
+      return data.map((e) => Booking.fromJson(e)).toList();
+      // return NaniAllBookingModelData.fromJson(response.data["data"]["data"]);
+    } else {
+      Get.snackbar(
+        "Error",
+        '${response.data["message"]}',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+
+      return null;
+    }
+  } catch (e) {
+    Get.snackbar(
+      "Error",
+      'An error occured. Please contact to developer',
+      snackPosition: SnackPosition.BOTTOM,
+    );
+
+    return null;
+  }
+}
+
+// Future<NaniAllBookingModelData?> getNannyTodysBookingRepository() async {
+//   try {
+//     var response = await ApiService.get('/bookings/me/nanny/request/today');
+
+//     if (response.statusCode == 200) {
+//       Get.snackbar(
+//         "Success",
+//         'Withdraw Request Completed',
+//         snackPosition: SnackPosition.BOTTOM,
+//       );
+
+//       return NaniAllBookingModelData.fromJson(response.data["data"]);
+//     } else {
+//       Get.snackbar(
+//         "Error",
+//         '${response.data["message"]}',
+//         snackPosition: SnackPosition.BOTTOM,
+//       );
+
+//       return null;
+//     }
+//   } catch (e) {
+//     Get.snackbar(
+//       "Error",
+//       'An error occured. Please contact to developer',
+//       snackPosition: SnackPosition.BOTTOM,
+//     );
+
+//     return null;
+//   }
+// }

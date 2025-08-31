@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -22,15 +21,14 @@ class ButtonSection extends StatelessWidget {
       builder: (controller) {
         return Column(
           children: [
-
             16.height,
             InkWell(
-
-                onTap: (){
-                  NunnyBookingController.instance.updateBookingType(type: "newRequest");
-                  Get.toNamed(AppRoutes.nunnyBookingScreen);
-                },
-                child: newRequestButton()),
+              onTap: () {
+                NunnyBookingController.instance.updateBookingType(type: "newRequest");
+                Get.toNamed(AppRoutes.nunnyBookingScreen);
+              },
+              child: newRequestButton(),
+            ),
 
             20.height,
 
@@ -38,108 +36,105 @@ class ButtonSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
-                    onTap: (){
-                      NunnyBookingController.instance.updateBookingType(type: "upComing");
-                      Get.toNamed(AppRoutes.nunnyBookingScreen);
-                    },
+                  onTap: () {
+                    NunnyBookingController.instance.updateBookingType(type: "upComing");
+                    Get.toNamed(AppRoutes.nunnyBookingScreen);
+                  },
 
-                    child: NunnBUttonItem(title: AppString.upcomingBooking, image: AppImages.upcomming)),
+                  child: NunnBUttonItem(
+                    title: AppString.upcomingBooking,
+                    image: AppImages.upcomming,
+                  ),
+                ),
                 InkWell(
-                    onTap: (){
-                      Get.toNamed(AppRoutes.nunnyBookingScreen);
-                      NunnyBookingController.instance.updateBookingType(type: "onGoing");
-                    },
-                    child: NunnBUttonItem(title: AppString.ongoing, image: AppImages.ongoing)),
-
+                  onTap: () {
+                    Get.toNamed(AppRoutes.nunnyBookingScreen);
+                    NunnyBookingController.instance.updateBookingType(type: "onGoing");
+                  },
+                  child: NunnBUttonItem(
+                    title: AppString.ongoing,
+                    image: AppImages.ongoing,
+                  ),
+                ),
               ],
             ),
-
-
           ],
         );
-      }
+      },
     );
   }
 
-  Widget newRequestButton(){
-    return Container(
-      height: 60.h,
-      width: double.infinity,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.r),
-          border: Border.all(color: AppColors.normalGray2)
-      ),
-
-      child: Row(
-        children: [
-          10.width,
-          CommonImage(
-
-              height: 32,
-              width: 32,
-              imageSrc: AppImages.newRequest),
-          10.width,
-
-          CommonText(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              text: AppString.newBookingRequest),
-          Spacer(),
-
-          Container(
-            height: 28.h,
-            width: 28.w,
-            decoration: BoxDecoration(
-                color: AppColors.red,
-                shape: BoxShape.circle
-            ),
-            child: Center(child: CommonText(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: AppColors.white,
-                text: "2")),
+  Widget newRequestButton() {
+    return GetBuilder(
+      init: NunnyBookingController(),
+      builder: (nunnyBookingController) {
+        return Container(
+          height: 60.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.r),
+            border: Border.all(color: AppColors.normalGray2),
           ),
 
-          20.width
+          child: Row(
+            children: [
+              10.width,
+              CommonImage(height: 32, width: 32, imageSrc: AppImages.newRequest),
+              10.width,
 
+              CommonText(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                text: AppString.newBookingRequest,
+              ),
+              Spacer(),
+              nunnyBookingController.nunnyallBookingList.isNotEmpty
+                  ? Container(
+                      height: 28.h,
+                      width: 28.w,
+                      decoration: BoxDecoration(
+                        color: AppColors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: CommonText(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.white,
+                          text: '${nunnyBookingController.nunnyallBookingList.length}',
+                        ),
+                      ),
+                    )
+                  : SizedBox(),
 
-        ],
-      ),
+              20.width,
+            ],
+          ),
+        );
+      },
     );
   }
 
-
-  Widget NunnBUttonItem({title, image}){
-    return  Container(
+  Widget NunnBUttonItem({title, image}) {
+    return Container(
       width: 160.w,
 
       padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 18.h),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(
-          color: AppColors.normalGray2,
-        ),
-
-
+        border: Border.all(color: AppColors.normalGray2),
       ),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
 
         children: [
-          CommonImage(
-              height: 32,
-              width: 32,
-              imageSrc: image).start,
+          CommonImage(height: 32, width: 32, imageSrc: image).start,
 
           12.height,
 
-          CommonText(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-
-              text: title)
+          CommonText(fontSize: 14, fontWeight: FontWeight.w600, text: title),
         ],
       ),
     );

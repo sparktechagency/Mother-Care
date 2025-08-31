@@ -18,7 +18,7 @@ class SignInController extends GetxController {
 
   /// email and password Controller here
   TextEditingController emailController = TextEditingController(
-    text: kDebugMode ? 'parent@gmail.com' : '',
+    text: kDebugMode ? 'nanny@gmail.com' : '',
   );
   TextEditingController passwordController = TextEditingController(
     text: kDebugMode ? 'user@1234' : "",
@@ -42,44 +42,51 @@ class SignInController extends GetxController {
       "password": passwordController.text,
     };
 
-    var response = await ApiService.post(
-      ApiEndPoint.signIn,
-      body: body,
-    ).timeout(const Duration(seconds: 30));
+    try {
+      var response = await ApiService.post(
+        ApiEndPoint.signIn,
+        body: body,
+      ).timeout(const Duration(seconds: 30));
 
-    if (response.statusCode == 200) {
-      var data = response.data;
+      if (response.statusCode == 200) {
+        var data = response.data;
 
-      LocalStorage.userId = data['data']['user']['_id'];
+        LocalStorage.userId = data['data']['user']['_id'];
 
-      LocalStorage.token = data['data']["token"];
-      if (data['data']["user"]["role"] == "PARENT") {
-        LocalStorage.myRoll = "parents";
+        LocalStorage.token = data['data']["token"];
+        if (data['data']["user"]["role"] == "PARENT") {
+          LocalStorage.myRoll = "parents";
+        } else {
+          LocalStorage.myRoll = "nunny";
+        }
+
+        LocalStorage.isLogIn = true;
+        LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
+        LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);
+        LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
+        LocalStorage.setString(LocalStorageKeys.myRoll, LocalStorage.myRoll);
+        // LocalStorage.myRoll == "nunny"
+        //     ? Get.toNamed(AppRoutes.nunnHomeScreen)
+        //     : Get.toNamed(AppRoutes.parentHomeScreen);
+        if (LocalStorage.myRoll == 'parents') {
+          Get.offAllNamed(AppRoutes.parentHomeScreen);
+        } else {
+          Get.offAllNamed(AppRoutes.nunnHomeScreen);
+        }
+
+        emailController.clear();
+        passwordController.clear();
       } else {
-        LocalStorage.myRoll = "nunny";
+        Get.snackbar(response.statusCode.toString(), response.message);
       }
 
-      LocalStorage.isLogIn = true;
-      LocalStorage.setBool(LocalStorageKeys.isLogIn, LocalStorage.isLogIn);
-      LocalStorage.setString(LocalStorageKeys.userId, LocalStorage.userId);
-      LocalStorage.setString(LocalStorageKeys.token, LocalStorage.token);
-      LocalStorage.setString(LocalStorageKeys.myRoll, LocalStorage.myRoll);
-      // LocalStorage.myRoll == "nunny"
-      //     ? Get.toNamed(AppRoutes.nunnHomeScreen)
-      //     : Get.toNamed(AppRoutes.parentHomeScreen);
-      if (LocalStorage.myRoll == 'parents') {
-        Get.offAllNamed(AppRoutes.parentHomeScreen);
-      } else {
-        Get.offAllNamed(AppRoutes.nunnHomeScreen);
-      }
-
-      emailController.clear();
-      passwordController.clear();
-    } else {
-      Get.snackbar(response.statusCode.toString(), response.message);
+      isLoading = false;
+      update();
+    } catch (e) {
+      Get.snackbar('Error', 'Connection Timeout');
+    } finally {
+      isLoading = false;
+      update();
     }
-
-    isLoading = false;
-    update();
   }
 }

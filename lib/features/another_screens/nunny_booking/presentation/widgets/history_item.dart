@@ -93,14 +93,14 @@ class HistoryItem extends StatelessWidget {
                     children: [
                       Icon(Icons.calendar_month, color: AppColors.bodyClr),
                       5.width,
-                      bookingType != 'FULL_DAY'
+                      bookingType != 'FULL_DAY' && bookingType != 'CUSTOM'
                           ? CommonText(
                               fontSize: 12,
                               top: 3,
                               fontWeight: FontWeight.w400,
                               color: AppColors.bodyClr,
                               text:
-                                  '$date | $startTime - $endTime', //"25 March 25 | 09:30am - 3:00pm",
+                                  '$date - $startTime', //"25 March 25 | 09:30am - 3:00pm", ( - $endTime)
                             )
                           : CommonText(
                               fontSize: 12,

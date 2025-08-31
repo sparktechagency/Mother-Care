@@ -143,11 +143,19 @@ class ChildrenListAndInstructionSection extends StatelessWidget {
                 value: "${controller.singleBookingById?.childrenId.length ?? '0'}",
               ),
               // TODO: Duration missing
-              infoItem(title: "Duration:  Backend theke data dey nai", value: "5 hours"),
+              controller.singleBookingById?.bookingType == 'HOURLY'
+                  ? infoItem(
+                      title: "Duration:  Backend theke data dey nai",
+                      value: "5 hours",
+                    )
+                  : SizedBox(),
               infoItem(
-                title: "Hourly Rate: Backend theke data dey nai",
-                value: "\$15.00",
+                title: "Hourly Rate: ",
+                value:
+                    controller.singleBookingById?.serviceRate?.hourlyRate.toString() ??
+                    '0.0', //"\$15.00",
               ),
+
               infoItem(
                 title: "Extra Baby charge:",
                 value: "\$${controller.singleBookingById!.extraBabyCharge}",

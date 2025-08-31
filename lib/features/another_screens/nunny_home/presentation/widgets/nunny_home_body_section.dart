@@ -1,10 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/controller/nunny_home_controller.dart';
+import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nanny_withdraw_amount_screen.dart';
+import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nanny_withdrawal_history_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/widgets/today_booking_list.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
@@ -15,7 +17,7 @@ import 'button_section.dart';
 import 'nunny_slider.dart';
 
 class NunnyHomeBodySection extends StatelessWidget {
-  const NunnyHomeBodySection ({super.key});
+  const NunnyHomeBodySection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class NunnyHomeBodySection extends StatelessWidget {
       init: NunnyHomeController(),
       builder: (controller) {
         return Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
               10.height,
@@ -32,17 +34,18 @@ class NunnyHomeBodySection extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.primaryColor,
-                  borderRadius: BorderRadius.circular(12.r)
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
 
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  CommonText(
+                    CommonText(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                       color: AppColors.white,
-                      text: AppString.availableForBookings),
+                      text: AppString.availableForBookings,
+                    ),
 
                     20.width,
 
@@ -50,21 +53,18 @@ class NunnyHomeBodySection extends StatelessWidget {
                       height: 30,
                       width: 30,
                       child: Switch(
-
                         activeTrackColor: AppColors.title2,
                         inactiveTrackColor: AppColors.red,
 
                         activeColor: AppColors.white,
                         value: controller.isAvailableSwitched,
-                        onChanged: (value){
+                        onChanged: (value) {
                           controller.toggleAvailableSwitch(value);
-
                         },
                       ),
                     ),
-
-
-                ],),
+                  ],
+                ),
               ),
 
               10.height,
@@ -74,59 +74,78 @@ class NunnyHomeBodySection extends StatelessWidget {
 
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+                padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 13.h),
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(12.r),
-                  border: Border.all(color: AppColors.normalGray2)
+                  border: Border.all(color: AppColors.normalGray2),
                 ),
 
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    CommonImage(height: 46.h, width: 46.h, imageSrc: AppImages.coin),
+                    SizedBox(width: 5.h),
                     Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         CommonText(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            text: AppString.thisWeekEarnings),
-                        5.height,
-
+                          fontSize: 12.w,
+                          fontWeight: FontWeight.w700,
+                          text: AppString.totalBalance,
+                        ),
                         CommonText(
-                            fontSize: 22,
-                            color: AppColors.primaryColor,
-                            fontWeight: FontWeight.w700,
-                            text: "\$380"),
+                          fontSize: 22.w,
+                          color: AppColors.primaryColor,
+                          fontWeight: FontWeight.w700,
+                          text: "\$ ${controller.totalBalance}",
+                        ),
 
                         7.height,
-
-                        CommonText(
-                            fontSize: 12,
-                            color: Colors.green,
-                            fontWeight: FontWeight.w400,
-                            text: "+15% from last week"),
                       ],
                     ),
+
                     Spacer(),
-                    CommonImage(
-                        height: 68,
-                        width: 68,
-                        imageSrc: AppImages.coin),
-                    10.width
+                    // 22.width,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CommonButton(
+                          onTap: () {
+                            Get.to(() => WithdrawAmount());
+                          },
+                          titleText: 'Withdraw',
+                          buttonRadius: 13,
+                          buttonHeight: 30.h,
+                          buttonWidth: 120.h,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(NannyWithdrawalHistoryScreen());
+                          },
+                          child: CommonText(
+                            top: 3,
+                            fontSize: 14.w,
+                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.w600,
+                            text: "History",
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
 
               ButtonSection(),
-              TodayBookingList()
-
-
-
+              TodayBookingList(nunnyHomeController: controller),
             ],
           ),
         );
-      }
+      },
     );
   }
 }

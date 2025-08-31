@@ -64,15 +64,22 @@ class NunnyBookingScreen extends StatelessWidget {
                               .toString(),
                           parentsName:
                               controller.nunnyallBookingList[index].parentId.name,
-                          date: controller.nunnyallBookingList[index].hourlyBooking!.date,
-                          startTime: controller
-                              .nunnyallBookingList[index]
-                              .hourlyBooking!
-                              .startTime,
-                          endTime: controller
-                              .nunnyallBookingList[index]
-                              .hourlyBooking!
-                              .endTime,
+                          date:
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .hourlyBooking
+                                  ?.slots[0]
+                                  .date ??
+                              'N/A',
+                          startTime:
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .hourlyBooking
+                                  ?.slots[0]
+                                  .startTime ??
+                              'N/A',
+
+                          endTime: '',
                           location:
                               controller.nunnyallBookingList[index].parentId.address,
                           bookingId: controller.nunnyallBookingList[index].id,
@@ -121,16 +128,21 @@ class NunnyBookingScreen extends StatelessWidget {
                               .toString(),
                           parentsName:
                               controller.nunnyallBookingList[index].parentId.name,
+
                           date:
-                              controller.nunnyallBookingList[index].customBooking[0].date,
-                          startTime: controller
-                              .nunnyallBookingList[index]
-                              .customBooking[0]
-                              .startTime,
-                          endTime: controller
-                              .nunnyallBookingList[index]
-                              .customBooking[0]
-                              .endTime,
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .customBooking[0]
+                                  .startDate ??
+                              'N/A',
+
+                          startTime:
+                              controller
+                                  .nunnyallBookingList[index]
+                                  .customBooking[0]
+                                  .endDate ??
+                              'N/A',
+                          endTime: '',
                           location:
                               controller.nunnyallBookingList[index].parentId.address,
                           bookingId: controller.nunnyallBookingList[index].id,
