@@ -5,6 +5,7 @@ import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/config/route/app_routes.dart';
 import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/controller/nunny_details_controller.dart';
+import 'package:mother_care/features/another_screens/request_booking/presentation/controller/request_booking_controller.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
@@ -20,6 +21,7 @@ class NunnyDetailsScreen extends StatelessWidget {
     return GetBuilder(
       init: NunnyDetailsController(),
       builder: (controller) {
+
         return Scaffold(
           appBar: AppBar(
             backgroundColor: AppColors.white,
@@ -66,6 +68,7 @@ class NunnyDetailsScreen extends StatelessWidget {
                     ),
                     child: CommonButton(
                       onTap: () {
+                        RequestBookingController.instance.getId(controller.nannyDetailsData.servicerates[0].nannyId, controller.nannyDetailsData.servicerates[0].dayRate.toString(), controller.nannyDetailsData.servicerates[0].hourlyRate.toString());
                         Get.toNamed(AppRoutes.requestBookingScreen);
                       },
                       titleText: AppString.bookNow,

@@ -13,12 +13,12 @@ class NannyDetailsModel {
     String? address;
     String? nannyAbout;
     String? dateOfBirth;
-    List<Servicerate>? servicerates;
-    List<Professionalbackground>? professionalbackgrounds;
-    List<Availability>? galleries;
-    List<Availability>? availability;
-    List<Preference>? preferences;
-    List<Review>? reviews;
+    List<Servicerate> servicerates = [];
+    List<Professionalbackground> professionalbackgrounds = [];
+    List<Availability> galleries = [];
+    List<Availability> availability = [];
+    List<Preference> preferences = [];
+    List<Review> reviews = [];
     int? averageRating;
     int? totalReviews;
     Map<String, int>? starCounts;
@@ -36,46 +36,69 @@ class NannyDetailsModel {
         this.address,
         this.nannyAbout,
         this.dateOfBirth,
-        this.servicerates,
-        this.professionalbackgrounds,
-        this.galleries,
-        this.availability,
-        this.preferences,
-        this.reviews,
+        List<Servicerate>? servicerates,
+        List<Professionalbackground>? professionalbackgrounds,
+        List<Availability>? galleries,
+        List<Availability>? availability,
+        List<Preference>? preferences,
+        List<Review>? reviews,
         this.averageRating,
         this.totalReviews,
         this.starCounts,
-    });
+    })  : servicerates = servicerates ?? [],
+            professionalbackgrounds = professionalbackgrounds ?? [],
+            galleries = galleries ?? [],
+            availability = availability ?? [],
+            preferences = preferences ?? [],
+            reviews = reviews ?? [];
 
-    factory NannyDetailsModel.fromRawJson(String str) => NannyDetailsModel.fromJson(json.decode(str));
+    factory NannyDetailsModel.fromRawJson(String str) =>
+        NannyDetailsModel.fromJson(json.decode(str));
 
-
-
-    factory NannyDetailsModel.fromJson(Map<String, dynamic> json) => NannyDetailsModel(
-        id: json["_id"],
-        name: json["name"],
-        role: json["role"],
-        email: json["email"],
-        profileImage: json["profileImage"],
-        stripeAccountId: json["stripeAccountId"],
-        location: json["location"] == null ? null : Location.fromJson(json["location"]),
-        gender: json["gender"],
-        kidsManage: json["kidsManage"],
-        address: json["address"],
-        nannyAbout: json["nannyAbout"],
-        dateOfBirth: json["dateOfBirth"],
-        servicerates: json["servicerates"] == null ? [] : List<Servicerate>.from(json["servicerates"]!.map((x) => Servicerate.fromJson(x))),
-        professionalbackgrounds: json["professionalbackgrounds"] == null ? [] : List<Professionalbackground>.from(json["professionalbackgrounds"]!.map((x) => Professionalbackground.fromJson(x))),
-        galleries: json["galleries"] == null ? [] : List<Availability>.from(json["galleries"]!.map((x) => Availability.fromJson(x))),
-        availability: json["availability"] == null ? [] : List<Availability>.from(json["availability"]!.map((x) => Availability.fromJson(x))),
-        preferences: json["preferences"] == null ? [] : List<Preference>.from(json["preferences"]!.map((x) => Preference.fromJson(x))),
-        reviews: json["reviews"] == null ? [] : List<Review>.from(json["reviews"]!.map((x) => Review.fromJson(x))),
-        averageRating: json["averageRating"],
-        totalReviews: json["totalReviews"],
-        starCounts: Map.from(json["starCounts"]!).map((k, v) => MapEntry<String, int>(k, v)),
-    );
-
-    
+    factory NannyDetailsModel.fromJson(Map<String, dynamic> json) =>
+        NannyDetailsModel(
+            id: json["_id"],
+            name: json["name"],
+            role: json["role"],
+            email: json["email"],
+            profileImage: json["profileImage"],
+            stripeAccountId: json["stripeAccountId"],
+            location: json["location"] == null ? null : Location.fromJson(json["location"]),
+            gender: json["gender"],
+            kidsManage: json["kidsManage"],
+            address: json["address"],
+            nannyAbout: json["nannyAbout"],
+            dateOfBirth: json["dateOfBirth"],
+            servicerates: (json["servicerates"] != null)
+                ? List<Servicerate>.from(
+                json["servicerates"]!.map((x) => Servicerate.fromJson(x)))
+                : [],
+            professionalbackgrounds: (json["professionalbackgrounds"] != null)
+                ? List<Professionalbackground>.from(
+                json["professionalbackgrounds"]!.map(
+                        (x) => Professionalbackground.fromJson(x)))
+                : [],
+            galleries: (json["galleries"] != null)
+                ? List<Availability>.from(
+                json["galleries"]!.map((x) => Availability.fromJson(x)))
+                : [],
+            availability: (json["availability"] != null)
+                ? List<Availability>.from(
+                json["availability"]!.map((x) => Availability.fromJson(x)))
+                : [],
+            preferences: (json["preferences"] != null)
+                ? List<Preference>.from(
+                json["preferences"]!.map((x) => Preference.fromJson(x)))
+                : [],
+            reviews: (json["reviews"] != null)
+                ? List<Review>.from(json["reviews"]!.map((x) => Review.fromJson(x)))
+                : [],
+            averageRating: json["averageRating"],
+            totalReviews: json["totalReviews"],
+            starCounts: json["starCounts"] != null
+                ? Map<String, int>.from(json["starCounts"])
+                : null,
+        );
 }
 
 class Availability {
@@ -95,18 +118,25 @@ class Availability {
         this.images,
     });
 
-    factory Availability.fromRawJson(String str) => Availability.fromJson(json.decode(str));
+    factory Availability.fromRawJson(String str) =>
+        Availability.fromJson(json.decode(str));
 
     factory Availability.fromJson(Map<String, dynamic> json) => Availability(
         id: json["_id"],
         nannyId: json["nannyId"],
-        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
-        updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
-        weeklyAvailability: json["weeklyAvailability"] == null ? null : WeeklyAvailability.fromJson(json["weeklyAvailability"]),
-        images: json["images"] == null ? [] : List<String>.from(json["images"]!.map((x) => x)),
+        createdAt: json["createdAt"] == null
+            ? null
+            : DateTime.parse(json["createdAt"]),
+        updatedAt: json["updatedAt"] == null
+            ? null
+            : DateTime.parse(json["updatedAt"]),
+        weeklyAvailability: json["weeklyAvailability"] == null
+            ? null
+            : WeeklyAvailability.fromJson(json["weeklyAvailability"]),
+        images: (json["images"] != null)
+            ? List<String>.from(json["images"]!.map((x) => x))
+            : [],
     );
-
- 
 }
 
 class WeeklyAvailability {
@@ -128,21 +158,19 @@ class WeeklyAvailability {
         this.wednesday,
     });
 
-    factory WeeklyAvailability.fromRawJson(String str) => WeeklyAvailability.fromJson(json.decode(str));
+    factory WeeklyAvailability.fromRawJson(String str) =>
+        WeeklyAvailability.fromJson(json.decode(str));
 
- 
-
-    factory WeeklyAvailability.fromJson(Map<String, dynamic> json) => WeeklyAvailability(
-        friday: json["Friday"] == null ? null : FridayClass.fromJson(json["Friday"]),
-        monday: json["Monday"] == null ? null : FridayClass.fromJson(json["Monday"]),
-        saturday: json["Saturday"] == null ? null : FridayClass.fromJson(json["Saturday"]),
-        sunday: json["Sunday"] == null ? null : FridayClass.fromJson(json["Sunday"]),
-        thursday: json["Thursday"] == null ? null : FridayClass.fromJson(json["Thursday"]),
-        tuesday: json["Tuesday"] == null ? null : FridayClass.fromJson(json["Tuesday"]),
-        wednesday: json["Wednesday"] == null ? null : FridayClass.fromJson(json["Wednesday"]),
-    );
-
-
+    factory WeeklyAvailability.fromJson(Map<String, dynamic> json) =>
+        WeeklyAvailability(
+            friday: json["Friday"] == null ? null : FridayClass.fromJson(json["Friday"]),
+            monday: json["Monday"] == null ? null : FridayClass.fromJson(json["Monday"]),
+            saturday: json["Saturday"] == null ? null : FridayClass.fromJson(json["Saturday"]),
+            sunday: json["Sunday"] == null ? null : FridayClass.fromJson(json["Sunday"]),
+            thursday: json["Thursday"] == null ? null : FridayClass.fromJson(json["Thursday"]),
+            tuesday: json["Tuesday"] == null ? null : FridayClass.fromJson(json["Tuesday"]),
+            wednesday: json["Wednesday"] == null ? null : FridayClass.fromJson(json["Wednesday"]),
+        );
 }
 
 class FridayClass {
@@ -154,15 +182,13 @@ class FridayClass {
         this.slot,
     });
 
-    factory FridayClass.fromRawJson(String str) => FridayClass.fromJson(json.decode(str));
-
+    factory FridayClass.fromRawJson(String str) =>
+        FridayClass.fromJson(json.decode(str));
 
     factory FridayClass.fromJson(Map<String, dynamic> json) => FridayClass(
         isAvailable: json["isAvailable"],
         slot: json["slot"] == null ? null : Slot.fromJson(json["slot"]),
     );
-
-   
 }
 
 class Slot {
@@ -176,16 +202,11 @@ class Slot {
 
     factory Slot.fromRawJson(String str) => Slot.fromJson(json.decode(str));
 
-
-
     factory Slot.fromJson(Map<String, dynamic> json) => Slot(
         endTime: json["endTime"],
         startTime: json["startTime"],
     );
-
-    
 }
-
 
 class Location {
     String? type;
@@ -198,13 +219,12 @@ class Location {
 
     factory Location.fromRawJson(String str) => Location.fromJson(json.decode(str));
 
-  
-
     factory Location.fromJson(Map<String, dynamic> json) => Location(
         type: json["type"],
-        coordinates: json["coordinates"] == null ? [] : List<double>.from(json["coordinates"]!.map((x) => x?.toDouble())),
+        coordinates: (json["coordinates"] != null)
+            ? List<double>.from(json["coordinates"]!.map((x) => x?.toDouble()))
+            : [],
     );
-
 }
 
 class Preference {
@@ -224,20 +244,25 @@ class Preference {
         this.updatedAt,
     });
 
-    factory Preference.fromRawJson(String str) => Preference.fromJson(json.decode(str));
-
-
+    factory Preference.fromRawJson(String str) =>
+        Preference.fromJson(json.decode(str));
 
     factory Preference.fromJson(Map<String, dynamic> json) => Preference(
         id: json["_id"],
         nannyId: json["nannyId"],
-        ageGroupsYouWorkWith: json["ageGroupsYouWorkWith"] == null ? [] : List<String>.from(json["ageGroupsYouWorkWith"]!.map((x) => x)),
-        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
-        serviceYouOffer: json["serviceYouOffer"] == null ? [] : List<String>.from(json["serviceYouOffer"]!.map((x) => x)),
-        updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+        ageGroupsYouWorkWith: (json["ageGroupsYouWorkWith"] != null)
+            ? List<String>.from(json["ageGroupsYouWorkWith"]!.map((x) => x))
+            : [],
+        createdAt: json["createdAt"] == null
+            ? null
+            : DateTime.parse(json["createdAt"]),
+        serviceYouOffer: (json["serviceYouOffer"] != null)
+            ? List<String>.from(json["serviceYouOffer"]!.map((x) => x))
+            : [],
+        updatedAt: json["updatedAt"] == null
+            ? null
+            : DateTime.parse(json["updatedAt"]),
     );
-
-  
 }
 
 class Professionalbackground {
@@ -259,21 +284,28 @@ class Professionalbackground {
         this.workExperience,
     });
 
-    factory Professionalbackground.fromRawJson(String str) => Professionalbackground.fromJson(json.decode(str));
+    factory Professionalbackground.fromRawJson(String str) =>
+        Professionalbackground.fromJson(json.decode(str));
 
-
-
-    factory Professionalbackground.fromJson(Map<String, dynamic> json) => Professionalbackground(
-        id: json["_id"],
-        nannyId: json["nannyId"],
-        certifications: json["certifications"] == null ? [] : List<String>.from(json["certifications"]!.map((x) => x)),
-        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
-        totalExperienceInYears: json["totalExperienceInYears"],
-        updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
-        workExperience: json["workExperience"] == null ? [] : List<WorkExperience>.from(json["workExperience"]!.map((x) => WorkExperience.fromJson(x))),
-    );
-
-   
+    factory Professionalbackground.fromJson(Map<String, dynamic> json) =>
+        Professionalbackground(
+            id: json["_id"],
+            nannyId: json["nannyId"],
+            certifications: (json["certifications"] != null)
+                ? List<String>.from(json["certifications"]!.map((x) => x))
+                : [],
+            createdAt: json["createdAt"] == null
+                ? null
+                : DateTime.parse(json["createdAt"]),
+            totalExperienceInYears: json["totalExperienceInYears"],
+            updatedAt: json["updatedAt"] == null
+                ? null
+                : DateTime.parse(json["updatedAt"]),
+            workExperience: (json["workExperience"] != null)
+                ? List<WorkExperience>.from(
+                json["workExperience"]!.map((x) => WorkExperience.fromJson(x)))
+                : [],
+        );
 }
 
 class WorkExperience {
@@ -295,9 +327,8 @@ class WorkExperience {
         this.id,
     });
 
-    factory WorkExperience.fromRawJson(String str) => WorkExperience.fromJson(json.decode(str));
-
- 
+    factory WorkExperience.fromRawJson(String str) =>
+        WorkExperience.fromJson(json.decode(str));
 
     factory WorkExperience.fromJson(Map<String, dynamic> json) => WorkExperience(
         position: json["position"],
@@ -308,8 +339,6 @@ class WorkExperience {
         isCurrentWorking: json["isCurrentWorking"],
         id: json["_id"],
     );
-
-  
 }
 
 class Review {
@@ -325,15 +354,13 @@ class Review {
 
     factory Review.fromRawJson(String str) => Review.fromJson(json.decode(str));
 
-
-
     factory Review.fromJson(Map<String, dynamic> json) => Review(
         ratingValue: json["ratingValue"],
         feedback: json["feedback"],
-        fromUser: json["fromUser"] == null ? null : FromUser.fromJson(json["fromUser"]),
+        fromUser: json["fromUser"] == null
+            ? null
+            : FromUser.fromJson(json["fromUser"]),
     );
-
-  
 }
 
 class FromUser {
@@ -349,9 +376,8 @@ class FromUser {
         this.id,
     });
 
-    factory FromUser.fromRawJson(String str) => FromUser.fromJson(json.decode(str));
-
-
+    factory FromUser.fromRawJson(String str) =>
+        FromUser.fromJson(json.decode(str));
 
     factory FromUser.fromJson(Map<String, dynamic> json) => FromUser(
         name: json["name"],
@@ -359,8 +385,6 @@ class FromUser {
         role: json["role"],
         id: json["_id"],
     );
-
-   
 }
 
 class Servicerate {
@@ -386,20 +410,22 @@ class Servicerate {
         this.updatedAt,
     });
 
-    factory Servicerate.fromRawJson(String str) => Servicerate.fromJson(json.decode(str));
-
+    factory Servicerate.fromRawJson(String str) =>
+        Servicerate.fromJson(json.decode(str));
 
     factory Servicerate.fromJson(Map<String, dynamic> json) => Servicerate(
         id: json["_id"],
         nannyId: json["nannyId"],
         acceptsOverNight: json["acceptsOverNight"],
-        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
+        createdAt: json["createdAt"] == null
+            ? null
+            : DateTime.parse(json["createdAt"]),
         currency: json["currency"],
         dayRate: json["dayRate"],
         hourlyRate: json["hourlyRate"],
         overNightRate: json["overNightRate"],
-        updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+        updatedAt: json["updatedAt"] == null
+            ? null
+            : DateTime.parse(json["updatedAt"]),
     );
-
- 
 }

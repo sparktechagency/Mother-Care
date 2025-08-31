@@ -2,6 +2,7 @@ import 'dart:convert';
 
 class ChildrenListModel {
     String? id;
+    bool? isSelected;
     String? userId;
     String? name;
     String? dateOfBirth;
@@ -14,6 +15,7 @@ class ChildrenListModel {
         this.id,
         this.userId,
         this.name,
+        this.isSelected=false,
         this.dateOfBirth,
         this.gender,
         this.childImage,

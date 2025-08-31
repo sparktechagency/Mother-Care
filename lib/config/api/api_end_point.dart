@@ -17,6 +17,8 @@ class ApiEndPoint {
   static const messages = "messages";
   static const profile = "$baseUrl/users/profile";
   static const resendOtp = "$baseUrl/auth/resend-otp";
+  static const checkout = "/payments/create-checkout-session";
+  static const bookingSlote = "/bookings/slots";
 
 
 
@@ -36,6 +38,10 @@ class ApiEndPoint {
   static const bookmarkUrl = "/bookmarks";
   static const chatUrl = "/chats";
   static const signIn = "/auth/login";
+  static const messageUrl = "/messages/";
+  static const sendMessageUrl = "/messages/send-message/";
+  static const notificationUrl = "/notifications/";
+  static const parentBookingUrl = "/bookings/me/parent";
 
   //===============nasim
   static const naniAllBookings = '/bookings/me/nanny';

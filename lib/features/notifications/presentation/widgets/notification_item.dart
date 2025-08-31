@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mother_care/utils/time_format/message_date_convert.dart';
 import '../../../../component/text/common_text.dart';
 import '../../data/model/notification_model.dart';
 import '../../../../utils/extensions/extension.dart';
 import '../../../../utils/constants/app_colors.dart';
 
 class NotificationItem extends StatelessWidget {
-  const NotificationItem({super.key,});
-
+  const NotificationItem({super.key, required this.item});
+final NotificationModel item;
 
 
   @override
@@ -41,7 +42,7 @@ class NotificationItem extends StatelessWidget {
                     /// Notification Title here
                     Flexible(
                       child: CommonText(
-                        text:"Booking Confirmed",
+                        text: item.title ?? "" ,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         textAlign: TextAlign.start,
@@ -51,7 +52,7 @@ class NotificationItem extends StatelessWidget {
 
                     /// Notification Time here
                     CommonText(
-                      text:"9min ago",
+                      text: formatDateToTime(item.createdAt ?? ""),
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       textAlign: TextAlign.start,
@@ -63,7 +64,7 @@ class NotificationItem extends StatelessWidget {
 
                 /// Notification Message here
                 CommonText(
-                  text:"Your booking with Tandiwe Amina for tomorrow, 9 AM to 1 PM, is confirmed!",
+                   text: item.message ?? "" ,
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   maxLines: 2,

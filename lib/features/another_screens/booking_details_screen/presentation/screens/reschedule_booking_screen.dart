@@ -95,7 +95,7 @@ class RescheduleBookingScreen extends StatelessWidget {
                   itemCount: controller.timeSlots.length,
 
                   itemBuilder: (context, index) {
-                    TimeSlot data = controller.timeSlots[index];
+                    TimeSlote data = controller.timeSlots[index];
 
                     return InkWell(
                       onTap: () {
@@ -129,7 +129,7 @@ class RescheduleBookingScreen extends StatelessWidget {
                                   : AppColors.black)
                                   : AppColors.textFiledColor,
                               fontWeight: FontWeight.w400,
-                              text: data.time,
+                              text: data.startTime,
                             ),
 
                             CommonText(

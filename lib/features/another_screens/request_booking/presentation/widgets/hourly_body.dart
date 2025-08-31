@@ -73,11 +73,12 @@ class HourlyBody extends StatelessWidget {
               itemCount: controller.timeSlots.length,
 
               itemBuilder: (context, index) {
-                TimeSlot data = controller.timeSlots[index];
+                TimeSlote data = controller.timeSlots[index];
 
                 return InkWell(
                   onTap: () {
                     if (data.isAvailable) {
+                      controller.addHour(controller.timeSlots[index].startTime);
                       controller.toggleSelection(index);
                     }
                   },
@@ -107,7 +108,7 @@ class HourlyBody extends StatelessWidget {
                                     : AppColors.black)
                               : AppColors.textFiledColor,
                           fontWeight: FontWeight.w400,
-                          text: data.time,
+                          text: data.startTime,
                         ),
 
                         CommonText(
@@ -128,75 +129,7 @@ class HourlyBody extends StatelessWidget {
               },
             ),
 
-            20.height,
 
-            CommonText(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              text: AppString.duration,
-            ),
-
-            16.height,
-
-            CommonTextField(
-              controller: controller.durationController,
-              
-              suffixIcon: PopupMenuButton<String>(
-                color: AppColors.white,
-
-                icon: Icon(Icons.keyboard_arrow_down_outlined),
-                onSelected: (value) {
-                  controller.getDuration(value);
-                },
-                itemBuilder: (BuildContext context) {
-                  return [
-                    PopupMenuItem<String>(
-                      value: '1',
-                      child: Text('1 hour'),
-                    ),
-                    PopupMenuItem<String>(
-                      value: '2',
-                      child: Text('2 hours'),
-                    ),
-                    PopupMenuItem<String>(
-                      value: '3',
-                      child: Text("3 hours"),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: '4',
-                      child: Text("4 hours"),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: '5',
-                      child: Text("5 hours"),
-                    ),
-                    PopupMenuItem<String>(
-                      value: '6',
-                      child: Text("6 hours"),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: '7',
-                      child: Text("7 hours"),
-                    ),
-
-                    PopupMenuItem<String>(
-                      value: '8',
-                      child: Text("8 hours"),
-                    ),    PopupMenuItem<String>(
-                      value: '9',
-                      child: Text("9 hours"),
-                    ),    PopupMenuItem<String>(
-                      value: '10',
-                      child: Text("10 hours"),
-                    ),
-                  ];
-                },
-              ),
-              hintText: AppString.selectDuration,
-            ),
           ],
         );
       },

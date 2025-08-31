@@ -186,6 +186,7 @@ class AppString {
   static const String editBooking = "Edit Booking";
   static const String savedNanny = "Saved Nanny";
   static const String myBookings = "My Bookings";
+  static const String myReviews = "My Reviews";
   static const String helpSupports = "Help & Supports";
   static const String iHaveRead = "I have read and agree to the";
   static const String updateInfo = "Update Info";

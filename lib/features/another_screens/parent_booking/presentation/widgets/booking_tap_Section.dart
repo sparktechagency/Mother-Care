@@ -23,7 +23,7 @@ class BookingTapSection extends StatelessWidget {
               flex: 1,
               child: InkWell(
                 onTap: (){
-                  controller.updateBookingType("Upcoming");
+                  controller.updateBookingType("UPCOMING");
                 },
                 child: Column(
                   children: [
@@ -31,7 +31,7 @@ class BookingTapSection extends StatelessWidget {
                       fontSize: 16,
                       color: AppColors.titleColor,
                       fontWeight:
-                      controller.selectedBookingType == "Upcoming"
+                      controller.selectedBookingType == "UPCOMING"
                           ? FontWeight.w700
                           : FontWeight.w400,
                       text: AppString.upcoming,
@@ -39,7 +39,7 @@ class BookingTapSection extends StatelessWidget {
 
                     7.height,
 
-                    controller.selectedBookingType == "Upcoming"?  Container(
+                    controller.selectedBookingType == "UPCOMING"?  Container(
                       height: 5.h,
                       width: 102.w,
                       decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class BookingTapSection extends StatelessWidget {
               flex: 1,
               child: InkWell(
                 onTap: (){
-                  controller.updateBookingType("Ongoing");
+                  controller.updateBookingType("ONGOING");
                 },
                 child: Column(
                   children: [
@@ -63,7 +63,7 @@ class BookingTapSection extends StatelessWidget {
                       fontSize: 16,
                       color: AppColors.titleColor,
                       fontWeight:
-                      controller.selectedBookingType == "Ongoing"
+                      controller.selectedBookingType == "ONGOING"
                           ? FontWeight.w700
                           : FontWeight.w400,
                       text: AppString.ongoing,
@@ -71,7 +71,7 @@ class BookingTapSection extends StatelessWidget {
 
                     7.height,
 
-                    controller.selectedBookingType == "Ongoing"?  Container(
+                    controller.selectedBookingType == "ONGOING"?  Container(
                       height: 5.h,
                       width: 102.w,
                       decoration: BoxDecoration(
@@ -87,7 +87,7 @@ class BookingTapSection extends StatelessWidget {
               flex: 1,
               child: InkWell(
                 onTap: (){
-                  controller.updateBookingType("History");
+                  controller.updateBookingType("HISTORY");
                 },
                 child: Column(
                   children: [
@@ -95,7 +95,7 @@ class BookingTapSection extends StatelessWidget {
                       fontSize: 16,
                       color: AppColors.titleColor,
                       fontWeight:
-                      controller.selectedBookingType == "History"
+                      controller.selectedBookingType == "HISTORY"
                           ? FontWeight.w700
                           : FontWeight.w400,
                       text: AppString.history,
@@ -103,7 +103,7 @@ class BookingTapSection extends StatelessWidget {
 
                     7.height,
 
-                    controller.selectedBookingType == "History"?  Container(
+                    controller.selectedBookingType == "HISTORY"?  Container(
                       height: 5.h,
                       width: 102.w,
                       decoration: BoxDecoration(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mother_care/features/message/presentation/model/chat_list_model.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import '../../../../config/route/app_routes.dart';
 import '../../../../component/bottom_nav_bar/common_bottom_bar.dart';
@@ -9,7 +10,6 @@ import '../../../../component/screen/error_screen.dart';
 import '../../../../component/text/common_text.dart';
 import '../../../../component/text_field/common_text_field.dart';
 import '../controller/chat_controller.dart';
-import '../../data/model/chat_list_model.dart';
 import '../../../../utils/enum/enum.dart';
 import '../../../../utils/constants/app_string.dart';
 import '../widgets/chat_list_item.dart';
@@ -26,13 +26,14 @@ class ChatListScreen extends StatelessWidget {
         shadowColor: AppColors.transparent,
         backgroundColor: AppColors.white,
         leading: InkWell(
-          onTap: (){
+          onTap: () {
             Get.back();
           },
           child: Icon(
-              size: 23,
-              color: AppColors.textFiledColor,
-              Icons.arrow_back_ios),
+            size: 23,
+            color: AppColors.textFiledColor,
+            Icons.arrow_back_ios,
+          ),
         ),
         centerTitle: true,
         title: const CommonText(
@@ -61,33 +62,47 @@ class ChatListScreen extends StatelessWidget {
                   children: [
                     /// User Search bar here
                     CommonTextField(
+                      controller: controller.searchController,
+                      readOnly: true,
+                      onSubmitted: (p0) {
+                        controller.getChatListFunction();
+                      },
                       prefixIcon: const Icon(Icons.search),
                       hintText: AppString.searchDoctor,
+                      textInputAction: TextInputAction.search,
                     ),
 
                     /// Show all Chat List here
                     Expanded(
-                      child: ListView.builder(
-                        itemCount: controller.chats.length,
-                        padding: EdgeInsets.only(top: 16.h),
-                        itemBuilder: (context, index) {
-                          ChatModel item = controller.chats[index];
-                          return GestureDetector(
-                            /// routing with data
-                            onTap:
-                                () => Get.toNamed(
-                                  AppRoutes.message,
-                                  parameters: {
-                                    "chatId": item.id,
-                                    "name": item.participant.fullName,
-                                    "image": item.participant.image,
+                      child: Obx(
+                        () =>
+                            controller.isLoading.value
+                                ? Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.black,
+                                  ),
+                                )
+                                : ListView.builder(
+                                  itemCount: controller.chatList.length,
+                                  padding: EdgeInsets.only(top: 16.h),
+                                  itemBuilder: (context, index) {
+                                    ChatListModel item =
+                                        controller.chatList[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        if (item.participants?.length != 0) {
+                                          Get.toNamed(
+                                            AppRoutes.message,
+                                            arguments: item,
+                                          );
+                                        }
+                                      },
+
+                                      /// Chat List item here
+                                      child: chatListItem(item: item),
+                                    );
                                   },
                                 ),
-
-                            /// Chat List item here
-                            child: chatListItem(item: controller.chats[index]),
-                          );
-                        },
                       ),
                     ),
                   ],

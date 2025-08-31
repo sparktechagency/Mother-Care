@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/component/text_field/common_text_field.dart';
+import 'package:mother_care/features/another_screens/children/presentation/model/children_list_model.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/controller/request_booking_controller.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
@@ -34,11 +35,13 @@ class BodySection extends StatelessWidget {
 
             ListView.builder(
               padding: EdgeInsets.all(0),
-                itemCount:  controller.items.length,
+                itemCount:  controller.childrenList.length,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index){
-                  var item = controller.items[index];
+                  ChildrenListModel item = controller.childrenList[index];
+
+                  var dateOfBirth=controller.calculateDateDifference(item.dateOfBirth.toString());
                   return Container(
                     margin: EdgeInsets.symmetric(vertical: 8),
                     padding: EdgeInsets.all(12.r),
@@ -75,21 +78,21 @@ class BodySection extends StatelessWidget {
                               CommonText(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
-                                  text: "Chinedu Okonkwo  "),
+                                  text: item.name.toString()),
 
                               CommonText(
                                 top: 2,
                                   fontSize: 12,
                                   color: AppColors.bodyClr,
                                   fontWeight: FontWeight.w400,
-                                  text: "Girl "),
+                                  text: item.gender.toString()),
 
                               CommonText(
                                 top: 2,
                                   fontSize: 12,
                                   color: AppColors.bodyClr,
                                   fontWeight: FontWeight.w400,
-                                  text: "4 Years 9 Months"),
+                                  text: dateOfBirth),
                             ],
                           ),
                         ),
@@ -106,8 +109,10 @@ class BodySection extends StatelessWidget {
                             child: Checkbox(
 
                               activeColor: AppColors.primaryColor,
-                                value: item['isSelected'],
+                                value:controller.childrenList[index].isSelected
+                                ,
                                 onChanged: (va){
+                                controller.addChildren(getId:  item.id.toString());
                                   controller.toggleCheckBox(index);
                                 }),
                           ),

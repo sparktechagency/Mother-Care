@@ -92,6 +92,16 @@ class ProfileAllItem extends StatelessWidget {
                   ),
 
 
+
+                  17.height,
+                  Item(
+                    iconColor: AppColors.primaryColor,
+                    icon: Icons.reviews,
+                    title: AppString.myReviews,
+                    onTap: () => Get.toNamed(AppRoutes.myReviewsScreen),
+                  ),
+
+
                 ],
               ) : Item(
                 iconColor: AppColors.primaryColor,

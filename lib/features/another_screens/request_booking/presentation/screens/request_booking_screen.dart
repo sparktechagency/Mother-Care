@@ -55,14 +55,20 @@ class RequestBookingScreen extends StatelessWidget {
         },
       ),
       
-      bottomNavigationBar: Container(
-        color: AppColors.white,
-        padding: EdgeInsets.all(28),
-        child: CommonButton(
-            onTap: (){
-              PaymentSuccessPopUp.paymentSuccessDialog();
-            },
-            titleText: AppString.requestToBook),
+      bottomNavigationBar: GetBuilder(
+        init: RequestBookingController(),
+        builder: (controller) {
+          return Container(
+            color: AppColors.white,
+            padding: EdgeInsets.all(28),
+            child: CommonButton(
+              isLoading: controller.isPaymentLoading,
+                onTap: (){
+                  controller.fullDayPayment();
+                },
+                titleText: AppString.requestToBook),
+          );
+        }
       ),
     );
   }

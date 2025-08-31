@@ -39,13 +39,13 @@ class ParentBookingScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: SingleChildScrollView(
               child: Column(
+                mainAxisAlignment:MainAxisAlignment.center,
                 children: [
                   15.height,
+
                   BookingTapSection(),
                   20.height,
-                  MyBookingListSection()
-              
-              
+             MyBookingListSection(),
                 ],
               ),
             ),
