@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/controller/nunny_home_controller.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/widgets/today_booking_item.dart';
+import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
 
@@ -48,6 +49,23 @@ class TodayBookingList extends StatelessWidget {
             );
           },
         ),
+
+        nunnyHomeController.todayBooking == null ||
+                nunnyHomeController.todayBooking!.isEmpty
+            ? SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.book_outlined, color: AppColors.primaryColor),
+                    SizedBox(width: 10),
+                    CommonText(text: 'No Booking for today.'),
+                  ],
+                ),
+              )
+            : SizedBox.shrink(),
       ],
     );
   }

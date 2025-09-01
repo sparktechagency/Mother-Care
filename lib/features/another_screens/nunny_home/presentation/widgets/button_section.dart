@@ -88,7 +88,7 @@ class ButtonSection extends StatelessWidget {
                 text: AppString.newBookingRequest,
               ),
               Spacer(),
-              nunnyBookingController.nunnyallBookingList.isNotEmpty
+              nunnyBookingController.nunnyallBookingRequestList.isNotEmpty
                   ? Container(
                       height: 28.h,
                       width: 28.w,
@@ -101,7 +101,8 @@ class ButtonSection extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           color: AppColors.white,
-                          text: '${nunnyBookingController.nunnyallBookingList.length}',
+                          text:
+                              '${nunnyBookingController.nunnyallBookingRequestList.length}',
                         ),
                       ),
                     )

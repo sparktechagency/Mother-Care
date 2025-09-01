@@ -26,7 +26,8 @@ Future<List<Booking>> naniGetAllBookingRepository(int page) async {
 
 Future<List<Booking>> naniGetAllHistoryBookingRepository(int page) async {
   var response = await ApiService.get(
-    '${ApiEndPoint.naniAllBookings}?page=$page&category=HISTORY',
+    // TODO: just for testing i set limit 5
+    '${ApiEndPoint.naniAllBookings}?page=$page&category=HISTORY?limit=5',
   );
 
   if (response.statusCode == 200) {
@@ -91,7 +92,7 @@ Future<Booking?> getSinglebookingByIdRepository({required String bookingID}) asy
 
 Future<List<Booking>> naniGetAllBookingRequestRepository() async {
   try {
-    var response = await ApiService.get(ApiEndPoint.naniBookingRequest);
+    var response = await ApiService.get('${ApiEndPoint.naniBookingRequest}?limit=50');
     if (response.statusCode == 200) {
       var nannyRequestList = response.data["data"]["data"] as List;
       return nannyRequestList.map((json) => Booking.fromJson(json)).toList();

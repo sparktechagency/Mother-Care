@@ -6,9 +6,14 @@ import 'package:mother_care/services/storage/storage_services.dart';
 
 class NunnyBookingController extends GetxController {
   String bookingType = "";
+  int page = 1;
   static NunnyBookingController get instance => Get.put(NunnyBookingController());
 
-  updateBookingType({String type = ""}) {
+  updateBookingType({String type = ""}) async {
+    if (naniAllBookingscrollController.hasClients) {
+      naniAllBookingscrollController.jumpTo(0.0);
+    }
+    page = 1;
     bookingType = type;
     getAllBooking();
     update();
@@ -23,26 +28,89 @@ class NunnyBookingController extends GetxController {
   /// No more notification data
   bool hasNoData = false;
 
+  RxBool isLastPage = false.obs;
+
   ScrollController naniAllBookingscrollController = ScrollController();
 
-  int page = 1;
-
   List<Booking> nunnyallBookingList = [];
+  List<Booking> nunnyallBookingRequestList = [];
 
   //// Getting already Fetched Data here
   void getAllBooking() async {
     isLoading.value = true;
     switch (bookingType) {
       case "history":
-        nunnyallBookingList = await naniGetAllHistoryBookingRepository(page);
+        nunnyallBookingList = await naniGetAllHistoryBookingRepository(1);
+        break;
       case "newRequest":
-        nunnyallBookingList = await naniGetAllBookingRequestRepository();
+        nunnyallBookingRequestList = nunnyallBookingList =
+            await naniGetAllBookingRequestRepository();
+        break;
+
       case "upComing":
-        nunnyallBookingList = await naniGetAllUpcomingBookingRepository(page);
+        nunnyallBookingList = await naniGetAllUpcomingBookingRepository(1);
+        break;
+
       case "onGoing":
-        nunnyallBookingList = await naniGetAllOngoingBookingRepository(page);
+        nunnyallBookingList = await naniGetAllOngoingBookingRepository(1);
+        break;
+
       default:
         nunnyallBookingList = [];
+        break;
+    }
+    update();
+  }
+
+  void scrollListener() {
+    try {
+      if (naniAllBookingscrollController.position.pixels ==
+          naniAllBookingscrollController.position.maxScrollExtent) {
+        if (!isLastPage.value) {
+          page++;
+          loadMore();
+          print(
+            '${naniAllBookingscrollController.position.pixels} ************************************************',
+          );
+        }
+      }
+    } catch (e) {
+      Get.snackbar('Crash', 'App Crashed');
+      do {
+        naniAllBookingscrollController.jumpTo(0.0);
+      } while (false);
+    }
+  }
+
+  void loadMore() async {
+    isLoading.value = true;
+    switch (bookingType) {
+      case "history":
+        List<Booking> temp = await naniGetAllHistoryBookingRepository(page);
+        if (temp.isEmpty) isLastPage.value = true;
+        nunnyallBookingList.addAll(temp);
+        temp = [];
+        break;
+
+      case "newRequest":
+        nunnyallBookingList = await naniGetAllBookingRequestRepository();
+        break;
+
+      case "upComing":
+        List<Booking> temp = await naniGetAllUpcomingBookingRepository(page);
+        if (temp.isEmpty) isLastPage.value = true;
+        nunnyallBookingList.addAll(temp);
+        break;
+
+      case "onGoing":
+        List<Booking> temp = await naniGetAllOngoingBookingRepository(page);
+        if (temp.isEmpty) isLastPage.value = true;
+        nunnyallBookingList.addAll(temp);
+        break;
+
+      default:
+        nunnyallBookingList = [];
+        break;
     }
     update();
   }
@@ -101,6 +169,32 @@ class NunnyBookingController extends GetxController {
     } catch (e) {
       Get.snackbar('Error', 'Error From Nanny Booking Controller');
     }
+  }
+
+  @override
+  void onInit() async {
+    naniAllBookingscrollController.addListener(scrollListener);
+    // just getting list of new booking request
+    nunnyallBookingRequestList = await naniGetAllBookingRequestRepository();
+    super.onInit();
+  }
+
+  // @override
+  // void onClose() {
+  //   // This is called when the controller is permanently removed
+  //   if (naniAllBookingscrollController.hasClients) {
+  //     naniAllBookingscrollController.removeListener(scrollListener);
+  //     naniAllBookingscrollController.dispose();
+  //   }
+  //   super.onClose();
+  // }
+
+  @override
+  void dispose() {
+    page = 1;
+    nunnyallBookingList = [];
+    naniAllBookingscrollController.dispose();
+    super.dispose();
   }
 }
 

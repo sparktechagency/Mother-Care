@@ -10,15 +10,9 @@ class NunnyHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            NunnyAppbar(),
-            NunnyHomeBodySection()
-          ],
-        ),
+        child: Column(children: [NunnyAppbar(), NunnyHomeBodySection()]),
       ),
       bottomNavigationBar: CommonBottomNavBar(currentIndex: 0),
-
     );
   }
 }
