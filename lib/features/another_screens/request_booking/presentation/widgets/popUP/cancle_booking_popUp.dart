@@ -21,7 +21,7 @@ Future<void> cancleBopokingPopUp({
       return BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Dialog(
-          // backgroundColor: ConstColour.appDarktBackGround, // dark background
+          backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(16),

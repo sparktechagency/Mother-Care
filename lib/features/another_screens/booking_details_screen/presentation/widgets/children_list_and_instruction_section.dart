@@ -145,8 +145,8 @@ class ChildrenListAndInstructionSection extends StatelessWidget {
               // TODO: Duration missing
               controller.singleBookingById?.bookingType == 'HOURLY'
                   ? infoItem(
-                      title: "Duration:  Backend theke data dey nai",
-                      value: "5 hours",
+                      title: "Duration: ",
+                      value: '${controller.singleBookingById?.bookedHours ?? '0'} hours ',
                     )
                   : SizedBox(),
               infoItem(
