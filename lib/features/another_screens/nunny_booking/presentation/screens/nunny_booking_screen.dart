@@ -48,98 +48,130 @@ class NunnyBookingScreen extends StatelessWidget {
 
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: ListView.builder(
-              controller: controller.naniAllBookingscrollController,
-              itemCount: controller.nunnyallBookingList.length, //5,
-              itemBuilder: (context, index) {
-                switch (controller.nunnyallBookingList[index].bookingType) {
-                  case 'HOURLY':
-                    return HistoryItem(
-                      bookingType: 'HOURLY',
-                      status: controller.bookingType,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
-                      date:
-                          controller
-                              .nunnyallBookingList[index]
-                              .hourlyBooking
-                              ?.slots[0]
-                              .date ??
-                          'N/A',
-                      startTime:
-                          controller
-                              .nunnyallBookingList[index]
-                              .hourlyBooking
-                              ?.slots[0]
-                              .startTime ??
-                          'N/A',
+            child: controller.nunnyallBookingList.isNotEmpty
+                ? ListView.builder(
+                    controller: controller.naniAllBookingscrollController,
+                    itemCount: controller.nunnyallBookingList.length, //5,
+                    itemBuilder: (context, index) {
+                      switch (controller.nunnyallBookingList[index].bookingType) {
+                        case 'HOURLY':
+                          return HistoryItem(
+                            bookingType: 'HOURLY',
+                            status: controller.bookingType,
+                            amount: controller.nunnyallBookingList[index].totalPayable
+                                .toString(),
+                            parentsName:
+                                controller.nunnyallBookingList[index].parentId.name,
+                            date:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .hourlyBooking
+                                    ?.slots[0]
+                                    .date ??
+                                'N/A',
+                            startTime:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .hourlyBooking
+                                    ?.slots[0]
+                                    .startTime ??
+                                'N/A',
 
-                      endTime: '',
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                      image: controller.nunnyallBookingList[index].parentId.profileImage,
-                      controller: controller,
-                    );
+                            endTime: '',
+                            location:
+                                controller.nunnyallBookingList[index].parentId.address,
+                            bookingId: controller.nunnyallBookingList[index].id,
+                            image: controller
+                                .nunnyallBookingList[index]
+                                .parentId
+                                .profileImage,
+                            controller: controller,
+                          );
 
-                  case 'FULL_DAY':
-                    return HistoryItem(
-                      bookingType: 'FULL_DAY',
-                      status: controller.bookingType,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
-                      date: controller
-                          .nunnyallBookingList[index]
-                          .fullDayBooking!
-                          .fullDays[0],
-                      startTime:
-                          controller
-                              .nunnyallBookingList[index]
-                              .fullDayBooking!
-                              .startDate ??
-                          '',
-                      endTime:
-                          controller.nunnyallBookingList[index].fullDayBooking!.endDate ??
-                          '',
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                      image: controller.nunnyallBookingList[index].parentId.profileImage,
-                      controller: controller,
-                    );
+                        case 'FULL_DAY':
+                          return HistoryItem(
+                            bookingType: 'FULL_DAY',
+                            status: controller.bookingType,
+                            amount: controller.nunnyallBookingList[index].totalPayable
+                                .toString(),
+                            parentsName:
+                                controller.nunnyallBookingList[index].parentId.name,
+                            date: controller
+                                .nunnyallBookingList[index]
+                                .fullDayBooking!
+                                .fullDays[0],
+                            startTime:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .fullDayBooking!
+                                    .startDate ??
+                                '',
+                            endTime:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .fullDayBooking!
+                                    .endDate ??
+                                '',
+                            location:
+                                controller.nunnyallBookingList[index].parentId.address,
+                            bookingId: controller.nunnyallBookingList[index].id,
+                            image: controller
+                                .nunnyallBookingList[index]
+                                .parentId
+                                .profileImage,
+                            controller: controller,
+                          );
 
-                  case 'CUSTOM':
-                    return HistoryItem(
-                      bookingType: 'CUSTOM',
-                      status: controller.bookingType,
-                      amount: controller.nunnyallBookingList[index].totalPayable
-                          .toString(),
-                      parentsName: controller.nunnyallBookingList[index].parentId.name,
+                        case 'CUSTOM':
+                          return HistoryItem(
+                            bookingType: 'CUSTOM',
+                            status: controller.bookingType,
+                            amount: controller.nunnyallBookingList[index].totalPayable
+                                .toString(),
+                            parentsName:
+                                controller.nunnyallBookingList[index].parentId.name,
 
-                      date:
-                          controller
-                              .nunnyallBookingList[index]
-                              .customBooking[0]
-                              .startDate ??
-                          'N/A',
+                            date:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .customBooking[0]
+                                    .startDate ??
+                                'N/A',
 
-                      startTime:
-                          controller
-                              .nunnyallBookingList[index]
-                              .customBooking[0]
-                              .endDate ??
-                          'N/A',
-                      endTime: '',
-                      location: controller.nunnyallBookingList[index].parentId.address,
-                      bookingId: controller.nunnyallBookingList[index].id,
-                      image: controller.nunnyallBookingList[index].parentId.profileImage,
-                      controller: controller,
-                    );
-                  default:
-                    return null;
-                }
-              },
-            ),
+                            startTime:
+                                controller
+                                    .nunnyallBookingList[index]
+                                    .customBooking[0]
+                                    .endDate ??
+                                'N/A',
+                            endTime: '',
+                            location:
+                                controller.nunnyallBookingList[index].parentId.address,
+                            bookingId: controller.nunnyallBookingList[index].id,
+                            image: controller
+                                .nunnyallBookingList[index]
+                                .parentId
+                                .profileImage,
+                            controller: controller,
+                          );
+                        default:
+                          return null;
+                      }
+                    },
+                  )
+                : SizedBox(
+                    height: 100,
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.book_outlined, color: AppColors.primaryColor),
+                        SizedBox(width: 10),
+                        CommonText(text: 'No Booking.'),
+                      ],
+                    ),
+                  ),
           ),
 
           bottomNavigationBar: controller.bookingType == "history"
@@ -150,3 +182,22 @@ class NunnyBookingScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+        // nunnyHomeController.todayBooking == null ||
+        //         nunnyHomeController.todayBooking!.isEmpty
+        //     ? SizedBox(
+        //         height: 100,
+        //         width: double.infinity,
+        //         child: Row(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           crossAxisAlignment: CrossAxisAlignment.center,
+        //           children: [
+        //             Icon(Icons.book_outlined, color: AppColors.primaryColor),
+        //             SizedBox(width: 10),
+        //             CommonText(text: 'No Booking for today.'),
+        //           ],
+        //         ),
+        //       )
+        //     : SizedBox.shrink(),

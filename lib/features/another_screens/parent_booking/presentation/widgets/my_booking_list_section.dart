@@ -15,26 +15,26 @@ class MyBookingListSection extends StatelessWidget {
       init: ParentBookingController(),
       builder: (controller) {
         return ListView.builder(
-            itemCount: 10,
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-
-            itemBuilder: (context, index){
-              return InkWell(
-                  onTap: (){
-                    if(controller.selectedBookingType=="Upcoming"){
-                      NunnyBookingController.instance.updateBookingType(type: "newRequest");
-                    }else if(controller.selectedBookingType=="Ongoing"){
-                      NunnyBookingController.instance.updateBookingType(type: "onGoing");
-                    }else if(controller.selectedBookingType=="History"){
-                      NunnyBookingController.instance.updateBookingType(type: "history");
-                    }
-                    Get.toNamed(AppRoutes.nunnyBookingDetailsScreen);
-                  },
-                  child: BookingItem(status: controller.selectedBookingType,));
-
-        });
-      }
+          itemCount: 10,
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                if (controller.selectedBookingType == "Upcoming") {
+                  NunnyBookingController.instance.updateBookingType(type: "newRequest");
+                } else if (controller.selectedBookingType == "Ongoing") {
+                  NunnyBookingController.instance.updateBookingType(type: "onGoing");
+                } else if (controller.selectedBookingType == "History") {
+                  NunnyBookingController.instance.updateBookingType(type: "history");
+                }
+                Get.toNamed(AppRoutes.nunnyBookingDetailsScreen);
+              },
+              child: BookingItem(status: controller.selectedBookingType),
+            );
+          },
+        );
+      },
     );
   }
 }
