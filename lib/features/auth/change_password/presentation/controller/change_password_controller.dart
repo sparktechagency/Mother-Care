@@ -17,8 +17,6 @@ class ChangePasswordController extends GetxController {
 
   Future<void> changePasswordRepo() async {
     if (!formKey.currentState!.validate()) return;
-    Get.back();
-    return;
     isLoading = true;
     update();
 

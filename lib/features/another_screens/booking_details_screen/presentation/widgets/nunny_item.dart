@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mother_care/config/api/api_end_point.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/controller/reschedule_controller.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/data/model/nani_booking_all_model.dart';
 import 'package:mother_care/utils/extensions/extension.dart';
@@ -53,7 +52,7 @@ class NunnyChildrenItem extends StatelessWidget {
                 CommonText(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  text: item.name ?? "",
+                  text: item.name ,
                 ),
 
                 CommonText(
@@ -61,7 +60,7 @@ class NunnyChildrenItem extends StatelessWidget {
                   fontSize: 12,
                   color: AppColors.bodyClr,
                   fontWeight: FontWeight.w400,
-                  text: item.gender ?? "",
+                  text: item.gender,
                 ),
 
                 CommonText(
@@ -69,7 +68,7 @@ class NunnyChildrenItem extends StatelessWidget {
                   fontSize: 12,
                   color: AppColors.bodyClr,
                   fontWeight: FontWeight.w400,
-                  text: item.dateOfBirth ?? "",
+                  text: item.dateOfBirth
                 ),
               ],
             ),

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mother_care/component/button/common_button.dart';
 import 'package:mother_care/component/text/common_text.dart';
-import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/payment_success_popup.dart';
 import 'package:mother_care/features/another_screens/request_booking/presentation/widgets/summary_section.dart';
 import 'package:mother_care/utils/constants/app_colors.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
@@ -16,6 +15,10 @@ class RequestBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Ensure a single controller instance is registered for the entire screen scope
+    if (!Get.isRegistered<RequestBookingController>()) {
+      Get.put(RequestBookingController());
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.white,
@@ -34,8 +37,7 @@ class RequestBookingScreen extends StatelessWidget {
         ),
       ),
 
-      body: GetBuilder(
-        init: RequestBookingController(),
+      body: GetBuilder<RequestBookingController>(
         builder: (controller) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -55,8 +57,7 @@ class RequestBookingScreen extends StatelessWidget {
         },
       ),
       
-      bottomNavigationBar: GetBuilder(
-        init: RequestBookingController(),
+      bottomNavigationBar: GetBuilder<RequestBookingController>(
         builder: (controller) {
           return Container(
             color: AppColors.white,

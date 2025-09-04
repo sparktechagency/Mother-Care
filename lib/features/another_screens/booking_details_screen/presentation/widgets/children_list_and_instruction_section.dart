@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mother_care/component/image/common_image.dart';
 import 'package:mother_care/component/text/common_text.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/controller/reschedule_controller.dart';
-import 'package:mother_care/features/another_screens/children/presentation/widget/children_item.dart';
 import 'package:mother_care/utils/constants/app_images.dart';
 import 'package:mother_care/utils/constants/app_string.dart';
 import 'package:mother_care/utils/extensions/extension.dart';

@@ -44,26 +44,76 @@ class RequestBookingController extends GetxController {
   }
 
 
-  //======================multiple select date
-  var selectedDates = <DateTime>[];
+  //======================multiple select date with availability=================
+  final selectedDates = <DateTime>[]; // dates without time component
+  final availableDates = <DateTime>{}; // from API, dates without time
+  DateTime focusedMonth = DateTime(DateTime.now().year, DateTime.now().month);
+
+  DateTime _dateOnly(DateTime d) => DateTime(d.year, d.month, d.day);
 
   void addDate(DateTime date) {
-    if (!selectedDates.contains(date)) {
-      selectedDates.add(date);
+    final d = _dateOnly(date);
+    if (!selectedDates.any((e) => _dateOnly(e) == d)) {
+      selectedDates.add(d);
+
+      _updateChooseDateTextField();
       update();
     }
   }
 
-
   void removeDate(DateTime date) {
-    selectedDates.remove(date);
+    final d = _dateOnly(date);
+    selectedDates.removeWhere((e) => _dateOnly(e) == d);
+  
+    _updateChooseDateTextField();
     update();
   }
 
   bool isDateSelected(DateTime date) {
-    return selectedDates.contains(date);
+    final d = _dateOnly(date);
+    return selectedDates.any((e) => _dateOnly(e) == d);
   }
-  //=================
+
+  bool isDateAvailable(DateTime date) {
+    final d = _dateOnly(date);
+    // If availability hasn't been loaded or is empty, allow selection by default
+    if (availableDates.isEmpty) return true;
+    return availableDates.any((e) => _dateOnly(e) == d);
+  }
+
+  void _updateChooseDateTextField() {
+    final formatter = DateFormat('dd/MM/yyyy');
+    chooseDateController.text = selectedDates
+        .map((d) => formatter.format(_dateOnly(d)))
+        .join(', ');
+  }
+
+  Future<void> fetchCalendarForMonth(DateTime monthStart) async {
+    // monthStart is any date in the target month; API expects startDate
+    focusedMonth = DateTime(monthStart.year, monthStart.month); // normalize
+    final apiStart = DateFormat('yyyy-MM-dd').format(focusedMonth);
+
+    if (id.isEmpty) return; // nanny id must be set via getId()
+
+    final url = "${ApiEndPoint.calendarSlots}/$id?startDate=$apiStart";
+    final response = await ApiService.get(url);
+    availableDates.clear();
+    if (response.statusCode == 200) {
+      final List data = response.data['data'] ?? [];
+      for (final item in data) {
+        try {
+          final String dateStr = item['date'];
+          final bool isAvailable = item['isAvailable'] == true;
+          if (isAvailable) {
+            final dt = DateTime.parse(dateStr);
+            availableDates.add(_dateOnly(dt));
+          }
+        } catch (_) {}
+      }
+    }
+    update();
+  }
+  //==========================================================================
 
   void addChildren({required String getId}) {
     if (childrenIdList.contains(getId)) {
@@ -100,7 +150,7 @@ class RequestBookingController extends GetxController {
     
     var response=await ApiService.get("${ApiEndPoint.bookingSlote}/$id?date=$formatDate");
 
-
+timeSlots.clear();
     if(response.statusCode==200){
       var data=response.data['data'];
 

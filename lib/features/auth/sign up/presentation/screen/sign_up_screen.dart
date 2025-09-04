@@ -14,9 +14,9 @@ import '../widget/already_accunt_rich_text.dart';
 import '../widget/sign_up_all_filed.dart';
 
 class SignUpScreen extends StatelessWidget {
-   SignUpScreen({super.key});
+    SignUpScreen({super.key});
 
-  String type=Get.arguments["type"];
+  final String type=Get.arguments["type"];
 
   @override
   Widget build(BuildContext context) {

@@ -53,7 +53,7 @@ class AboutUsScreen extends StatelessWidget {
                   vertical: 24,
                   horizontal: 20,
                 ),
-                child: Html(data: controller.data.content ?? "No Found Data"),
+                child: Html(data: controller.data.content),
               ),
             },
       ),

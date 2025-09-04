@@ -256,4 +256,5 @@ class AppString {
   static const String cancelTitle = "Are you sure you want to cancel this booking?";
   static const String cancelDes = "Canceling will remove your booking and may prevent rebooking for the same time.";
   static const String logOutDes = "Any unsaved changes will be lost. Do you want to log out?";
+  static const String selectDate = "Select Date";
 }

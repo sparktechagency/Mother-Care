@@ -5,7 +5,6 @@ import 'package:mother_care/features/another_screens/children/presentation/scree
 import 'package:mother_care/features/another_screens/children/presentation/screens/edit_children_screen.dart';
 import 'package:mother_care/features/another_screens/booking_details_screen/presentation/screens/nunny_booking_details_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_booking/presentation/screens/nunny_booking_screen.dart';
-import 'package:mother_care/features/another_screens/nunny_dettails_by_parents/presentation/widgets/availability_section.dart';
 import 'package:mother_care/features/another_screens/nunny_home/presentation/screens/nunny_home_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/add_photo_screen.dart';
 import 'package:mother_care/features/another_screens/nunny_profile_screens/presentation/screens/certifications_experience_screen.dart';

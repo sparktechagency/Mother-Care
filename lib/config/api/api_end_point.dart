@@ -19,6 +19,7 @@ class ApiEndPoint {
   static const resendOtp = "$baseUrl/auth/resend-otp";
   static const checkout = "/payments/create-checkout-session";
   static const bookingSlote = "/bookings/slots";
+  static const calendarSlots = "/bookings/slots/calender";
 
 
 

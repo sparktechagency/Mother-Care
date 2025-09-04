@@ -17,8 +17,7 @@ class BodySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder(
-      init: RequestBookingController(),
+    return GetBuilder<RequestBookingController>(
       builder: (controller) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,

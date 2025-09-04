@@ -4,7 +4,6 @@ import '../../../../../utils/constants/app_string.dart';
 import '../../../../../component/text/common_text.dart';
 import '../../../../../component/text_field/common_text_field.dart';
 import '../controller/sign_up_controller.dart';
-import '../../../../../utils/constants/app_colors.dart';
 
 
 class SignUpAllField extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mother_care/services/storage/storage_services.dart';
 import '../../../../../component/image/common_image.dart';
 import '../../../../../config/route/app_routes.dart';
 import '../../../../../utils/constants/app_images.dart';
@@ -15,7 +14,6 @@ import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/constants/app_string.dart';
 import '../../../../../utils/helpers/other_helper.dart';
 import '../widgets/continue_with_google.dart';
-import '../widgets/do_not_account.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

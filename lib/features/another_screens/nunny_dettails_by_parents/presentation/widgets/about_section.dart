@@ -76,12 +76,12 @@ class AboutSection extends StatelessWidget {
 
         16.height,
 
-        if (controller.nannyDetailsData.preferences?.length != 0)
+        if (controller.nannyDetailsData.preferences.length != 0)
           GridView.builder(
             itemCount:
                 controller
                     .nannyDetailsData
-                    .preferences?[0]
+                    .preferences[0]
                     .ageGroupsYouWorkWith
                     ?.length ??
                 0,
@@ -98,7 +98,7 @@ class AboutSection extends StatelessWidget {
               var item =
                   controller
                       .nannyDetailsData
-                      .preferences?[0]
+                      .preferences[0]
                       .ageGroupsYouWorkWith?[index] ??
                   0;
 
@@ -113,7 +113,7 @@ class AboutSection extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: AppColors.primaryColor,
-                    text: item.toString() ?? "N/A",
+                    text: item.toString() ,
                   ),
                 ),
               );
@@ -131,12 +131,12 @@ class AboutSection extends StatelessWidget {
         ),
 
         2.height,
-        if (controller.nannyDetailsData.preferences?.length != 0)
+        if (controller.nannyDetailsData.preferences.length != 0)
           ListView.builder(
             itemCount:
                 controller
                     .nannyDetailsData
-                    .preferences?[0]
+                    .preferences[0]
                     .serviceYouOffer
                     ?.length ??
                 0,
@@ -148,7 +148,7 @@ class AboutSection extends StatelessWidget {
               var item =
                   controller
                       .nannyDetailsData
-                      .preferences?[0]
+                      .preferences[0]
                       .serviceYouOffer?[index] ??
                   0;
               return Padding(
@@ -166,7 +166,7 @@ class AboutSection extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.bodyClr,
-                      text: item.toString() ?? "N/A",
+                      text: item.toString() ,
                     ),
                   ],
                 ),
@@ -182,12 +182,12 @@ class AboutSection extends StatelessWidget {
         ),
 
         2.height,
-        if (controller.nannyDetailsData.professionalbackgrounds?.length != 0)
+        if (controller.nannyDetailsData.professionalbackgrounds.length != 0)
           ListView.builder(
             itemCount:
                 controller
                     .nannyDetailsData
-                    .professionalbackgrounds?[0]
+                    .professionalbackgrounds[0]
                     .certifications
                     ?.length ??
                 0,
@@ -198,7 +198,7 @@ class AboutSection extends StatelessWidget {
               var item =
                   controller
                       .nannyDetailsData
-                      .professionalbackgrounds?[0]
+                      .professionalbackgrounds[0]
                       .certifications?[index] ??
                   0;
 
@@ -217,7 +217,7 @@ class AboutSection extends StatelessWidget {
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.bodyClr,
-                      text: item.toString() ?? "N/A",
+                      text: item.toString() ,
                     ),
                   ],
                 ),
@@ -233,12 +233,12 @@ class AboutSection extends StatelessWidget {
         ),
 
         2.height,
-        if (controller.nannyDetailsData.professionalbackgrounds?.length != 0)
+        if (controller.nannyDetailsData.professionalbackgrounds.length != 0)
           ListView.builder(
             itemCount:
                 controller
                     .nannyDetailsData
-                    .professionalbackgrounds?[0]
+                    .professionalbackgrounds[0]
                     .workExperience
                     ?.length ??
                 0,
@@ -249,7 +249,7 @@ class AboutSection extends StatelessWidget {
               WorkExperience item =
                   controller
                       .nannyDetailsData
-                      .professionalbackgrounds?[0]
+                      .professionalbackgrounds[0]
                       .workExperience?[index] ??
                   WorkExperience();
               return Padding(
